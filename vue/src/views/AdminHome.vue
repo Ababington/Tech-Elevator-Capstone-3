@@ -3,6 +3,7 @@
       <h1>Home</h1>
       <div v-for="doctor in doctors" v-bind:key="doctor.id">
           {{doctor.username}}
+          <!-- {{doctor.status}} -->
       </div>
   </div>
 </template>
