@@ -10,9 +10,7 @@ export default {
     return axios.post('/register', user);
   },
 
-  getPendingDoctors() {
-    return axios.get('/getPendingDoctors');
-  },
+ 
   postAptRequest(appointment){
     return axios.post('/postAppointmentRequest', appointment);
   },
