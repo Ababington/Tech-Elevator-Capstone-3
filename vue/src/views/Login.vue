@@ -39,6 +39,7 @@
 
 <script>
 import authService from "../services/AuthService";
+import doctorService from '../services/DoctorService';
 
 export default {
   name: "login",
@@ -61,10 +62,18 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            // if(user.user_role == "admin") {
-            //   this.$router.push("adminHome");
-            // }
+            this.$store.commit("",response.data.user);
+            if(this.user.user_role == "admin") {
               this.$router.push("adminHome");
+             }
+             else if(this.user.user_role == "doctor") {
+               this.$store.commit("SET_APPOINTMENTS", doctorService.getDoctorAppointments());
+              this.$router.push("doctor");
+             }
+              else {//route for patient
+              this.$store.commit("SET_APPOINTMENTS")
+              this.$router.push("patient");
+             } 
           }
         })
         .catch(error => {
