@@ -49,7 +49,7 @@ export default {
       user: {
         username: "",
         password: "",
-        user_role: ""
+       
       },
       invalidCredentials: false
     };
@@ -63,10 +63,10 @@ export default {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$store.commit("",response.data.user);
-            if(this.user.user_role == "admin") {
+            if(this.$store.state.user.role == "admin") {
               this.$router.push("adminHome");
              }
-             else if(this.user.user_role == "doctor") {
+             else if(this.$store.state.user.role == "doctor") {
                this.$store.commit("SET_APPOINTMENTS", doctorService.getDoctorAppointments());
               this.$router.push("doctor");
              }

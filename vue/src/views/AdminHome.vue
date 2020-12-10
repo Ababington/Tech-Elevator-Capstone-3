@@ -1,8 +1,10 @@
 <template>
   <div class="home">
       <h1>Home</h1>
-      <h2>We made it test</h2>
+      <new-office-form/>
+    
       <div v-for="doctor in doctors" v-bind:key="doctor.id">
+          
           {{doctor.username}}
           <!-- {{doctor.status}} -->
       </div>
@@ -11,11 +13,15 @@
 
 <script>
 import authService from '../services/AuthService';
+import newOfficeForm from'../components/NewOfficeForm';
 
 export default {
+    components:{
+        newOfficeForm
+    },
     data() {
         return {
-            doctors: []
+          
         }
     },
     created() {
