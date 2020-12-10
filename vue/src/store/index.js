@@ -40,7 +40,7 @@ export default new Vuex.Store({
     },
     SET_APPOINTMENTS(state, appointments){
       state.appointments = appointments;
-      localStorage.setItem('user',JSON.stringify(appointments));
+     
     }
   }
 })

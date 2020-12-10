@@ -27,7 +27,7 @@ export default {
 
   postReviews(){
     return axios.post('/postReviews');
-  },
+  }
 
 
 
