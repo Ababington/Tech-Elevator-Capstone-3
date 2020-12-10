@@ -1,6 +1,7 @@
 <template>
   <div class="home">
       <h1>Home</h1>
+      <h2>We made it test</h2>
       <div v-for="doctor in doctors" v-bind:key="doctor.id">
           {{doctor.username}}
           <!-- {{doctor.status}} -->
