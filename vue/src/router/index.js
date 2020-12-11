@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import adminHome from '../views/AdminHome.vue'
+import doctor from '../views/Doctor.vue'
 
 Vue.use(Router)
 
@@ -50,6 +51,14 @@ const router = new Router({
       path: "/register",
       name: "register",
       component: Register,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+    path: "/doctor",
+      name: "doctor",
+      component: doctor.vue,
       meta: {
         requiresAuth: false
       }
