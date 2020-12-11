@@ -67,7 +67,7 @@ export default {
              }
              else if(this.$store.state.user.role == "doctor") {
                //this.$store.commit("SET_APPOINTMENTS", doctorService.getDoctorAppointments());
-               this.$store.commit("SET_DOCTOR_INFO", doctorService.getDoctor());
+               //this.$store.commit("SET_DOCTOR_INFO", doctorService.getDoctor());
               this.$router.push("doctor");
              }
               else {//route for patient

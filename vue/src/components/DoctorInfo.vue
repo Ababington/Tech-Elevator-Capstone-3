@@ -26,7 +26,7 @@
 <button type="submit" v-on:click="createSchedule()">Submit Schedule</button>
 
 <div for="costPerHour">Cost Per Hour</div><br>
-<input type="number" v-model="this.hourlyRate"/>
+<input type="number" v-model="this.doctor.hourlyRate"/>
 <button type="submit" v-on:click="updateHourlyRate()">Confirm Hourly Rate</button>
 </div>
 
