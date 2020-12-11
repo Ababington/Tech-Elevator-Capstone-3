@@ -9,6 +9,7 @@ import adminHome from '../views/AdminHome.vue'
 import doctor from '../views/Doctor.vue'
 import patient from '../views/Patient.vue'
 import officeInfo from '../views/OfficeInfo.vue'
+import officePageInfo from '../views/officePageInfo.vue'
 
 Vue.use(Router)
 
@@ -81,6 +82,14 @@ const router = new Router({
             requiresAuth: false
           }
         },
+        {
+          path: "/officePageInfo",
+            name: "officePageInfo",
+            component: officePageInfo,
+            meta: {
+              requiresAuth: false
+            }
+          },
     {
       path: "/adminHome",
       name: "adminHome",
