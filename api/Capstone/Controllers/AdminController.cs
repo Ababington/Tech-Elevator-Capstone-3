@@ -42,6 +42,7 @@ namespace Capstone.Controllers
             try
             {
                 addressDAO.CreateNewOfficeAddress(office);
+                return Ok(); 
 
             }
             catch (Exception e)

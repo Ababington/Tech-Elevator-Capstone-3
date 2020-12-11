@@ -41,6 +41,9 @@ export default new Vuex.Store({
     SET_APPOINTMENTS(state, appointments){
       state.appointments = appointments;
      
+    },
+    SET_DOCTOR_INFO(state, doctor){
+      state.doctor = doctor;
     }
   }
 })
