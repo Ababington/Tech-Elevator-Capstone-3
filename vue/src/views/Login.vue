@@ -62,12 +62,12 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$store.commit("",response.data.user);
             if(this.$store.state.user.role == "admin") {
               this.$router.push("adminHome");
              }
              else if(this.$store.state.user.role == "doctor") {
-               this.$store.commit("SET_APPOINTMENTS", doctorService.getDoctorAppointments());
+               //this.$store.commit("SET_APPOINTMENTS", doctorService.getDoctorAppointments());
+               this.$store.commit("SET_DOCTOR_INFO", doctorService.getDoctor());
               this.$router.push("doctor");
              }
               else {//route for patient
