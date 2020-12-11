@@ -1,18 +1,25 @@
 <template>
-  <div> 
+  <div class="Office-Info"> 
 
-     <div v-on:click='submit' v-for="office in office" v-bind:key="office.id">
-          
-          {{office.id}}
-      </div>
+    <office-card v-bind:office="office" v-bind:key='office.id' v-for="office in $store.state.offices">
+    <router-link v-bind:to="{name: 'officeInfo', params: {id:office.id}}"></router-link>
+    </office-card>
 
-  </div>
+     </div>
+
 </template>
 
 <script>
+import officeCard from '../components/OfficeCard';
+
 export default {
+  components:{
+    officeCard
+  },
   data(){
-    return
+    return{
+
+    }
   }
 
 }

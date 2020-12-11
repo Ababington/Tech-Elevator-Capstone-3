@@ -18,6 +18,18 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    offices:[
+    {
+      officeOne:{
+      id:"69",
+      name: "Tom?",
+      phone:"123-4567",
+      address:"123 Test Street",
+      city: "New Test",
+      state: "Pa",
+      image: '~img/anime_hospital_1'
+      }
+    }],
     token: currentToken || '',
     user: currentUser || {}
   },
