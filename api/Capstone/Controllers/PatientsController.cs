@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Capstone.DAO;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,12 @@ namespace Capstone.Controllers
     public class PatientsController : ControllerBase
 
     {
+        private readonly IUserDAO userDAO;
 
+        public PatientsController(IUserDAO _userDAO)
+        {
+            userDAO = _userDAO;
+        }
 
     }
 }

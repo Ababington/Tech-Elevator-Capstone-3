@@ -97,7 +97,7 @@ namespace Capstone.DAO
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("select * from users where user_role='doctor'", conn);
                     SqlDataReader reader = cmd.ExecuteReader();
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         pendingDoctorsList.Add(GetUserFromReader(reader));
                     }
