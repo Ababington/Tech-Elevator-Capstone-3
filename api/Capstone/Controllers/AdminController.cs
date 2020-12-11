@@ -13,11 +13,15 @@ namespace Capstone.Controllers
     public class AdminController:ControllerBase
     {
         private readonly IUserDAO userDAO;
-
-        public AdminController(IUserDAO _userDAO)
+        private readonly IOfficeDAO officeDAO;
+        private readonly IAddressDAO addressDAO;
+        public AdminController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO)
         {
             userDAO = _userDAO;
+            officeDAO = _officeDAO;
+            addressDAO = _addressDAO;
         }
+
 
         [HttpGet("/getPendingDoctors")]
         public ActionResult<List<User>> GetPendingDoctors()
@@ -28,6 +32,19 @@ namespace Capstone.Controllers
                 return pendingDoctors;
             }
             catch(Exception e)
+            {
+                throw new NotImplementedException("This method is not implemented");
+            }
+        }
+        [HttpPost("/createNewOffice")]
+        public ActionResult<Office> CreateNewOffice(Office office)
+        {
+            try
+            {
+                addressDAO.CreateNewOfficeAddress(office);
+
+            }
+            catch (Exception e)
             {
                 throw new NotImplementedException("This method is not implemented");
             }

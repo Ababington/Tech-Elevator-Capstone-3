@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.DAO
 {
-    public class OfficeSqlDAO
+    public class OfficeSqlDAO :IOfficeDAO
     {
         private readonly string connectionString;
 
