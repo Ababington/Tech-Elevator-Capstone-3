@@ -28,17 +28,7 @@ export default new Vuex.Store({
       city: "New Test",
       state: "Pa",
       image: '~img/anime_hospital_1'
-      },
-      officeTwo:{
-        id:"69",
-        name: "Tom?",
-        phone:"123-4567",
-        address:"123 Test Street",
-        city: "New Test",
-        state: "Pa",
-        image: '~img/anime_hospital_1'
-        }
-
+      }
     }],
     token: currentToken || '',
     user: currentUser || {}
