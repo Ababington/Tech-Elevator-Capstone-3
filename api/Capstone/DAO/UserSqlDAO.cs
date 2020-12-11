@@ -62,14 +62,29 @@ namespace Capstone.DAO
                     cmd.Parameters.AddWithValue("@salt", hash.Salt);
                     cmd.Parameters.AddWithValue("@user_role", role);
                     cmd.ExecuteNonQuery();
+
+                    //Add Patient or Doctor to correct DB
+                    User newUser = GetUser(username);
+                    if (newUser.Role == "doctor")
+                    {
+                        cmd = new SqlCommand("INSERT INTO doctor (userId) VALUES (@userId)", conn);
+                        cmd.Parameters.AddWithValue("@userId", newUser.UserId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (newUser.Role == "patient")
+                    {
+                        cmd = new SqlCommand("INSERT INTO patients (patientId) VALUES (@userId)", conn);
+                        cmd.Parameters.AddWithValue("@userId", newUser.UserId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    return newUser;
                 }
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
-                throw;
+                throw e;
             }
-
-            return GetUser(username);
         }
 
         private User GetUserFromReader(SqlDataReader reader)

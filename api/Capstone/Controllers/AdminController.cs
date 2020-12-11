@@ -48,36 +48,32 @@ namespace Capstone.Controllers
         {
             try
             {
-                int? newOfficeId = officeDAO.CreateNewOffice(office);
-                if (newOfficeId != null)
-                {
-                   int newOfficeIdNotNull = (int)(newOfficeId); 
-                    
-                    int? newAddressId = addressDAO.CreateNewOfficeAddress(office);
+                int newOfficeId = officeDAO.CreateNewOffice(office);
 
-                    if (newAddressId != null)
+                if (newOfficeId > 0)
+                {
+                   int newAddressId = addressDAO.CreateNewOfficeAddress(office);
+
+                    if (newAddressId > 0)
                     {
-                        int newAddressIdNotNull = (int)(newAddressId);
-                        officeAddressDAO.AddOfficeAddress( newOfficeIdNotNull, newAddressIdNotNull);
-                        office.OfficeId = newOfficeIdNotNull;
+                        officeAddressDAO.AddOfficeAddress( newOfficeId, newAddressId);
+                        office.OfficeId = newOfficeId;
                         return Ok(office);
                     }
-                    else
+                    else //if address sql fails
                     {
-                        //if address sql fails
                         return BadRequest();
                     }
                 }
-                else
-                {
-                    //if office sql fails
+                else //if office sql fails
+                {   
                     return BadRequest();
                 }
 
             }
             catch (Exception e)
             {
-                throw new NotImplementedException("This method is not implemented");
+                return StatusCode(500);
             }
         }
     }

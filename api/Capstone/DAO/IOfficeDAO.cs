@@ -8,6 +8,6 @@ namespace Capstone.DAO
 {
     public interface IOfficeDAO
     {
-        int? CreateNewOffice(Office office);
+        int CreateNewOffice(Office office);
     }
 }
