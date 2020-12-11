@@ -46,15 +46,15 @@
 <input for="sunday" type ="time" v-model="this.office.sunday.start"/>
 <input for="sunday" type ="time" v-model="this.office.sunday.end"/><br>
 
-<button v-on:click="submit">Create Office</button>
+<button type="submit" v-on:click="createNewOffice()">Create Office</button>
 
 </div>
-
-
 
 </template>
 
 <script>
+import adminService from '../services/AdminService';
+
 export default {
   data() {
     return {
@@ -103,6 +103,17 @@ export default {
       },
     };
   },
+  methods:{
+    createNewOffice(){
+      adminService.createNewOffice(this.office)
+      .then(response => {
+        if(response.status === 201)
+        {
+          this.office = [];
+        }
+      }) 
+    }
+  }
 };
 </script>
 
