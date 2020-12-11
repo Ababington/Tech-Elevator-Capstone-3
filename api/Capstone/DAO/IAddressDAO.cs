@@ -8,7 +8,7 @@ namespace Capstone.DAO
 {
     public interface IAddressDAO
     {
-         int CreateNewOfficeAddress(Office office);
+         int? CreateNewOfficeAddress(Office office );
 
 
     }

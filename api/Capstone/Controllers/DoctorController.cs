@@ -18,5 +18,11 @@ namespace Capstone.Controllers
         {
             userDAO = _userDAO;
         }
+
+        [HttpGet]
+        public ActionResult<string> BaseDoctorTest()
+        {
+            return Ok("reached doctor");
+        }
     }
 }
