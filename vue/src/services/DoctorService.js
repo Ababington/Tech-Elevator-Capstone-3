@@ -6,9 +6,9 @@ export default {
         return axios.get('/doctor/getAppointments');
       },
 
-      getDoctor(userId){
-        return axios.get(`/doctor/getDoctor/${userId}`);
-      },
+      //getDoctor(userId){
+        //return axios.get(`/doctor/getDoctor/${userId}`);
+      //},
     
       createSchedule(doctor) {
         return axios.post('/doctor/createSchedule', doctor);

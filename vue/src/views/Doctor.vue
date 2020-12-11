@@ -1,6 +1,5 @@
 <template>
   <div class="doctor">
-    <h1> Does this work?</h1>
     <button class="appointment" v-on:click="appointments">Appointment Requests</button>
     <button class="office" v-on:click="officeInfo">Office Info</button>
     <button class="reviews" v-on:click="reviews">Reviews</button>
