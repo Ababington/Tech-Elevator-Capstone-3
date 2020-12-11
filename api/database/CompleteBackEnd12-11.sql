@@ -1,5 +1,6 @@
 USE [master]
 GO
+
 --drop database if it exists
 IF DB_ID('final_capstone') IS NOT NULL
 BEGIN
@@ -7,7 +8,7 @@ BEGIN
 	DROP DATABASE final_capstone;
 END
 
-/****** Object:  Database [final_capstone]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Database [final_capstone]    Script Date: 12/11/2020 4:17:28 PM ******/
 CREATE DATABASE [final_capstone]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -85,7 +86,7 @@ ALTER DATABASE [final_capstone] SET QUERY_STORE = OFF
 GO
 USE [final_capstone]
 GO
-/****** Object:  Table [dbo].[addresses]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[addresses]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -103,7 +104,7 @@ CREATE TABLE [dbo].[addresses](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[appointments]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[appointments]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -124,7 +125,7 @@ CREATE TABLE [dbo].[appointments](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[daysOfTheWeek]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[daysOfTheWeek]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -138,23 +139,23 @@ CREATE TABLE [dbo].[daysOfTheWeek](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[doctor]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[doctor]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[doctor](
 	[userId] [int] NOT NULL,
-	[hourlyRate] [money] NOT NULL,
-	[firstName] [varchar](35) NOT NULL,
-	[lastName] [varchar](50) NOT NULL,
+	[hourlyRate] [decimal](19, 2) NULL,
+	[firstName] [varchar](35) NULL,
+	[lastName] [varchar](50) NULL,
  CONSTRAINT [PK_doctor] PRIMARY KEY CLUSTERED 
 (
 	[userId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[doctor_day]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[doctor_day]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -171,7 +172,7 @@ CREATE TABLE [dbo].[doctor_day](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[office]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[office]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -186,7 +187,7 @@ CREATE TABLE [dbo].[office](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[office_address]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[office_address]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -201,7 +202,7 @@ CREATE TABLE [dbo].[office_address](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[office_day]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[office_day]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -218,7 +219,7 @@ CREATE TABLE [dbo].[office_day](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[officeReviews]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[officeReviews]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -236,7 +237,7 @@ CREATE TABLE [dbo].[officeReviews](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[patient_address]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[patient_address]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -251,25 +252,25 @@ CREATE TABLE [dbo].[patient_address](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[patients]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[patients]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[patients](
 	[patientId] [int] NOT NULL,
-	[firstName] [varchar](30) NOT NULL,
-	[lastName] [varchar](50) NOT NULL,
-	[phone] [int] NOT NULL,
+	[firstName] [varchar](30) NULL,
+	[lastName] [varchar](50) NULL,
+	[phone] [int] NULL,
 	[email] [varchar](75) NULL,
-	[dateOfBirth] [datetime] NOT NULL,
+	[dateOfBirth] [datetime] NULL,
  CONSTRAINT [PK_patients] PRIMARY KEY CLUSTERED 
 (
 	[patientId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[reviewResponses]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[reviewResponses]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -285,7 +286,7 @@ CREATE TABLE [dbo].[reviewResponses](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[users]    Script Date: 12/11/2020 12:50:23 PM ******/
+/****** Object:  Table [dbo].[users]    Script Date: 12/11/2020 4:17:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -397,6 +398,23 @@ GO
 ALTER DATABASE [final_capstone] SET  READ_WRITE 
 GO
 
+
+
+
+
+
+
+--*****************RUN THESE AFTER INSTAllING DB******************
+
 --populate default data
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
+
+--populate daysOfTheWeek
+INSERT INTO daysOfTheWeek (day) VALUES ('Monday');
+INSERT INTO daysOfTheWeek (day) VALUES ('Tuesday');
+INSERT INTO daysOfTheWeek (day) VALUES ('Wednesday');
+INSERT INTO daysOfTheWeek (day) VALUES ('Thursday');
+INSERT INTO daysOfTheWeek (day) VALUES ('Friday');
+INSERT INTO daysOfTheWeek (day) VALUES ('Saturday');
+INSERT INTO daysOfTheWeek (day) VALUES ('Sunday');
