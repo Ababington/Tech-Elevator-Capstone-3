@@ -1,7 +1,7 @@
 <template>
   <div class="Office-Info"> 
 
-    <office-card v-bind:office="office" v-bind:key='office.id' v-for="office in $store.state.offices">
+    <office-card v-bind:office="office" v-bind:key='office.id' v-for="office in $store.state.officesStatic">
     <router-link v-bind:to="{name: 'officeInfo', params: {id:office.id}}"></router-link>
     </office-card>
 

@@ -39,7 +39,6 @@
 
 <script>
 import authService from "../services/AuthService";
-import doctorService from '../services/DoctorService';
 
 export default {
   name: "login",
