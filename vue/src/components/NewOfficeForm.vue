@@ -26,7 +26,7 @@
     <input id="zip" required v-model="office.zip" /><br />
 
     <label for="phoneNumber">Phone Number: </label>
-    <input id="phoneNumber" required v-model="office.phone" /><br />
+    <input id="phoneNumber" required v-model="office.phoneNumber" /><br />
 
     <div for="officeHours">Office Hours:</div>
     <br />
@@ -69,7 +69,7 @@ export default {
         city: "",
         state: "",
         zip: "",
-        phone: "",
+        phoneNumber: "",
         // monday: {
         //   start: "",
         //   end: "",
@@ -109,13 +109,12 @@ export default {
   },
   methods: {
     CreateNewOffice() {
-      adminService.CreateNewOffice(this.office).then((response) => {
-        if (response.status === 200) {
-          this.office=[]
+      adminService.CreateNewOffice(this.office)
+      .then((response =>{
+       this.info = response.data.bpi;
         }
-      }).catch((error) => {
-        error.status
-      });
+      ))
+      .then(alert("did this work?"))
     },
   },
 };
