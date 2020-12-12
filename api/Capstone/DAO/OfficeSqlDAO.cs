@@ -25,7 +25,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("insert into office (phone, name) values (@phone, @name); select scope_identity()", conn);
-                    cmd.Parameters.AddWithValue("@phone", office.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@phone", office.Phone);
                     cmd.Parameters.AddWithValue("@name", office.Name);
 
                     object result = cmd.ExecuteScalar();

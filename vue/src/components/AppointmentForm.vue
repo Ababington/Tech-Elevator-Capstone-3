@@ -1,5 +1,5 @@
 <template>
-<Form v-on="submit" >
+ <form v-on:submit.prevent="PostAptRequest()">
 <label for="name">Name: </label>
 <input type="text" v-model="this.appointment.Patient"/><br>
 <label for="reasonForVisit">Reason for visit: </label>
@@ -9,7 +9,7 @@
 
 <button type="submit">Submit Appointment Request</button>
 
-</Form>
+</form>
 </template>
 
 <script>
