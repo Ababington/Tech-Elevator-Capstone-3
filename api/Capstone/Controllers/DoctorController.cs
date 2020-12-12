@@ -1,4 +1,5 @@
 ﻿using Capstone.DAO;
+using Capstone.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -38,9 +39,28 @@ namespace Capstone.Controllers
         {
             return Ok("reached doctor");
         }
+        [HttpGet("myInfo")]
+        public ActionResult<Doctor> GetmyInfo(Doctor doctor)
+        {
+            return doctor;
+        }
+        [HttpPut("myinfo/update")]
+            public ActionResult<Doctor> UpdateMyInfo(Doctor doctor)
+        {
+            return doctor;
+        }
 
-        [HttpPut("updateDoctorRates")]
-        public ActionResult<decimal> UpdateDoctorRates()
+
+
+
+
+
+
+
+
+        //ignore below for now still updating doc 
+        [HttpPut("updateHourlyRate")]
+        public ActionResult<decimal> UpdateHourlyRate()
         {
             return 1;
         }
@@ -56,10 +76,15 @@ namespace Capstone.Controllers
             //datetime
             return 1;
         }
-        [HttpGet("getMyDoctorAppointments")]
-        public ActionResult<string> GetMyDoctorAppointments()
+        [HttpGet("getDoctorAppointments")]
+        public ActionResult<string> GetDoctorAppointments()
         {
             return "helpme";
+        }
+        [HttpPost("createSchedule")]
+        public ActionResult<string> CreateSchdule()
+        {
+            return "foemf";
         }
         [HttpGet("seeReviewRespond")]
         public ActionResult<string> SeeReviewRespond()

@@ -27,6 +27,20 @@ namespace Capstone.Controllers
             officeAddressDAO = _officeAddressDAO;
             doctorDAO = _doctorDAO;
         }
+
+        [HttpGet("getVerifiedDoctors")]
+        public ActionResult<List<User>> GetVerifiedDoctors()
+        {
+            try
+            {
+                List<User> verifidDoctors = userDAO.GetVerifiedDoctors();
+                return verifidDoctors;
+            }
+            catch (Exception e)
+            {
+                throw new NotImplementedException("This method is not implemented");
+            }
+        }
         [HttpGet("getDoctorAvailability")]
         public ActionResult<List<Doctor>> GetDoctorAvailability()
         {
