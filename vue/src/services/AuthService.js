@@ -10,7 +10,6 @@ export default {
     return axios.post('/register', user);
   },
 
- 
   postAptRequest(appointment){
     return axios.post('/postAppointmentRequest', appointment);
   },
