@@ -10,6 +10,7 @@ import doctor from '../views/Doctor.vue'
 import patient from '../views/Patient.vue'
 import officeInfo from '../views/OfficeInfo.vue'
 import officePageInfo from '../views/officePageInfo.vue'
+import appointmentRequests from '../views/AppointmentRequests.vue'
 
 Vue.use(Router)
 
@@ -59,7 +60,7 @@ const router = new Router({
       }
     },
     {
-    path: "/doctor",
+      path: "/doctor",
       name: "doctor",
       component: doctor,
       meta: {
@@ -68,28 +69,36 @@ const router = new Router({
     },
     {
       path: "/patient",
-        name: "patient",
-        component: patient,
-        meta: {
-          requiresAuth: false
-        }
-      },
-      {
-        path: "/officeInfo",
-          name: "officeInfo",
-          component: officeInfo,
-          meta: {
-            requiresAuth: false
-          }
-        },
-        {
-          path: "/officePageInfo",
-            name: "officePageInfo",
-            component: officePageInfo,
-            meta: {
-              requiresAuth: false
-            }
-          },
+      name: "patient",
+      component: patient,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/officeInfo",
+      name: "officeInfo",
+      component: officeInfo,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/officePageInfo",
+      name: "officePageInfo",
+      component: officePageInfo,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/appointmentRequests",
+      name: "appointmentRequests",
+      component: appointmentRequests,
+      meta: {
+        requiresAuth: false
+      }
+    },
     {
       path: "/adminHome",
       name: "adminHome",
