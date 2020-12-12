@@ -8,7 +8,7 @@ namespace Capstone.Models
     public class Office
     {
         public int OfficeId { get; set; }
-        public int Phone { get; set; }
+        public int PhoneNumber { get; set; }
         public string Name { get; set; }
         public string StreetAddress { get; set; }
         public string StreetAddress2 { get; set; }

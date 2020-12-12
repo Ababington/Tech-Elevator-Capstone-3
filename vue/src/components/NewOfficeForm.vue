@@ -111,7 +111,7 @@ export default {
     CreateNewOffice() {
       adminService.CreateNewOffice(this.office)
       .then((response =>{
-       this.info = response.data.bpi;
+      
         }
       ))
       .then(alert("did this work?"))
