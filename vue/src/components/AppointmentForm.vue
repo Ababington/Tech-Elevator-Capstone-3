@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import authService from '../services/AuthService';
+import authService from '../services/AuthService'
 export default {
 
     data(){
@@ -35,9 +35,9 @@ export default {
     },
 created(){
     
-    authService.PostAptRequest(this.appointment).then(response => {
+    Authservice.PostAptRequest(this.appointment).then(response => {
         if(response.status == 201){
-            this.backHome();
+            backHome;
         }
     }).catch(error => {
         error.status;
