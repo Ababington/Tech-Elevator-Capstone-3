@@ -62,8 +62,30 @@ namespace Capstone.DAO
             }
         }
 
+        public string ApproveDoctorUser (Doctor doctor)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("update users set user_role = 'doctorVerified' where user_id = @user_id; ; select scope_identity()", conn);
+                    cmd.Parameters.AddWithValue("@user_id", doctor.UserId);
 
-        public decimal UpdateDoctorRates(Doctor doctor)
+                    object result = cmd.ExecuteScalar();
+                    result = (result == DBNull.Value) ? null : result;
+                    string newId = (string)result;
+                    return newId;
+                }
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
+        }
+
+
+        public decimal UpdateHourlyRate(Doctor doctor)
         {
             //not finished skeleton
             try
@@ -90,6 +112,10 @@ namespace Capstone.DAO
             return "welp";
         }
         public string SeeReviewRespond()
+        {
+            return "";
+        }
+        public string CreateSchdule()
         {
             return "";
         }

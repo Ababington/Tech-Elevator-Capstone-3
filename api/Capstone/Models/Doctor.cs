@@ -11,5 +11,6 @@ namespace Capstone.Models
         public decimal HourlyRate { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string User_Role { get; set; }
     }
 }

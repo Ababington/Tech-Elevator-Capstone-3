@@ -124,5 +124,30 @@ namespace Capstone.DAO
                 throw;
             }
         }
+
+        public List<User> GetVerifiedDoctors()
+        {
+            List<User> verifiedDoctorList = new List<User>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("select * from users where user_role='doctorVerified'", conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        verifiedDoctorList.Add(GetUserFromReader(reader));
+                    }
+                    return verifiedDoctorList;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

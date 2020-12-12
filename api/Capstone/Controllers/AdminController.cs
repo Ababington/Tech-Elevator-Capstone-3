@@ -16,12 +16,16 @@ namespace Capstone.Controllers
         private readonly IOfficeDAO officeDAO;
         private readonly IAddressDAO addressDAO;
         private readonly IOfficeAddressDAO officeAddressDAO;
-        public AdminController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO)
+        private readonly IDoctorDAO doctorDAO;
+
+        public AdminController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO, IDoctorDAO _doctorDAO)
         {
             userDAO = _userDAO;
             officeDAO = _officeDAO;
             addressDAO = _addressDAO;
             officeAddressDAO = _officeAddressDAO;
+            doctorDAO = _doctorDAO;
+
         }
 
         [HttpGet]
@@ -69,6 +73,22 @@ namespace Capstone.Controllers
                 {   
                     return BadRequest();
                 }
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpPut("approveDoctorUser")]
+        public ActionResult<Doctor> ApproveDoctorUser(Doctor doctor)
+        {
+            //todo edit this method
+            try
+            {
+                string approvedoc = doctorDAO.ApproveDoctorUser(doctor);
+
+                return doctor;
 
             }
             catch (Exception e)
