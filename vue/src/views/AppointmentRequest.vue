@@ -1,20 +1,20 @@
 <template>
   <div class="appointment-requests"> 
 
-    <appointment-requests v-bind:office="office" v-bind:key='office.id' v-for="office in $store.state.pendingAppointmentsStatic">
-    <router-link v-bind:to="{name: 'appointmentRequests', params: {id:office.id}}"></router-link>
-    </appointment-requests>
+    <appointment-requests-card v-bind:appointment="appointment" v-bind:key='appointment.appointmentId' v-for="appointment in $store.state.pendingAppointmentsStatic">
+    <router-link v-bind:to="{name: 'appointmentRequest', params: {id:appointment.appointmentId}}"></router-link>
+    </appointment-requests-card>
 
      </div>
 
 </template>
 
 <script>
-import appointmentRequests from '../components/AppointmentRequests';
+import appointmentRequestsCard from '../components/AppointmentRequestsCard';
 
 export default {
   components:{
-    appointmentRequests
+    appointmentRequestsCard
   },
   data(){
     return{

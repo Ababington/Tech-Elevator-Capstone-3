@@ -10,7 +10,7 @@ import doctor from '../views/Doctor.vue'
 import patient from '../views/Patient.vue'
 import officeInfo from '../views/OfficeInfo.vue'
 import officePageInfo from '../views/officePageInfo.vue'
-import appointmentRequests from '../views/AppointmentRequests.vue'
+import appointmentRequest from '../views/AppointmentRequest.vue'
 
 Vue.use(Router)
 
@@ -92,9 +92,9 @@ const router = new Router({
       }
     },
     {
-      path: "/appointmentRequests",
-      name: "appointmentRequests",
-      component: appointmentRequests,
+      path: "/appointmentRequest",
+      name: "appointmentRequest",
+      component: appointmentRequest,
       meta: {
         requiresAuth: false
       }
