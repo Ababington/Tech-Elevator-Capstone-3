@@ -35,9 +35,9 @@ export default {
     },
 created(){
     
-    Authservice.PostAptRequest(this.appointment).then(response => {
+    authService.PostAptRequest(this.appointment).then(response => {
         if(response.status == 201){
-            backHome;
+            this.backHome();
         }
     }).catch(error => {
         error.status;
