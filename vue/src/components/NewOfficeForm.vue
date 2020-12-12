@@ -112,6 +112,15 @@ export default {
       adminService.CreateNewOffice(this.office)
       .then((response) =>{
         if (response.status === 200 || response.status === 201) {
+          alert("Office Has Been Successfully Created");
+          this.$router.push("adminHome");
+        }
+        if (response.status === 400) {
+          alert("Error 400: Bad Request. Please Try Again.");
+          this.$router.push("adminHome");
+        }
+        if (response.status === 500) {
+          alert("Oops! Something went wrong in the back end.");
           this.$router.push("adminHome");
         }
       })

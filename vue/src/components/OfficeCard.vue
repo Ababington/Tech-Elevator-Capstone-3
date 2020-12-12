@@ -1,7 +1,15 @@
 <template>
   <div>
       <div class="card">
-        <h2>{{office.officeOne.name}}</h2>
+        <h2>{{office.name}}</h2>
+        <div>
+          {{office.address}}<br/>
+          {{office.address2}}<br/>
+          {{office.city}}<br/>
+          {{office.state}}<br/>
+          {{office.zip}}<br/>
+          Phone: {{office.phone}}<br/>
+          </div>
       </div>
       
     
@@ -22,7 +30,7 @@ export default {
     border: 2px solid black;
     border-radius: 10px;
     width: 250px;
-    height: 550px;
+    height: 250px;
     margin: 20px;
 }
 
