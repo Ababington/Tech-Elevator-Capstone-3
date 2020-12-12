@@ -18,21 +18,111 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
-    offices:[
-    {
-      officeOne:{
-      id:"69",
-      name: "Tom?",
-      phone:"123-4567",
-      address:"123 Test Street",
-      city: "New Test",
-      state: "Pa",
-      image: '~img/anime_hospital_1'
+    //for doctor views
+    workingOfficesInfo: [],
+    workingOfficesReviews: [],
+    doctorInfo: {},
+    pendingAppointments: [],
+    approvedAppointments: [],
+
+    //for patient Views
+    allOfficesInfo: [],
+    allOfficesReviews: [],
+    allDoctors: [],
+    patientInfo: {},
+    patientAppointments: [],
+
+    //TODO add notification info
+
+    //Static test values
+    officesStatic: [
+      { id:"69",
+        name: "Tom?",
+        phone:"123-4567",
+        address:"123 Test Street",
+        city: "New Test",
+        state: "Pa",
+        zip: 11221,
+        image: '~img/anime_hospital_1'
+      },
+      { id:"70",
+        name: "Mayor Pauline's Office",
+        phone:"867-5309",
+        address:"1212 Boogiewoogie Avenue",
+        address2: "Suite 31",
+        city: "New Donk",
+        state: "NY",
+        zip: 90909,
+        image: '~img/anime_hospital_1'
       }
-    }],
+    ],
+    doctorInfoStatic: {
+      userId: 5,
+      hourlyRate: 40.00,
+      firstName: "Luigi",
+      lastName: "Mario",
+      monday: { start: 9, end: 5 },
+      tuesday: { start: 9, end: 5 },
+      wednesday: { start: 9, end: 5 },
+      thursday: { start: 9, end: 5 },
+      friday: { start: 9, end: 5 },
+    },
+    pendingAppointmentsStatic: [
+      {
+        appointmentId: 10,
+        patientUserName: "bunkman420",
+        patientFirstName: "Bob",
+        patientLastName: "Hoskins",
+        apptDate: 1/1/2021,
+        apptTime: '9:00',
+        virtual: 0,
+        message: "My leg!!!!!!!!!",
+        status: "pending"
+      },
+      {
+        appointmentId: 16,
+        patientUserName: "xXScthytherKillerWeed420Xx",
+        patientFirstName: "Tom",
+        patientLastName: "Anderson",
+        apptDate: 1/5/2021,
+        apptTime: '12:00',
+        virtual: 1,
+        message: "Just fucked my shit up",
+        status: "pending"
+      }
+    ],
+    approvedAppointmentsStatic: [
+      {
+        appointmentId: 2,
+        patientUserName: "verycoolperson",
+        patientFirstName: "Michelle",
+        patientLastName: "Obama",
+        apptDate: 1/16/2021,
+        apptTime: '12:00',
+        virtual: 0,
+        message: "Don't tell Barry",
+        status: "approved" 
+      },
+      {
+        appointmentId: 11,
+        patientUserName: "Th3Legend",
+        patientFirstName: "Henry",
+        patientLastName: "Edwards",
+        apptDate: 2/1/2021,
+        apptTime: '13:00',
+        virtual: 0,
+        message: "",
+        status: "approved"
+      }
+    ],
+    
+
+    //Default Login Info
     token: currentToken || '',
     user: currentUser || {}
   },
+
+  
   mutations: {
     SET_AUTH_TOKEN(state, token) {
       state.token = token;

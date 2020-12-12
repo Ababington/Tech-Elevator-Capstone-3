@@ -2,35 +2,22 @@
   <div class="admin-view-container">
       <h1>Home</h1>
       <div class="office-info-container">
-      <new-office-form/>
-    
-      <div v-for="doctor in doctors" v-bind:key="doctor.id">
-          
-          {{doctor.username}}
-          <!-- {{doctor.status}} -->
-          </div>
+        <new-office-form/>
+      </div>
+      <div class="register-doctor-container">
+        <admin-pending-doctors/>
       </div>
   </div>
 </template>
 
 <script>
-import adminService from '../services/AdminService';
 import newOfficeForm from'../components/NewOfficeForm';
+import adminPendingDoctors from '../components/AdminPendingDoctors';
 
 export default {
     components:{
-        newOfficeForm
-    },
-    data() {
-        return {
-          doctors:[]
-        }
-    },
-    created() {
-        adminService.getPendingDoctors()
-        .then(response => {
-            this.doctors=response.data;
-        })
+        newOfficeForm,
+        adminPendingDoctors
     }
 }
 </script>
