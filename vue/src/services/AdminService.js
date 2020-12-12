@@ -3,14 +3,14 @@ import axios from 'axios';
 export default {
 
   GetPendingDoctors() {
-    return axios.get('/admin/GetPendingDoctors');
+    return axios.get('/admin/getPendingDoctors');
   },
 
   CreateNewOffice(office) {
-    return axios.post('/admin/CreateNewOffice', office);
+    return axios.post('/admin/createNewOffice', office);
   },
 
   ApproveDoctorUser(doctor) {
-    return axios.push('/admin/ApproveDoctorUser', doctor);
+    return axios.push('/admin/approveDoctorUser', doctor);
   }
 }
