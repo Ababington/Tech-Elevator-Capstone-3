@@ -6,19 +6,19 @@ export default {
   },
 
   UpdateMyInfo(doctor) {
-    return axios.put('/doctor/myInfo/update', doctor)
+    return axios.put('/doctor/myInfo/update', doctor);
   },
 
   GetMyOffices() {
     return axios.get('/doctor/myOffices'); //returns array of offices
   },
 
-  GetMyOfficesReviews() {
-    return axios.get('/doctor/myOffices/reviews') //returns array of reviews
+  GetOfficeReviews(office) {
+    return axios.get(`/doctor/myOffices/${office.id}/reviews`); //returns array of reviews
   },
 
-  GetReviewResponses() {
-    return axios.get('/doctor/myOffices/reviews/responses') //returns array of responses
+  GetReviewResponses(office) {
+    return axios.get(`/doctor/myOffices/${office.id}/reviews/responses`); //returns array of responses
   },
 
   GetAppointments() {
