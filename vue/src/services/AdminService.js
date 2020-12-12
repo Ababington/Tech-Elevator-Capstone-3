@@ -7,7 +7,7 @@ getPendingDoctors() {
   },
 
 
-createNewOffice(office){
+CreateNewOffice(office){
     return axios.post('/admin/createNewOffice', office);
 }
 }

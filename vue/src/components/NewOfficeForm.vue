@@ -1,30 +1,36 @@
 <template>
-<div>
-  <div>Hello</div>
-  
-  <label for="name">Name: </label>
-  <input type="text" required v-model="this.office.name"/><br>
 
-  <label for="streetAddress" >Street Address: </label>
-<input id="streetAddress" required v-model="this.office.streetAddress"/><br>
+  <form v-on:submit.prevent="CreateNewOffice()">
+    <div>Hello</div>
 
-<label for="streetAddress2">Street Address 2: </label>
-<input id="streetAddress2" v-model="this.office.streetAddress2"/><br>
+    <label for="name">Name: </label>
+    <input type="text" required v-model="office.name" /><br />
 
-<label for="City" >City: </label>
-<input id="City" required v-model="this.office.City"/><br>
+    <label for="streetAddress">Street Address: </label>
+    <input
+      id="streetAddress"
+      required
+      v-model="office.streetAddress"
+    /><br />
 
-<label for="state" >State: </label>
-<input id="state" required v-model="this.office.state"/><br>
+    <label for="streetAddress2">Street Address 2: </label>
+    <input id="streetAddress2" v-model="office.streetAddress2" /><br />
 
-<label for="zip" >Zip: </label>
-<input id="zip" required v-model="this.office.zip"/><br>
+    <label for="City">City: </label>
+    <input id="City" required v-model="office.City" /><br />
 
-<label for="phoneNumber" >Phone Number: </label>
-<input id="phoneNumber" required v-model="this.office.phoneNumber"/><br>
+    <label for="state">State: </label>
+    <input id="state" required v-model="office.state" /><br />
 
-<div for="officeHours">Office Hours: </div><br>
-<label for="monday">Monday</label>
+    <label for="zip">Zip: </label>
+    <input id="zip" required v-model="office.zip" /><br />
+
+    <label for="phoneNumber">Phone Number: </label>
+    <input id="phoneNumber" required v-model="office.phone" /><br />
+
+    <div for="officeHours">Office Hours:</div>
+    <br />
+    <!-- <label for="monday">Monday</label>
 <input for="monday" type ="time" v-model="this.office.monday.start"/>
 <input for="monday" type ="time" v-model="this.office.monday.end"/><br>
 <label for="tuesday">Tuesday</label>
@@ -44,16 +50,14 @@
 <input for="saturday" type ="time" v-model="this.office.saturday.end"/><br>
 <label for="sunday">Sunday</label>
 <input for="sunday" type ="time" v-model="this.office.sunday.start"/>
-<input for="sunday" type ="time" v-model="this.office.sunday.end"/><br>
+<input for="sunday" type ="time" v-model="this.office.sunday.end"/><br> -->
 
-<button type="submit" v-on:click="createNewOffice()">Create Office</button>
-
-</div>
-
+    <button type="submit">Create Office</button>
+  </form>
 </template>
 
 <script>
-import adminService from '../services/AdminService';
+import adminService from "../services/AdminService";
 
 export default {
   data() {
@@ -65,55 +69,55 @@ export default {
         city: "",
         state: "",
         zip: "",
-        phoneNumber: "",
-        monday: {
-          start: "",
-          end: "",
-        },
+        phone: "",
+        // monday: {
+        //   start: "",
+        //   end: "",
+        // },
 
-        tuesday: {
-          start: "",
-          end: "",
-        },
+        // tuesday: {
+        //   start: "",
+        //   end: "",
+        // },
 
-        wednesday: {
-          start: "",
-          end: "",
-        },
+        // wednesday: {
+        //   start: "",
+        //   end: "",
+        // },
 
-        thursday: {
-          start: "",
-          end: "",
-        },
+        // thursday: {
+        //   start: "",
+        //   end: "",
+        // },
 
-        friday: {
-          start: "",
-          end: "",
-        },
+        // friday: {
+        //   start: "",
+        //   end: "",
+        // },
 
-        saturday: {
-          start: "",
-          end: "",
-        },
+        // saturday: {
+        //   start: "",
+        //   end: "",
+        // },
 
-        sunday: {
-          start: "",
-          end: "",
-        },
+        // sunday: {
+        //   start: "",
+        //   end: "",
+        // },
       },
     };
   },
-  methods:{
-    createNewOffice(){
-      adminService.createNewOffice(this.office)
-      .then(response => {
-        if(response.status === 201)
-        {
-          this.office = [];
+  methods: {
+    CreateNewOffice() {
+      adminService.CreateNewOffice(this.office).then((response) => {
+        if (response.status === 200) {
+          this.office=[]
         }
-      }) 
-    }
-  }
+      }).catch((error) => {
+        error.status
+      });
+    },
+  },
 };
 </script>
 
