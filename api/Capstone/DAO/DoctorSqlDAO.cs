@@ -15,52 +15,9 @@ namespace Capstone.DAO
         {
             connectionString = dbConnectionString;
         }
-        //do we want a method to add to office info? Off of trello doctor should update and add info but what could they add? 
-        public int GetOfficeHours(int id)
-        {
-            //work on mostly skeleton check select statement 
-            Office office = null;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("select * from doctor_day where id = @id ", conn);
+      
 
-                    cmd.Parameters.AddWithValue("@id", id);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    return 1;
-                }
-
-            }
-            catch (SqlException e)
-            {
-                throw e;
-            }
-
-        }
-
-        public int UpdateDoctorAvailability(Doctor doctor)
-        {//skeleton probably maybe i did it right? haha probably not
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("update doctor_day set availability where doctorId = @doctorId", conn);
-                    cmd.Parameters.AddWithValue("@doctorId", doctor.UserId);
-
-                    object result = cmd.ExecuteScalar();
-                    result = (result == DBNull.Value) ? null : result;
-                    int newId = Convert.ToInt32(result);
-                    return newId;
-                }
-            }
-            catch (SqlException e)
-            {
-                throw e;
-            }
-        }
+       
 
         public string ApproveDoctorUser (Doctor doctor)
         {
@@ -69,7 +26,7 @@ namespace Capstone.DAO
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("update users set user_role = 'doctorVerified' where user_id = @user_id; ; select scope_identity()", conn);
+                    SqlCommand cmd = new SqlCommand("update users set user_role = 'doctorVerified' where user_id = @user_id; select scope_identity()", conn);
                     cmd.Parameters.AddWithValue("@user_id", doctor.UserId);
 
                     object result = cmd.ExecuteScalar();
@@ -84,22 +41,23 @@ namespace Capstone.DAO
             }
         }
 
-
-        public decimal UpdateHourlyRate(Doctor doctor)
+        public Doctor GetAllDoctors(Doctor doctor)
         {
-            //not finished skeleton
+            throw new NotImplementedException();
+        }
+
+        public Doctor GetmyInfo(Doctor doctor)
+        {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("update doctor set hourlyRate where userId = @userId", conn);
-                    cmd.Parameters.AddWithValue("@userId", doctor.HourlyRate);
+                    SqlCommand cmd = new SqlCommand("select * from doctor where userId = @userId; select scope_identity()", conn);
+                    cmd.Parameters.AddWithValue("@user_id", doctor.UserId);
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    object result = cmd.ExecuteScalar();
-                    result = (result == DBNull.Value) ? null : result;
-                    int newId = Convert.ToInt32(result);
-                    return newId;
+                    return doctor;
                 }
             }
             catch (SqlException e)
@@ -107,17 +65,25 @@ namespace Capstone.DAO
                 throw e;
             }
         }
-        public string GetMyDoctorAppointments()
+
+        public Doctor UpdateMyInfo(Doctor doctor)
         {
-            return "welp";
-        }
-        public string SeeReviewRespond()
-        {
-            return "";
-        }
-        public string CreateSchdule()
-        {
-            return "";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("update doctor set hourlyRate = @hourlyRate; select scope_identity()", conn);
+                    cmd.Parameters.AddWithValue("@hourlyRate", doctor.HourlyRate);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    return doctor;
+                }
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
         }
     }
 }

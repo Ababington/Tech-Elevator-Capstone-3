@@ -41,33 +41,56 @@ namespace Capstone.Controllers
                 throw new NotImplementedException("This method is not implemented");
             }
         }
-        [HttpGet("getDoctorAvailability")]
-        public ActionResult<List<Doctor>> GetDoctorAvailability()
+       
+
+        [HttpGet("patient/${patient.id}")]
+        public ActionResult<Patients> GetMyInfo(Patients patients)
         {
-           //sheleton
-                throw new NotImplementedException("This method is not implemented");
-            
+            return patients;
+        }
+        [HttpPut("/patient/updateInfo")]
+        public ActionResult<Patients> UpdateMyInfo(Patients patients)
+        {
+            return patients;
+        }
+        [HttpGet("patient/allOffices")]
+        public ActionResult<Office> GetAllOffices(Office office)
+        {
+            return office;
+        }
+        [HttpGet("patient/allOffices/${office.id}/reviews")]
+        public ActionResult<Office> GetOfficeReviews(Office office)
+        {
+            return office;
+        }
+        [HttpGet("patient/allOffices/${office.id}/reviews/responses")]
+        public ActionResult<Office> GetReviewResponses(Office office)
+        {
+            return office;
+        }
+        [HttpPost("patient/allOffices/postReview")]
+        public ActionResult<Office> PostNewReview(Office office)
+        {
+            //todo make review model???? and sqldao
+            return office;
+        }
+        [HttpGet("patient/doctorsList")]
+        public ActionResult<Doctor> GetAllDoctors(Doctor doctor)
+        {
+            return doctor;
+        }
+        [HttpGet("patient/${patient.id}/appointments")]
+        public ActionResult<Patients> GetMyAppointments(Patients patients)
+        {
+            return patients;
+        }
+        [HttpPost("patient/requestAppointment")]
+        public ActionResult<Appointments> CreateAppointmentRequest(Appointments appointments)
+        {
+            return appointments;
         }
 
-        [HttpPost("bookAppointment")]
-        public ActionResult<string> BookAppointment()
-        {
-            //nothing at all here
-            throw new NotImplementedException("This method is not implemented");
 
-        }
-        [HttpGet("seeReviews")]
-        public ActionResult<string> ReadReviews()
-        {
-            //i will be sad if we dont use these
-            throw new NotImplementedException("This method is not implemented");
 
-        }
-        [HttpPost("postReviews")]
-        public ActionResult<string> PostReviews()
-        {
-            throw new NotImplementedException("This method is not implemented");
-
-        }
     }
 }
