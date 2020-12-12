@@ -8,12 +8,11 @@ namespace Capstone.DAO
 {
     public interface IDoctorDAO
     {
-        decimal UpdateHourlyRate(Doctor doctor);
-        int UpdateDoctorAvailability(Doctor doctor);
-        int GetOfficeHours(int id);
-        string GetMyDoctorAppointments();
-        string SeeReviewRespond();
-        string CreateSchdule();
+        Doctor GetmyInfo(Doctor doctor);
+        Doctor UpdateMyInfo(Doctor doctor);
         string ApproveDoctorUser(Doctor doctor);
+        //from patient controller
+        Doctor GetAllDoctors(Doctor doctor);
+
     }
 }
