@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import authService from '../services/AuthService';
+import adminService from '../services/AdminService';
 import newOfficeForm from'../components/NewOfficeForm';
 
 export default {
@@ -21,11 +21,11 @@ export default {
     },
     data() {
         return {
-          
+          doctors:[]
         }
     },
     created() {
-        authService.getPendingDoctors()
+        adminService.getPendingDoctors()
         .then(response => {
             this.doctors=response.data;
         })
