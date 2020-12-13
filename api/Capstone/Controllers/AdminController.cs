@@ -44,7 +44,7 @@ namespace Capstone.Controllers
             }
             catch (Exception e)
             {
-                throw new NotImplementedException("This method is not implemented");
+                throw e;
             }
         }
 
@@ -76,7 +76,7 @@ namespace Capstone.Controllers
                 }
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return StatusCode(500);
             }
@@ -97,7 +97,7 @@ namespace Capstone.Controllers
                     return BadRequest();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return StatusCode(500);
             }
