@@ -14,8 +14,8 @@ export default {
     },
     computed:{
        theBook(){
-      return  this.$store.state.books.filter(book =>  {
-          return book.isbn === this.$route.params.isbn;
+      return  this.$store.state.offices.filter(book =>  {
+          return book.isbn === this.$route.params.userId;
       });
     },
     }
