@@ -34,7 +34,7 @@ namespace Capstone.Controllers
 
 
 
-        [HttpGet]
+        [HttpGet] //Dummy Path for testing
         public ActionResult<string> BaseDoctorTest()
         {
             return Ok("reached doctor");
@@ -48,7 +48,7 @@ namespace Capstone.Controllers
                 Doctor infoDoc = doctorDAO.GetmyInfo(userId);
                 return infoDoc;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new NotImplementedException("This method is not implemented");
             }
@@ -62,7 +62,7 @@ namespace Capstone.Controllers
                 Doctor updateDoc = doctorDAO.UpdateMyInfo(doctor);
                 return updateDoc;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new NotImplementedException("This method is not implemented");
             }
@@ -76,7 +76,7 @@ namespace Capstone.Controllers
                 List<Office> myOffice = officeDAO.GetMyOffices(userId);
                 return myOffice;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new NotImplementedException("This method is not implemented");
             }
@@ -94,21 +94,21 @@ namespace Capstone.Controllers
             throw new NotImplementedException("This method is not implemented");
         }
 
-        [HttpGet("userId/getAppointments")]
+        [HttpGet("{userId}/getAppointments")] //Done
         public ActionResult<List<Appointment>> GetAppointments(int userId)
         {
             try
             {
-                List<Appointment> respondAppt = appointmentDAO.GetAppointments(userId);
+                List<Appointment> respondAppt = appointmentDAO.GetAppointmentsByDoctor(userId);
                 return respondAppt;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new NotImplementedException("This method is not implemented");
             }
         }
 
-        [HttpPut("getAppointments/respondToPending")]
+        [HttpPut("{userId}/getAppointments/respondToPending")]
         public ActionResult<bool> RespondToPendingAppointment(Appointment appointment)
         {
             try
@@ -116,7 +116,7 @@ namespace Capstone.Controllers
                 bool respondAppt = appointmentDAO.RespondToPendingAppointment(appointment);
                 return respondAppt;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new NotImplementedException("This method is not implemented");
             }

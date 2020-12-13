@@ -38,50 +38,50 @@ namespace Capstone.Controllers
                 List<Doctor> verifiedDoctors = doctorDAO.GetAllDoctors();
                 return verifiedDoctors;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new NotImplementedException("This method is not implemented");
             }
         }
 
-        [HttpGet("patient/{patientId}")]
+        [HttpGet("{patientId}")] //Get info??
         public ActionResult<Patient> GetMyInfo(int patientId)
         {
             throw new NotImplementedException();
         }
 
-        [HttpPut("/patient/updateInfo")]
+        [HttpPut("{patientId}/updateInfo")]
         public ActionResult<Patient> UpdateMyInfo(Patient patients)
         {
             throw new NotImplementedException();
         }
 
-        [HttpGet("patient/allOffices")]
+        [HttpGet("{patientId}/allOffices")]
         public ActionResult<List<Office>> GetAllOffices(Office office)
         {
             throw new NotImplementedException();
         }
 
-        [HttpGet("patient/allOffices/{officeId}/reviews")]
-        public ActionResult<Review> GetOfficeReviews(int officeId)
+        [HttpGet("{patientId}/allOffices/{officeId}/reviews")]
+        public ActionResult<Office> GetOfficeReviews(int officeId)
         {
             throw new NotImplementedException();
         }
 
-        [HttpGet("patient/allOffices/{officeId}/reviews/responses")]
+        [HttpGet("{patientId}/allOffices/{officeId}/reviews/responses")]
         public ActionResult<Office> GetReviewResponses(Office office)
         {
             throw new NotImplementedException();
         }
 
-        [HttpPost("patient/allOffices/postReview")]
+        [HttpPost("{patientId}/allOffices/postReview")]
         public ActionResult<Office> PostNewReview(Office office)
         {
             //todo make review model???? and sqldao
             throw new NotImplementedException();
         }
 
-        [HttpGet("patient/{patientId}/appointments")]
+        [HttpGet("{patientId}/appointments")]
         public ActionResult<Patient> GetMyAppointments(int patientId)
         {
             throw new NotImplementedException();
