@@ -16,17 +16,17 @@ namespace Capstone.DAO
             connectionString = dbConnectionString;
         }
 
-        public Patients GetMyAppointments(Patients patients)
+        public Patient GetMyAppointments(Patient patients)
         {
             throw new NotImplementedException();
         }
 
-        public Patients GetMyInfo(Patients patients)
+        public Patient GetMyInfo(Patient patients)
         {
             throw new NotImplementedException();
         }
 
-        public Patients UpdateMyInfo(Patients patients)
+        public Patient UpdateMyInfo(Patient patients)
         {
             throw new NotImplementedException();
         }

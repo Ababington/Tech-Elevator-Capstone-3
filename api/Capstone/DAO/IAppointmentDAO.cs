@@ -8,11 +8,9 @@ namespace Capstone.DAO
 {
     public interface IAppointmentDAO
     {
-        Appointments GetAppointments(Appointments appointments);
-
-
-        Appointments RespondToPendingAppointment(Appointments appointments);
-        Appointments CreateAppointmentRequest(Appointments appointments);
+        List<Appointment> GetAppointments(int userId);
+        bool RespondToPendingAppointment(Appointment appointment);
+        bool CreateAppointmentRequest(Appointment appointment);
 
     }
 }

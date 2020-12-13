@@ -8,11 +8,10 @@ namespace Capstone.DAO
 {
     public interface IDoctorDAO
     {
-        Doctor GetmyInfo(Doctor doctor);
+        Doctor GetmyInfo(int id);
         Doctor UpdateMyInfo(Doctor doctor);
-        string ApproveDoctorUser(Doctor doctor);
+        int ApproveDoctorUser(Doctor doctor);
         //from patient controller
-        Doctor GetAllDoctors(Doctor doctor);
-
+        List<Doctor> GetAllDoctors();
     }
 }
