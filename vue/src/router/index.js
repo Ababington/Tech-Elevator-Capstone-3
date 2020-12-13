@@ -8,8 +8,10 @@ import store from '../store/index'
 import adminHome from '../views/AdminHome.vue'
 import doctor from '../views/Doctor.vue'
 import patient from '../views/Patient.vue'
+import reviews from '../views/Reviews.vue'
 import officeInfo from '../views/OfficeInfo.vue'
 import officePageInfo from '../views/officePageInfo.vue'
+import viewSchedule from '../views/ViewSchedule.vue'
 import appointmentRequest from '../views/AppointmentRequest.vue'
 import DoctorsOffices from '../views/DoctorsOfficesView'
 
@@ -96,6 +98,22 @@ const router = new Router({
       path: "/appointmentRequest",
       name: "appointmentRequest",
       component: appointmentRequest,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/reviews",
+      name: "reviews",
+      component: reviews,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/viewSchedule",
+      name: "viewSchedule",
+      component: viewSchedule,
       meta: {
         requiresAuth: false
       }
