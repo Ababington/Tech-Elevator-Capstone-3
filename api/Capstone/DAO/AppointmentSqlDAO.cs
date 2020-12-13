@@ -114,10 +114,41 @@ namespace Capstone.DAO
                 throw e;
             }
         }
-
         public bool RespondToPendingAppointment(Appointment appointment)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("select status from appointments where apptId = @apptId", conn);
+                    cmd.Parameters.AddWithValue("@apptId", appointment.AppointmentId);
+                    string currentStatus = Convert.ToString(cmd.ExecuteScalar());
+                    if (currentStatus == appointment.Status)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        cmd = new SqlCommand("update appointments set status = @status; ", conn);
+                        cmd.Parameters.AddWithValue("@status", appointment.Status);
+
+                        int result = cmd.ExecuteNonQuery();
+                        if (result == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
         }
     }
 }
