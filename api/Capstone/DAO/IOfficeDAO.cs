@@ -9,19 +9,21 @@ namespace Capstone.DAO
     public interface IOfficeDAO
     {
         int CreateNewOffice(Office office);
+        List<Office> GetMyOffices(int doctorId);
+        List<Office> GetAllOffices();
 
 
-        //new additions from doctor controller
-        Office GetMyOffices(Office office);
-        Office GetMyOfficeReviews(Office office);
-        Office GetReviewResponses(Office office);
 
 
-        //from patient controller
-        Office GetAllOffices(Office office);
-        Office GetOfficeReviews(Office office);
-        Office PostNewReview(Office office);
+        /*
+        List<Office> GetMyOfficeReviews(int doctorId); //TODO change return datatype when adding Review class, move to reviewDAO
 
+        List<Office> GetReviewResponses(int doctorId); //TODO change return datatype when adding Response class, move to responseDAO(maybe just reviewsDAO???)
+
+        Office GetOfficeReviews(int officeId); //TODO change return datatype when adding Review class, move to reviewDAO
+
+        bool PostNewReview(Add Review Datatype); //TODO move to reviewDAO
+        */
 
     }
 }

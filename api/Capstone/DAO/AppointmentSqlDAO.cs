@@ -14,17 +14,17 @@ namespace Capstone.DAO
             connectionString = dbConnectionString;
         }
 
-        public Appointments CreateAppointmentRequest(Appointments appointments)
+        public bool CreateAppointmentRequest(Appointment appointment)
         {
             throw new NotImplementedException();
         }
 
-        public Appointments GetAppointments(Appointments appointments)
+        public List<Appointment> GetAppointments(int userId)
         {
             throw new NotImplementedException();
         }
 
-        public Appointments RespondToPendingAppointment(Appointments appointments)
+        public bool RespondToPendingAppointment(Appointment appointment)
         {
             throw new NotImplementedException();
         }

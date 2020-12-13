@@ -29,68 +29,66 @@ namespace Capstone.Controllers
         }
 
         [HttpGet("getVerifiedDoctors")]
-        public ActionResult<List<User>> GetVerifiedDoctors()
+        public ActionResult<List<Doctor>> GetVerifiedDoctors()
         {
             try
             {
-                List<User> verifidDoctors = userDAO.GetVerifiedDoctors();
-                return verifidDoctors;
+                List<Doctor> verifiedDoctors = doctorDAO.GetAllDoctors();
+                return verifiedDoctors;
             }
             catch (Exception e)
             {
                 throw new NotImplementedException("This method is not implemented");
             }
         }
-       
 
-        [HttpGet("patient/${patient.id}")]
-        public ActionResult<Patients> GetMyInfo(Patients patients)
+        [HttpGet("patient/{patientId}")]
+        public ActionResult<Patient> GetMyInfo(int patientId)
         {
-            return patients;
+            throw new NotImplementedException();
         }
+
         [HttpPut("/patient/updateInfo")]
-        public ActionResult<Patients> UpdateMyInfo(Patients patients)
+        public ActionResult<Patient> UpdateMyInfo(Patient patients)
         {
-            return patients;
+            throw new NotImplementedException();
         }
+
         [HttpGet("patient/allOffices")]
-        public ActionResult<Office> GetAllOffices(Office office)
+        public ActionResult<List<Office>> GetAllOffices(Office office)
         {
-            return office;
+            throw new NotImplementedException();
         }
-        [HttpGet("patient/allOffices/${office.id}/reviews")]
-        public ActionResult<Office> GetOfficeReviews(Office office)
+
+        [HttpGet("patient/allOffices/{officeId}/reviews")]
+        public ActionResult<Office> GetOfficeReviews(int officeId)
         {
-            return office;
+            throw new NotImplementedException();
         }
-        [HttpGet("patient/allOffices/${office.id}/reviews/responses")]
+
+        [HttpGet("patient/allOffices/{officeId}/reviews/responses")]
         public ActionResult<Office> GetReviewResponses(Office office)
         {
-            return office;
+            throw new NotImplementedException();
         }
+
         [HttpPost("patient/allOffices/postReview")]
         public ActionResult<Office> PostNewReview(Office office)
         {
             //todo make review model???? and sqldao
-            return office;
+            throw new NotImplementedException();
         }
-        [HttpGet("patient/doctorsList")]
-        public ActionResult<Doctor> GetAllDoctors(Doctor doctor)
+
+        [HttpGet("patient/{patientId}/appointments")]
+        public ActionResult<Patient> GetMyAppointments(int patientId)
         {
-            return doctor;
+            throw new NotImplementedException();
         }
-        [HttpGet("patient/${patient.id}/appointments")]
-        public ActionResult<Patients> GetMyAppointments(Patients patients)
-        {
-            return patients;
-        }
+
         [HttpPost("patient/requestAppointment")]
-        public ActionResult<Appointments> CreateAppointmentRequest(Appointments appointments)
+        public ActionResult<Appointment> CreateAppointmentRequest(Appointment appointments)
         {
-            return appointments;
+            throw new NotImplementedException();
         }
-
-
-
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Models
 {
-    public class Patients
+    public class Patient
     {
         public int PatientId { get; set; }
         public string FirstName { get; set; }

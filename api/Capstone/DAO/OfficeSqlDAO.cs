@@ -16,9 +16,12 @@ namespace Capstone.DAO
             connectionString = dbConnectionString;
         }
 
+
+        //********CHECK IOFFICEDAO for breakdown of missing reviews/responses methods
+
+
         public int CreateNewOffice(Office office)
         {
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -40,80 +43,49 @@ namespace Capstone.DAO
             }
         }
 
-        public Office GetAllOffices(Office office)
+        public List<Office> GetAllOffices()
         {
             throw new NotImplementedException();
         }
 
-        public Office GetMyOfficeReviews(Office office)
+        public List<Office> GetMyOffices(int doctorId)
         {
             try
             {
+                List<Office> doctorsOffices = new List<Office>();
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("select * from officeReviews where officeId = @officeId; select scope_identity()", conn);
-                    cmd.Parameters.AddWithValue("@user_id", office.OfficeId);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                    SqlCommand cmd = new SqlCommand(@"select office.id, name, phone, streetAddress, streetAddress2, city, state, zip from doctor_day
+                                                        join office on office.id = doctor_day.officeId
+                                                        join office_address on office_address.officeId = office.id
+                                                        join addresses on addresses.addressId = office_address.addressId
+                                                        where doctorId = @doctorId
+                                                        group by office.id, name, phone, streetAddress, streetAddress2, city, state, zip;", conn);
+                    cmd.Parameters.AddWithValue("@doctorId", doctorId);
 
-                    return office;
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Office o = new Office();
+                        o.OfficeId = Convert.ToInt32(reader["id"]);
+                        o.Name = Convert.ToString(reader["name"]);
+                        o.Phone = Convert.ToString(reader["phone"]);
+                        o.StreetAddress = Convert.ToString(reader["streetAddress"]);
+                        o.StreetAddress2 = Convert.ToString(reader["streetAddress2"]);
+                        o.City = Convert.ToString(reader["city"]);
+                        o.State = Convert.ToString(reader["state"]);
+                        o.Zip = Convert.ToString(reader["zip"]);
+
+                        doctorsOffices.Add(o);
+                    }
                 }
+                return doctorsOffices;
             }
-            catch (SqlException e)
+            catch (Exception e)
             {
                 throw e;
             }
-        }
-
-        public Office GetMyOffices(Office office)
-        {
-            //doctor object??
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("select * from office where id = @id; select scope_identity()", conn);
-                    cmd.Parameters.AddWithValue("@id", office.OfficeId);
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    return office;
-                }
-            }
-            catch (SqlException e)
-            {
-                throw e;
-            }
-        }
-
-        public Office GetOfficeReviews(Office office)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Office GetReviewResponses(Office office)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("select * from reviewResponse where userId = @userId; select scope_identity()", conn);
-                    cmd.Parameters.AddWithValue("@userId", office.OfficeId);
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    return office;
-                }
-            }
-            catch (SqlException e)
-            {
-                throw e;
-            }
-        }
-
-        public Office PostNewReview(Office office)
-        {
-            throw new NotImplementedException();
         }
     }
 }
