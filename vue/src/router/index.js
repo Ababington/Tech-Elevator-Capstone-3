@@ -14,6 +14,8 @@ import officePageInfo from '../views/officePageInfo.vue'
 import viewSchedule from '../views/ViewSchedule.vue'
 import appointmentRequest from '../views/AppointmentRequest.vue'
 import DoctorsOffices from '../views/DoctorsOfficesView.vue'
+import doctorButtons from '../components/DoctorButtons.vue';
+
 Vue.use(Router)
 
 /**
@@ -121,6 +123,14 @@ const router = new Router({
       path: "/adminHome",
       name: "adminHome",
       component: adminHome,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/doctorButtons",
+      name: "doctorButtons",
+      component: doctorButtons,
       meta: {
         requiresAuth: true
       }

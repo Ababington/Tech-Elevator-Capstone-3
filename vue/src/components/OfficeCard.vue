@@ -1,18 +1,17 @@
 <template>
   <div>
       
-      <h1 class="officeCardTitle">Office Location Info</h1>
       <div class="officeCard">
-        <h2>{{office.name}}</h2>
+        <h2 class="inline-border">{{office.name}}</h2>
         <img class="hospital-image" :src='office.image'/>
         <div class="block-border">
             <span class="inline-border">
-          Address: {{office.address}}<br/>
+          <b>Address: </b>{{office.address}}<br/>
           {{office.address2}}<br/>
-          City: {{office.city}}<br/>
-          State: {{office.state}}<br/>
-          Zip: {{office.zip}}<br/>
-          Phone: {{office.phone}}<br/>
+          <b>City: </b>{{office.city}}<br/>
+          <b>State: </b>{{office.state}}<br/>
+          <b>Zip: </b>{{office.zip}}<br/>
+          <b>Phone: </b>{{office.phone}}<br/>
           </span>
           </div>
       </div>
@@ -38,7 +37,7 @@ export default {
     border: 2px solid black;
     border-radius: 10px;
     width: 275px;
-    background-image: linear-gradient(to bottom right, red, yellow);
+    background-image: linear-gradient(to bottom right, rgb(255, 134, 154), rgb(255, 255, 255));
     background-color: rgb(219, 219, 219);
     height: cover;
     padding: 10px;
@@ -56,11 +55,12 @@ export default {
 }
 
 .inline-border{
+  color: black;
     border: 1px
 }
 
 .hospital-image {
-  border: 2px solid rgb(51, 51, 51);
+  border: 2px solid rgb(0, 0, 0);
   width: 250px;
 }
 
