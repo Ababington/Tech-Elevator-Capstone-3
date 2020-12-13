@@ -16,46 +16,27 @@ namespace Capstone.DAO
             connectionString = dbConnectionString;
         }
 
-        public List<Review> GetMyOfficeReviews(int doctorId)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("select reviewId, officeId, userId, message, rating, anonymous from officeReviews join office on office.id = officeReviews.officeId where officeId = @officeId;", conn);
-                    cmd.Parameters.AddWithValue("@doctorId", doctorId);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    Review reviewRead = null;
-                    while (reader.Read())
-                    {
-                       // doctorRead = GetDoctorFromReader(reader);
-                    }
-                    throw new NotImplementedException();
-                }
-            }
-            catch (SqlException e)
-            {
-                throw e;
-            }
-        }
+       
 
-        public Review GetOfficeReviews(int officeId)
+        public List<Review> GetOfficeReviews(int officeId)
         {
             try
             {
+                List<Review> officeReviews = new List<Review>();
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("select reviewId, officeId, userId, message, rating, anonymous from officeReviews join office on office.id = officeReviews.officeId where officeId = @officeId;", conn);
+                    SqlCommand cmd = new SqlCommand(@"select reviewId, officeId, userId, message, rating, anonymous from officeReviews 
+                                                       join office on office.id = officeReviews.officeId where officeId = @officeId;", conn);
                     cmd.Parameters.AddWithValue("@officeId", officeId);
                     SqlDataReader reader = cmd.ExecuteReader();
                     Review reviewRead = null;
                     while (reader.Read())
                     {
                          reviewRead = GetReviewFromReader(reader);
+                        officeReviews.Add(reviewRead);
                     }
-                    throw new NotImplementedException();
+                    return officeReviews;
                 }
             }
             catch (SqlException e)
@@ -64,9 +45,33 @@ namespace Capstone.DAO
             }
         }
 
+       
+
         public bool PostNewReview()
         {
-            throw new NotImplementedException();
+            Review review = null;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("insert into officeReviews (officeId, userId, message, rating, anonymous) values (@officeId, @userId, @message, @rating, @anonymous); select scope_identity()", conn);
+                    cmd.Parameters.AddWithValue("@officeId", review.OfficeId);
+                    cmd.Parameters.AddWithValue("@userId", review.UserId);
+                    cmd.Parameters.AddWithValue("@message", review.Message);
+                    cmd.Parameters.AddWithValue("@rating", review.Rating);
+                    cmd.Parameters.AddWithValue("@anonymous", review.Anonymous);
+
+                    object result = cmd.ExecuteScalar();
+                    result = (result == DBNull.Value) ? null : result;
+                    int newId = Convert.ToInt32(result);
+                    return true;
+                }
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
         }
 
 
@@ -80,8 +85,6 @@ namespace Capstone.DAO
                 Message = Convert.ToString(reader["message"]),
                 Rating = Convert.ToInt32(reader["rating"]),
                 Anonymous = Convert.ToBoolean(reader["anonymous"])
-
-
             };
             return reviewRead;
         }
