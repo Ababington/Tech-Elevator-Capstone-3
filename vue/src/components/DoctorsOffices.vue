@@ -3,6 +3,7 @@
 <div v-for="office in office" v-bind:key="office.id">
     {{office.name}}
     {{'info to display'}}
+</div>
 
 </div>
 

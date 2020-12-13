@@ -1,10 +1,10 @@
 <template>
   <div>
-      <div :style="image"></div>
       
       <h1 class="officeCardTitle">Office Location Info</h1>
       <div class="officeCard">
         <h2>{{office.name}}</h2>
+        <img class="hospital-image" :src='office.image'/>
         <div class="block-border">
             <span class="inline-border">
           Address: {{office.address}}<br/>
@@ -13,7 +13,7 @@
           State: {{office.state}}<br/>
           Zip: {{office.zip}}<br/>
           Phone: {{office.phone}}<br/>
-            </span>
+          </span>
           </div>
       </div>
 
@@ -25,11 +25,6 @@
 
 <script>
 export default {
-    data(){
-            return{
-                image: { backgroundImage: "url(\\img\\anime_hospital_1.png)" }
-            }
-    },
     props: {
         office: Object,
     },
@@ -43,7 +38,8 @@ export default {
     border: 2px solid black;
     border-radius: 10px;
     width: 275px;
-
+    background-image: linear-gradient(to bottom right, red, yellow);
+    background-color: rgb(219, 219, 219);
     height: cover;
     padding: 10px;
     margin: 50px;
@@ -61,6 +57,11 @@ export default {
 
 .inline-border{
     border: 1px
+}
+
+.hospital-image {
+  border: 2px solid rgb(51, 51, 51);
+  width: 250px;
 }
 
 </style>

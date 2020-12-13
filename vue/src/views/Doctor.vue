@@ -7,6 +7,8 @@
 
   <doctor-info/>
 
+  
+
   </div>
 </template>
 
@@ -16,7 +18,7 @@ import doctorInfo from '../components/DoctorInfo';
 
 export default {
   components:{
-        doctorInfo
+        doctorInfo,
   },
   data() {
     return {
@@ -45,4 +47,13 @@ export default {
 </script>
 
 <style>
+
+.doctor{
+        background-image:url("../img/drmario.jpg");
+        background-repeat: no-repeat;
+        height: cover;
+        padding: 50px;
+        
+}
+
 </style>
