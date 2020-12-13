@@ -40,7 +40,7 @@ namespace Capstone.Controllers
             return Ok("reached doctor");
         }
 
-        [HttpGet("{userId}/myInfo")] //Done
+        [HttpGet("{userId}")] //Done
         public ActionResult<Doctor> GetmyInfo(int userId)
         {
             try
@@ -54,7 +54,7 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpPut("{userId}/myInfo/update")] //Done
+        [HttpPut("{userId}/update")] //Done
         public ActionResult<Doctor> UpdateMyInfo(Doctor doctor)
         {
             try
@@ -82,15 +82,15 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpGet("myOffices/{officeId}/reviews")]
+        [HttpGet("myOffices/{officeId}")] //Gets reviews and other doctors associated with office
         public ActionResult<Office> GetMyOfficeReviews(int officeId)
         {
             throw new NotImplementedException("This method is not implemented");
         }
 
-        [HttpGet("myOffices/{officeId}/reviews/responses")]
-        public ActionResult<Office> GetReviewResponses(Office office)
-        {//user? or office?
+        [HttpPost("myOffices/{officeId}/respondToReview")] //Respond to review
+        public ActionResult<Office> GetReviewResponses(Review responsedReview)
+        {
             throw new NotImplementedException("This method is not implemented");
         }
 
@@ -99,8 +99,8 @@ namespace Capstone.Controllers
         {
             try
             {
-                List<Appointment> respondAppt = appointmentDAO.GetAppointmentsByDoctor(userId);
-                return respondAppt;
+                List<Appointment> docAppts = appointmentDAO.GetAppointmentsByDoctor(userId);
+                return docAppts;
             }
             catch (Exception)
             {
@@ -108,7 +108,7 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpPut("{userId}/getAppointments/respondToPending")]
+        [HttpPut("{userId}/getAppointments/respondToPending")] //Respond to pending appointment
         public ActionResult<bool> RespondToPendingAppointment(Appointment appointment)
         {
             try
