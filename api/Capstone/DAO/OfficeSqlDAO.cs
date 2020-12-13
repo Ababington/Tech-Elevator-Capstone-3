@@ -56,12 +56,13 @@ namespace Capstone.DAO
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand(@"select office.id, name, phone, streetAddress, streetAddress2, city, state, zip from doctor_day
-                                                        join office on office.id = doctor_day.officeId
-                                                        join office_address on office_address.officeId = office.id
-                                                        join addresses on addresses.addressId = office_address.addressId
-                                                        where doctorId = @doctorId
-                                                        group by office.id, name, phone, streetAddress, streetAddress2, city, state, zip;", conn);
+                    SqlCommand cmd = new SqlCommand(
+                        @"select office.id, name, phone, streetAddress, streetAddress2, city, state, zip from doctor_day
+                        join office on office.id = doctor_day.officeId
+                        join office_address on office_address.officeId = office.id
+                        join addresses on addresses.addressId = office_address.addressId
+                        where doctorId = @doctorId
+                        group by office.id, name, phone, streetAddress, streetAddress2, city, state, zip;", conn);
                     cmd.Parameters.AddWithValue("@doctorId", doctorId);
 
                     SqlDataReader reader = cmd.ExecuteReader();

@@ -45,7 +45,10 @@ namespace Capstone.DAO
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("select userId, hourlyRate, firstName, lastName from doctor join users on users.user_id = doctor.userId where user_role = 'doctorVerified';", conn);
+                    SqlCommand cmd = new SqlCommand(
+                        @"select userId, hourlyRate, firstName, lastName from doctor
+                        join users on users.user_id = doctor.userId
+                        where user_role = 'doctorVerified';", conn);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
@@ -106,6 +109,38 @@ namespace Capstone.DAO
             catch (SqlException e)
             {
                 throw e;
+            }
+        }
+
+        public List<Doctor> GetOtherDoctorsInOffice(int officeId, int doctorId)
+        {
+            try
+            {
+                List<Doctor> docsInOffice = new List<Doctor>();
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(
+                        @" select userId, firstName, lastName, hourlyRate from doctor
+                        join doctor_day on doctor.userId=doctor_day.doctorId
+                        where officeId=@officeId
+                        group by userId, firstName, lastName, hourlyRate", conn);
+                    cmd.Parameters.AddWithValue("@officeId", officeId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Doctor doctorRead = GetDoctorFromReader(reader);
+                        if (doctorRead.UserId != doctorId)
+                        {
+                            docsInOffice.Add(doctorRead);
+                        }
+                    }
+                    return docsInOffice;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
         private Doctor GetDoctorFromReader(SqlDataReader reader)

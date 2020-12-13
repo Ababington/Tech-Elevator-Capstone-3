@@ -46,10 +46,23 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpGet("getOfficesByDoctor/{doctorId}")] //TODO 1
-        public ActionResult<List<Office>> GetOfficesByDoctor()
+        [HttpGet("getOfficesByDoctor/{doctorId}")] //Done
+        public ActionResult<List<Office>> GetOfficesByDoctor(int doctorId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Office> officesByDoctor = officeDAO.GetMyOffices(doctorId);
+                foreach(Office office in officesByDoctor)
+                {
+                    office.DocsInOffice = doctorDAO.GetOtherDoctorsInOffice(office.OfficeId, doctorId);
+                }
+                return officesByDoctor;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         }
 
         [HttpGet("getOfficesByDoctor/{doctorId}/{officeId}")] //Gets reviews + doctors in office for specific office
@@ -76,7 +89,7 @@ namespace Capstone.Controllers
             throw new NotImplementedException();
         }
 
-        [HttpGet("{patientId}/appointments")]
+        [HttpGet("{patientId}/appointments")] //Done
         public ActionResult<List<Appointment>> GetMyAppointments(int patientId)
         {
             try
