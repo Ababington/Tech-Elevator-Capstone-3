@@ -43,7 +43,7 @@ export default new Vuex.Store({
         city: "New Test",
         state: "Pa",
         zip: 11221,
-        image: '~img/anime_hospital_1'
+        image: require('../img/anime_hospital_1.png')
       },
       { id:"70",
         name: "Mayor Pauline's Office",
@@ -53,7 +53,7 @@ export default new Vuex.Store({
         city: "New Donk",
         state: "NY",
         zip: 90909,
-        image: '~img/anime_hospital_1'
+        image: require('../img/Sogo_Hospital.png')
       }
     ],
     doctorInfoStatic: {

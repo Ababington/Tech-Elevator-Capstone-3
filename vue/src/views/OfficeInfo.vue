@@ -26,5 +26,7 @@ export default {
 </script>
 
 <style>
-
+.Office-Info{
+background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(49, 49, 49));
+}
 </style>
