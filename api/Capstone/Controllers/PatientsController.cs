@@ -18,14 +18,16 @@ namespace Capstone.Controllers
         private readonly IAddressDAO addressDAO;
         private readonly IOfficeAddressDAO officeAddressDAO;
         private readonly IDoctorDAO doctorDAO;
+        private readonly IReviewDAO reviewDAO;
 
-        public PatientsController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO, IDoctorDAO _doctorDAO)
+        public PatientsController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO, IDoctorDAO _doctorDAO, IReviewDAO _reviewDAO)
         {
             userDAO = _userDAO;
             officeDAO = _officeDAO;
             addressDAO = _addressDAO;
             officeAddressDAO = _officeAddressDAO;
             doctorDAO = _doctorDAO;
+            reviewDAO = _reviewDAO;
         }
 
         [HttpGet("getVerifiedDoctors")]
