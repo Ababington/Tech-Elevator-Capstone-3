@@ -11,6 +11,7 @@ import patient from '../views/Patient.vue'
 import officeInfo from '../views/OfficeInfo.vue'
 import officePageInfo from '../views/officePageInfo.vue'
 import appointmentRequest from '../views/AppointmentRequest.vue'
+import DoctorsOffices from '../views/DoctorsOfficesView'
 
 Vue.use(Router)
 
@@ -103,6 +104,14 @@ const router = new Router({
       path: "/adminHome",
       name: "adminHome",
       component: adminHome,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: `/patient/doctors/${id}/offices`,
+      name: DoctorsOffices,
+      component: DoctorsOfficesView,
       meta: {
         requiresAuth: true
       }

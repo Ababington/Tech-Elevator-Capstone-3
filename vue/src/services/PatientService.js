@@ -36,4 +36,8 @@ export default {
     CreateAppointmentRequest(appointment) {
         return axios.post('/patient/requestAppointment', appointment);
     },
+
+    GetVerifiedDoctors(){
+        return axios.get('/patient/getVerifiedDoctors');
+    }
 }
