@@ -20,6 +20,52 @@ namespace Capstone.DAO
             throw new NotImplementedException();
         }
 
+        public List<Appointment> GetAppointmentsByPatient(int userId)
+        {
+            try
+            {
+                List<Appointment> appts = new List<Appointment>();
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(
+                        @"select apptId, patients.patientId, doctorId, officeId, date, time, message, virtual, status,
+                        office.name as 'officeName', doctor.firstName as 'docFirstName', doctor.lastName as 'docLastName'
+                        from appointments
+                        join patients on patients.patientId=appointments.patientId
+                        join doctor on doctor.userId=appointments.doctorId
+                        join users on users.user_id=patients.patientId
+                        join office on office.id=appointments.officeId
+                        where user_id=@user_id", conn);
+                    cmd.Parameters.AddWithValue("@user_id", userId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Appointment a = new Appointment();
+                        a.AppointmentId = Convert.ToInt32(reader["apptId"]);
+                        a.PatientId = Convert.ToInt32(reader["patientId"]);
+                        a.DoctorId = Convert.ToInt32(reader["doctorId"]);
+                        a.OfficeId = Convert.ToInt32(reader["officeId"]);
+                        a.Date = Convert.ToDateTime(reader["date"]);
+                        a.Time = reader.GetTimeSpan(5);
+                        a.Message = Convert.ToString(reader["message"]);
+                        a.Virtual = Convert.ToBoolean(reader["virtual"]);
+                        a.Status = Convert.ToString(reader["status"]);
+                        a.OfficeName = Convert.ToString(reader["officeName"]);
+                        a.DoctorFirstName = Convert.ToString(reader["docFirstName"]);
+                        a.DoctorLastName = Convert.ToString(reader["docLastName"]);
+                        appts.Add(a);
+                    }
+                    return appts;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+
         public List<Appointment> GetAppointmentsByDoctor(int userId)
         {
             try
@@ -59,7 +105,6 @@ namespace Capstone.DAO
                         a.PatientDoB = Convert.ToDateTime(reader["patientDoB"]);
                         appts.Add(a);
                     }
-
                     return appts;
                 }
             }
@@ -69,21 +114,39 @@ namespace Capstone.DAO
                 throw e;
             }
         }
-
         public bool RespondToPendingAppointment(Appointment appointment)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Appointment> GetAppointmentsByPatient(int userId)
         {
             try
             {
-                throw new NotImplementedException();
-            }
-            catch (Exception e)
-            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("select status from appointments where apptId = @apptId", conn);
+                    cmd.Parameters.AddWithValue("@apptId", appointment.AppointmentId);
+                    string currentStatus = Convert.ToString(cmd.ExecuteScalar());
+                    if (currentStatus == appointment.Status)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        cmd = new SqlCommand("update appointments set status = @status; ", conn);
+                        cmd.Parameters.AddWithValue("@status", appointment.Status);
 
+                        int result = cmd.ExecuteNonQuery();
+                        if (result == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
                 throw e;
             }
         }
