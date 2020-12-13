@@ -19,8 +19,9 @@ namespace Capstone.Controllers
         private readonly IOfficeAddressDAO officeAddressDAO;
         private readonly IDoctorDAO doctorDAO;
         private readonly IReviewDAO reviewDAO;
+        private readonly IAppointmentDAO appointmentDAO;
 
-        public PatientsController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO, IDoctorDAO _doctorDAO, IReviewDAO _reviewDAO)
+        public PatientsController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO, IDoctorDAO _doctorDAO, IReviewDAO _reviewDAO, IAppointmentDAO _appointmentDAO)
         {
             userDAO = _userDAO;
             officeDAO = _officeDAO;
@@ -28,9 +29,10 @@ namespace Capstone.Controllers
             officeAddressDAO = _officeAddressDAO;
             doctorDAO = _doctorDAO;
             reviewDAO = _reviewDAO;
+            appointmentDAO = _appointmentDAO;
         }
 
-        [HttpGet("getVerifiedDoctors")]
+        [HttpGet("getDoctors")] //Done
         public ActionResult<List<Doctor>> GetVerifiedDoctors()
         {
             try
@@ -44,7 +46,25 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpGet("{patientId}")] //Get info??
+        [HttpGet("getOfficesByDoctor/{doctorId}")] //TODO 1
+        public ActionResult<List<Office>> GetOfficesByDoctor()
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpGet("getOfficesByDoctor/{doctorId}/{officeId}")] //Gets reviews + doctors in office for specific office
+        public ActionResult<Office> GetOfficeReviews(int officeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpPost("postReview")]
+        public ActionResult<Review> PostReview(Review review)
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpGet("{patientId}")] //Get info
         public ActionResult<Patient> GetMyInfo(int patientId)
         {
             throw new NotImplementedException();
@@ -56,38 +76,21 @@ namespace Capstone.Controllers
             throw new NotImplementedException();
         }
 
-        [HttpGet("{patientId}/allOffices")]
-        public ActionResult<List<Office>> GetAllOffices(Office office)
-        {
-            throw new NotImplementedException();
-        }
-
-        [HttpGet("{patientId}/allOffices/{officeId}/reviews")]
-        public ActionResult<Office> GetOfficeReviews(int officeId)
-        {
-            throw new NotImplementedException();
-        }
-
-        [HttpGet("{patientId}/allOffices/{officeId}/reviews/responses")]
-        public ActionResult<Office> GetReviewResponses(Office office)
-        {
-            throw new NotImplementedException();
-        }
-
-        [HttpPost("{patientId}/allOffices/postReview")]
-        public ActionResult<Office> PostNewReview(Office office)
-        {
-            //todo make review model???? and sqldao
-            throw new NotImplementedException();
-        }
-
         [HttpGet("{patientId}/appointments")]
-        public ActionResult<Patient> GetMyAppointments(int patientId)
+        public ActionResult<List<Appointment>> GetMyAppointments(int patientId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Appointment> patientAppts = appointmentDAO.GetAppointmentsByPatient(patientId);
+                return patientAppts;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
-        [HttpPost("patient/requestAppointment")]
+        [HttpPost("{patient}/requestAppointment")]
         public ActionResult<Appointment> CreateAppointmentRequest(Appointment appointments)
         {
             throw new NotImplementedException();
