@@ -2,16 +2,16 @@
   <div>
       
       <div class="officeCard">
-        <h2>{{office.name}}</h2>
+        <h2 class="inline-border">{{office.name}}</h2>
         <img class="hospital-image" :src='office.image'/>
         <div class="block-border">
             <span class="inline-border">
-          Address: {{office.address}}<br/>
+          <b>Address: </b>{{office.address}}<br/>
           {{office.address2}}<br/>
-          City: {{office.city}}<br/>
-          State: {{office.state}}<br/>
-          Zip: {{office.zip}}<br/>
-          Phone: {{office.phone}}<br/>
+          <b>City: </b>{{office.city}}<br/>
+          <b>State: </b>{{office.state}}<br/>
+          <b>Zip: </b>{{office.zip}}<br/>
+          <b>Phone: </b>{{office.phone}}<br/>
           </span>
           </div>
       </div>

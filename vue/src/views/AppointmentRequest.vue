@@ -1,5 +1,6 @@
 <template>
   <div class="appointment-requests"> 
+    <h1 class="appointmentTitle">Appointment Requests Page</h1>
 
     <appointment-requests-card v-bind:appointment="appointment" v-bind:key='appointment.appointmentId' v-for="appointment in $store.state.pendingAppointmentsStatic">
     <router-link v-bind:to="{name: 'appointmentRequest', params: {id:appointment.appointmentId}}"></router-link>
@@ -31,5 +32,18 @@ export default {
 </script>
 
 <style>
+.appointmentTitle{
+  font-family: 'Courier', impact, monospace;
+  border: 2px solid rgb(160, 160, 160);
+    border-radius: 10px;
+  background-image: linear-gradient(to bottom right, rgb(231, 231, 231), rgb(255, 255, 255));
+    width: 650px;
+    padding: 15px;
+}
+.appointment-requests{
+background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(99, 99, 99));
+ background-size:cover;
+ height: 1100px;
+}
 
 </style>
