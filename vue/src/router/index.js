@@ -13,7 +13,8 @@ import officeInfo from '../views/OfficeInfo.vue'
 import officePageInfo from '../views/officePageInfo.vue'
 import viewSchedule from '../views/ViewSchedule.vue'
 import appointmentRequest from '../views/AppointmentRequest.vue'
-import DoctorsOffices from '../views/DoctorsOfficesView'
+import DoctorsOffices from '../views/DoctorsOfficesView.vue'
+import doctorButtons from '../components/DoctorButtons.vue';
 
 Vue.use(Router)
 
@@ -127,9 +128,17 @@ const router = new Router({
       }
     },
     {
-      path: `/patient/doctors/${id}/offices`,
+      path: "/doctorButtons",
+      name: "doctorButtons",
+      component: doctorButtons,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: `/patient/doctors/:id/offices`,
       name: DoctorsOffices,
-      component: DoctorsOfficesView,
+      component: DoctorsOffices,
       meta: {
         requiresAuth: true
       }

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1 class="appointmentTitle">Appointment Requests Page</h1>
+    
 
     <div class="appointmentCard">
        
@@ -37,9 +37,12 @@ export default {
 
 <style>
 .appointmentCard {
+
     border: 2px solid black;
     border-radius: 10px;
     width: 275px;
+    background-image: linear-gradient(to bottom right, rgb(218, 191, 118), rgb(255, 230, 184));
+    background-color: rgb(219, 219, 219);
     height: cover;
     padding: 10px;
     margin: 50px;

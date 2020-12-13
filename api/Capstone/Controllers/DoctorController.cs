@@ -19,7 +19,8 @@ namespace Capstone.Controllers
         private readonly IOfficeAddressDAO officeAddressDAO;
         private readonly IDoctorDAO doctorDAO;
         private readonly IAppointmentDAO appointmentDAO;
-        public DoctorController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO, IDoctorDAO _doctorDAO, IAppointmentDAO _appointmentDAO)
+        private readonly IReviewDAO reviewDAO;
+        public DoctorController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO, IDoctorDAO _doctorDAO, IAppointmentDAO _appointmentDAO, IReviewDAO _reviewDAO)
         {
             userDAO = _userDAO;
             officeDAO = _officeDAO;
@@ -27,6 +28,8 @@ namespace Capstone.Controllers
             officeAddressDAO = _officeAddressDAO;
             doctorDAO = _doctorDAO;
             appointmentDAO = _appointmentDAO;
+            reviewDAO = _reviewDAO;
+
         }
 
         //TODO ***********ADD DOCTOR/DAY INFO, AS WELL AS OFFICE/DAY
@@ -82,16 +85,18 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpGet("myOffices/{officeId}")] //Gets reviews and other doctors associated with office
-        public ActionResult<Office> GetMyOfficeReviews(int officeId)
+        [HttpGet("myOffices/{officeId}")] //Done
+        public ActionResult<List<Review>> GetMyOfficeReviews(int officeId)
         {
-            throw new NotImplementedException("This method is not implemented");
-        }
-
-        [HttpPost("myOffices/{officeId}/respondToReview")] //Respond to review
-        public ActionResult<Office> GetReviewResponses(Review responsedReview)
-        {
-            throw new NotImplementedException("This method is not implemented");
+            try
+            {
+                List<Review> myOfficeReview = reviewDAO.GetOfficeReviews(officeId);
+                return myOfficeReview;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         [HttpGet("{userId}/getAppointments")] //Done
@@ -108,13 +113,20 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpPut("{userId}/getAppointments/respondToPending")] //Respond to pending appointment
-        public ActionResult<bool> RespondToPendingAppointment(Appointment appointment)
+        [HttpPut("{userId}/getAppointments/respondToPending")] //Done
+        public ActionResult RespondToPendingAppointment(Appointment appointment)
         {
             try
             {
                 bool respondAppt = appointmentDAO.RespondToPendingAppointment(appointment);
-                return respondAppt;
+                if (respondAppt == true)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
             }
             catch (Exception)
             {
