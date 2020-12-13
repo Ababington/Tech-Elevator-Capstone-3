@@ -69,6 +69,7 @@ namespace Capstone
             services.AddTransient<IDoctorDAO>(m => new DoctorSqlDAO(connectionString));
             services.AddTransient<IAppointmentDAO>(m => new AppointmentSqlDAO(connectionString));
             services.AddTransient<IPatientsDAO>(m => new PatientsSqlDAO(connectionString));
+            services.AddTransient<IReviewDAO>(m => new ReviewSqlDAO(connectionString));
 
         }
 
