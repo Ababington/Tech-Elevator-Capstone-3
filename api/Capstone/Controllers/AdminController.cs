@@ -34,7 +34,7 @@ namespace Capstone.Controllers
             return Ok("reached admin");
         }
 
-        [HttpGet("getPendingDoctors")]
+        [HttpGet("getPendingDoctors")] //Done
         public ActionResult<List<User>> GetPendingDoctors()
         {
             try
@@ -44,10 +44,11 @@ namespace Capstone.Controllers
             }
             catch (Exception e)
             {
-                throw new NotImplementedException("This method is not implemented");
+                throw e;
             }
         }
-        [HttpPost("createNewOffice")]
+
+        [HttpPost("createNewOffice")] //Done
         public ActionResult<Office> CreateNewOffice(Office office)
         {
             try
@@ -75,23 +76,28 @@ namespace Capstone.Controllers
                 }
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return StatusCode(500);
             }
         }
-        [HttpPut("approveDoctorUser")]
+
+        [HttpPut("approveDoctorUser")] //Done
         public ActionResult<Doctor> ApproveDoctorUser(Doctor doctor)
         {
-            //todo edit this method
             try
             {
-                string approvedoc = doctorDAO.ApproveDoctorUser(doctor);
-
-                return doctor;
-
+                int approvedoc = doctorDAO.ApproveDoctorUser(doctor);
+                if (approvedoc == 1)
+                {
+                    return Ok(doctor);
+                }  
+                else
+                {
+                    return BadRequest();
+                }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return StatusCode(500);
             }

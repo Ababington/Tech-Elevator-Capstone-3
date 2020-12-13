@@ -18,79 +18,79 @@ namespace Capstone.Controllers
         private readonly IAddressDAO addressDAO;
         private readonly IOfficeAddressDAO officeAddressDAO;
         private readonly IDoctorDAO doctorDAO;
+        private readonly IReviewDAO reviewDAO;
 
-        public PatientsController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO, IDoctorDAO _doctorDAO)
+        public PatientsController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO, IDoctorDAO _doctorDAO, IReviewDAO _reviewDAO)
         {
             userDAO = _userDAO;
             officeDAO = _officeDAO;
             addressDAO = _addressDAO;
             officeAddressDAO = _officeAddressDAO;
             doctorDAO = _doctorDAO;
+            reviewDAO = _reviewDAO;
         }
 
         [HttpGet("getVerifiedDoctors")]
-        public ActionResult<List<User>> GetVerifiedDoctors()
+        public ActionResult<List<Doctor>> GetVerifiedDoctors()
         {
             try
             {
-                List<User> verifidDoctors = userDAO.GetVerifiedDoctors();
-                return verifidDoctors;
+                List<Doctor> verifiedDoctors = doctorDAO.GetAllDoctors();
+                return verifiedDoctors;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new NotImplementedException("This method is not implemented");
             }
         }
-       
 
-        [HttpGet("patient/${patient.id}")]
-        public ActionResult<Patients> GetMyInfo(Patients patients)
+        [HttpGet("{patientId}")] //Get info??
+        public ActionResult<Patient> GetMyInfo(int patientId)
         {
-            return patients;
+            throw new NotImplementedException();
         }
-        [HttpPut("/patient/updateInfo")]
-        public ActionResult<Patients> UpdateMyInfo(Patients patients)
+
+        [HttpPut("{patientId}/updateInfo")]
+        public ActionResult<Patient> UpdateMyInfo(Patient patients)
         {
-            return patients;
+            throw new NotImplementedException();
         }
-        [HttpGet("patient/allOffices")]
-        public ActionResult<Office> GetAllOffices(Office office)
+
+        [HttpGet("{patientId}/allOffices")]
+        public ActionResult<List<Office>> GetAllOffices(Office office)
         {
-            return office;
+            throw new NotImplementedException();
         }
-        [HttpGet("patient/allOffices/${office.id}/reviews")]
-        public ActionResult<Office> GetOfficeReviews(Office office)
+
+        [HttpGet("{patientId}/allOffices/{officeId}/reviews")]
+        public ActionResult<Office> GetOfficeReviews(int officeId)
         {
-            return office;
+            throw new NotImplementedException();
         }
-        [HttpGet("patient/allOffices/${office.id}/reviews/responses")]
+
+        [HttpGet("{patientId}/allOffices/{officeId}/reviews/responses")]
         public ActionResult<Office> GetReviewResponses(Office office)
         {
-            return office;
+            throw new NotImplementedException();
         }
-        [HttpPost("patient/allOffices/postReview")]
+
+        [HttpPost("{patientId}/allOffices/postReview")]
         public ActionResult<Office> PostNewReview(Office office)
         {
             //todo make review model???? and sqldao
-            return office;
+            throw new NotImplementedException();
         }
-        [HttpGet("patient/doctorsList")]
-        public ActionResult<Doctor> GetAllDoctors(Doctor doctor)
+
+        [HttpGet("{patientId}/appointments")]
+        public ActionResult<Patient> GetMyAppointments(int patientId)
         {
-            return doctor;
+            throw new NotImplementedException();
         }
-        [HttpGet("patient/${patient.id}/appointments")]
-        public ActionResult<Patients> GetMyAppointments(Patients patients)
-        {
-            return patients;
-        }
+
         [HttpPost("patient/requestAppointment")]
-        public ActionResult<Appointments> CreateAppointmentRequest(Appointments appointments)
+        public ActionResult<Appointment> CreateAppointmentRequest(Appointment appointments)
         {
-            return appointments;
+            throw new NotImplementedException();
         }
-
-
-
     }
 }
