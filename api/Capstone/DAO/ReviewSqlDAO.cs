@@ -47,25 +47,22 @@ namespace Capstone.DAO
 
        
 
-        public bool PostNewReview()
+        public Review PostNewReview(Review review)
         {
-            Review review = null;
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("insert into officeReviews (officeId, userId, message, rating, anonymous) values (@officeId, @userId, @message, @rating, @anonymous); select scope_identity()", conn);
+                    SqlCommand cmd = new SqlCommand("insert into officeReviews (officeId, userId, message, rating, anonymous) values (@officeId, @userId, @message, @rating, @anonymous);", conn);
                     cmd.Parameters.AddWithValue("@officeId", review.OfficeId);
                     cmd.Parameters.AddWithValue("@userId", review.UserId);
                     cmd.Parameters.AddWithValue("@message", review.Message);
                     cmd.Parameters.AddWithValue("@rating", review.Rating);
                     cmd.Parameters.AddWithValue("@anonymous", review.Anonymous);
 
-                    object result = cmd.ExecuteScalar();
-                    result = (result == DBNull.Value) ? null : result;
-                    int newId = Convert.ToInt32(result);
-                    return true;
+                    cmd.ExecuteNonQuery();
+                    return review;
                 }
             }
             catch (SqlException e)

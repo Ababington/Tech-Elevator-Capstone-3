@@ -20,8 +20,9 @@ namespace Capstone.Controllers
         private readonly IDoctorDAO doctorDAO;
         private readonly IReviewDAO reviewDAO;
         private readonly IAppointmentDAO appointmentDAO;
+        private readonly IPatientsDAO patientsDAO;
 
-        public PatientsController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO, IDoctorDAO _doctorDAO, IReviewDAO _reviewDAO, IAppointmentDAO _appointmentDAO)
+        public PatientsController(IUserDAO _userDAO, IOfficeDAO _officeDAO, IAddressDAO _addressDAO, IOfficeAddressDAO _officeAddressDAO, IDoctorDAO _doctorDAO, IReviewDAO _reviewDAO, IAppointmentDAO _appointmentDAO, IPatientsDAO _patientsDAO)
         {
             userDAO = _userDAO;
             officeDAO = _officeDAO;
@@ -30,6 +31,7 @@ namespace Capstone.Controllers
             doctorDAO = _doctorDAO;
             reviewDAO = _reviewDAO;
             appointmentDAO = _appointmentDAO;
+            patientsDAO = _patientsDAO;
         }
 
         [HttpGet("getDoctors")] //Done
@@ -65,28 +67,65 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpGet("getOfficesByDoctor/{doctorId}/{officeId}")] //Gets reviews + doctors in office for specific office
-        public ActionResult<Office> GetOfficeReviews(int officeId)
+        [HttpGet("getOfficesByDoctor/{doctorId}/{officeId}")] //done
+        public ActionResult <List<Review>> GetOfficeReviews(int officeId)
         {
-            throw new NotImplementedException();
+           
+            try
+            {
+                List<Review> officeReview = reviewDAO.GetOfficeReviews(officeId);
+                return officeReview;
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException("This method is not implemented");
+            }
+            throw new NotImplementedException("This method is not implemented");
+
         }
 
-        [HttpPost("postReview")]
+        [HttpPost("postReview")]//done
         public ActionResult<Review> PostReview(Review review)
         {
-            throw new NotImplementedException();
+            try
+            {
+              Review newReview = reviewDAO.PostNewReview(review);
+
+                return review;
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException("This method is not implemented");
+            }
         }
 
-        [HttpGet("{patientId}")] //Get info
+        [HttpGet("{patientId}")] //done
         public ActionResult<Patient> GetMyInfo(int patientId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Patient infoPat = patientsDAO.GetMyInfo(patientId);
+                return infoPat;
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException("This method is not implemented");
+            }
         }
 
-        [HttpPut("{patientId}/updateInfo")]
+        [HttpPut("{patientId}/updateInfo")] //done
         public ActionResult<Patient> UpdateMyInfo(Patient patients)
         {
-            throw new NotImplementedException();
+            
+            try
+            {
+                Patient updatePat = patientsDAO.UpdateMyInfo(patients);
+                return updatePat;
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException("This method is not implemented");
+            }
         }
 
         [HttpGet("{patientId}/appointments")] //Done
@@ -103,10 +142,18 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpPost("{patient}/requestAppointment")]
+        [HttpPost("{patient}/requestAppointment")] //done
         public ActionResult<Appointment> CreateAppointmentRequest(Appointment appointments)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Appointment newAppt = appointmentDAO.CreateAppointmentRequest(appointments);
+                return appointments;
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException("This method is not implemented");
+            }
         }
     }
 }
