@@ -16,6 +16,7 @@ import viewSchedule from '../views/ViewSchedule.vue'
 import appointmentRequest from '../views/AppointmentRequest.vue'
 import DoctorsOffices from '../views/DoctorsOfficesView.vue'
 import doctorButtons from '../components/DoctorButtons.vue';
+import drMarioImg from '../components/DrMarioImg.vue';
 
 Vue.use(Router)
 
@@ -143,6 +144,16 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+      
+    },
+    {
+      path: "/drMarioImg",
+      name: "drMarioImg",
+      component: drMarioImg,
+      meta: {
+        requiresAuth: true
+      }
+      
     },
     {
       path: `/patient/doctors/:id/offices`,

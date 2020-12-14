@@ -1,5 +1,5 @@
 <template>
-<div class="loginImg">
+<div>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
@@ -18,7 +18,7 @@
         type="text"
         id="username"
         class="form-control"
-        placeholder="Username"
+        placeholder="Username || ユーザー名"
         v-model="user.username"
         required
         autofocus
@@ -28,7 +28,7 @@
         type="password"
         id="password"
         class="form-control"
-        placeholder="Password"
+        placeholder="Password || パスワード"
         v-model="user.password"
         required
       />
@@ -36,15 +36,19 @@
       <button type="submit">Sign in</button>
     </form>
   </div>
+  <dr-Mario-Img/>
 </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
+import drMarioImg from '../components/DrMarioImg.vue';
 
 export default {
   name: "login",
-  components: {},
+  components: {
+    drMarioImg
+  },
   data() {
     return {
       user: {
@@ -88,12 +92,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.loginImg{
-  background-image:url("../img/drmario.jpg");
-       background-size:cover;
-        background-repeat: no-repeat;
-        height: 1500px;
-}
-</style>
