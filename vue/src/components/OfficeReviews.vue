@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import Review from "../components/ReviewCard"
+import reviewCard from "../components/ReviewCard"
 export default {
 
-    components: ReviewCard,
+    components: reviewCard,
 
     data(){
         return{

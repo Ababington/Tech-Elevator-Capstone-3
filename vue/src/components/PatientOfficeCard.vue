@@ -31,7 +31,7 @@ export default {
 
 <style>
 
-.officeCard {
+.patientOfficeCard {
     border: 2px solid black;
     border-radius: 10px;
     width: 275px;
@@ -43,7 +43,7 @@ export default {
     margin-left: 200px;
 }
 
-.officeCardTitle {
+.patientOfficeCardTitle {
   margin: 50px;
 }
 

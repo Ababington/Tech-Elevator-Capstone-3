@@ -1,7 +1,16 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <h1>About</h1>
+    <div class="homeP">Our mission is to provide excellent medical care in a family centered environment. We firmly embrace the concept of the medical home, a 
+      centralized base for caring for children and their entire family. Our philosophy is shared by all our staff, from physicians to the front desk. 
+      We value the relationships with our families, and enjoy caring for newborns through young adults. We are committed to continuously educating ourselves 
+      and incorporating the best of technology to provide excellent care.</div>
+      
+    <div class="homeP">We strive to build long-term, partnering relationships built on trust and mutual respect; We believe in prevention of disease and promotion of healthy 
+      life-styles for all children; We strive to be an efficient and cost-effective practice in meeting the needs of children during times of health as
+       well as in times of illness; We practice medicine as a team and value the contributions of all of our staff in providing excellent medical care and 
+       service; We believe in the ethical practice of medicine, provide leadership throughout the community and provide service of those in our community in need.</div>
+    
     <dr-mario-img/>
   </div>
   
@@ -16,3 +25,9 @@ export default {
   name: "home"
 };
 </script>
+<style scoped>
+.homeP
+{
+  padding: 50%;
+}
+</style>

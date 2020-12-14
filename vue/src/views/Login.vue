@@ -1,8 +1,8 @@
 <template>
-<div>
+<div class="loginPage">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h1 class="h3 mb-3 font-weight-normal" id="welcomeSign">Please Sign In</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -32,8 +32,8 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+     <router-link :to="{ name: 'register' }" class="register">Need an account? || アカウントが必要です？</router-link>
+      <button type="submit" class="submit"></button>
     </form>
   </div>
   <dr-Mario-Img/>
@@ -92,3 +92,112 @@ export default {
   }
 };
 </script>
+<style scoped>
+.loginPage{
+  padding-top:80px;
+}
+.register{
+  margin-right: 280px;
+  text-decoration: underline;
+}
+
+#welcomeSign {
+  font-family: "Courier", impact, monospace;
+  color: black;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255),
+    rgb(228, 228, 228)
+  );
+  padding-top:7px ;
+  padding-left:140px ;
+  height: 50px;
+  width: 430px;
+  top:6%;
+  left:50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+ 
+}
+#welcomeSign:before {
+  content: "Welcome,";
+ 
+  padding-left:1px ;
+  width: 500px;
+    top:50%;
+  left:21%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  transition: 0.5s;
+}
+#welcomeSign:after {
+  content: "医師,";
+   padding-top:3px ;
+   padding-right: 20px;
+  width: 500px;
+    top:50%;
+  left:30%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 140%;
+  transition: 0.5s;
+}
+#welcomeSign:hover:before {
+  top: -50%;
+}
+#welcomeSign:hover:after {
+  top: 50%;
+}
+
+
+.submit {
+  font-family: "Courier", impact, monospace;
+  color: black;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  background-image:url("../img/pill2.jpg");
+       background-size:cover;
+        background-repeat: no-repeat;
+        
+  height: 22px;
+  width: 100px;
+  top:18.1%;
+  left:55%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+.submit:before {
+  content: "Sign in";
+  padding-top: 2px;
+  padding-left:25px ;
+  width: 100px;
+    top:50%;
+  left:38%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  transition: 0.5s;
+}
+.submit:after {
+  content: "サインイン";
+  padding-left:21px;
+  padding-top: 4px;
+  width: 150px;
+    top:50%;
+  left:40%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 140%;
+  transition: 0.5s;
+}
+.submit:hover:before {
+  top: -50%;
+}
+.submit:hover:after {
+  top: 50%;
+}
+
+</style>
