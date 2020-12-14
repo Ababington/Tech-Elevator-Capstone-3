@@ -8,7 +8,7 @@ namespace Capstone.DAO
 {
     public interface IPatientsDAO
     {
-        Patient GetMyInfo(Patient patients);
+        Patient GetMyInfo(int id);
         Patient UpdateMyInfo(Patient patients);
         Patient GetMyAppointments(Patient patients);
     }
