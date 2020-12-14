@@ -41,12 +41,11 @@ export default {
     border: 2px solid black;
     border-radius: 10px;
     width: 275px;
-    background-image: linear-gradient(to bottom right, rgb(218, 191, 118), rgb(255, 230, 184));
-    background-color: rgb(219, 219, 219);
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(218, 236, 53));
     height: cover;
     padding: 10px;
     margin: 50px;
-    margin-left: 150px;
+    margin-left: 250px;
 }
 
 .appointmentTitle {

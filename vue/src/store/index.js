@@ -37,7 +37,7 @@ export default new Vuex.Store({
     //Static test values
     officesStatic: [
       { id:"69",
-        name: "Tom?",
+        name: "Tom's Office",
         phone:"123-4567",
         address:"123 Test Street",
         city: "New Test",
@@ -93,7 +93,7 @@ export default new Vuex.Store({
         apptDate: "1/5/2021",
         apptTime: '12:00',
         virtual: 1,
-        message: "Just fucked my shit up",
+        message: "Just messed my shit up",
         status: "pending"
       }
     ],

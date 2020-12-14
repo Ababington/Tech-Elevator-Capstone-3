@@ -1,5 +1,5 @@
 <template>
-  <div class="doctor">
+  <div class="doctorPage">
    <doctor-buttons/>
   </div>
 </template>
@@ -39,13 +39,12 @@ export default {
 </script>
 
 <style>
-
-.doctor{
-        background-image:url("../img/drmario.jpg");
+.doctorPage{
+        background-image:url("../img/drmario5.jpg");
+       background-size:cover;
+        background-attachment: fixed;
         background-repeat: no-repeat;
-        height: cover;
-        padding: 50px;
-        
+        padding:25px ;
+        height: 1500px;
 }
-
 </style>
