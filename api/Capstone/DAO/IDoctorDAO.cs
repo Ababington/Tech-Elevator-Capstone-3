@@ -13,6 +13,7 @@ namespace Capstone.DAO
         int ApproveDoctorUser(Doctor doctor);
         //from patient controller
         List<Doctor> GetAllDoctors();
+        List<Doctor> GetDoctorsByOffice(int officeId);
         List<Doctor> GetOtherDoctorsInOffice(int officeId, int doctorId);
     }
 }
