@@ -10,6 +10,7 @@ import doctor from '../views/Doctor.vue'
 import patient from '../views/Patient.vue'
 import reviews from '../views/Reviews.vue'
 import officeInfo from '../views/OfficeInfo.vue'
+import patientOfficeInfo from '../views/PatientOfficeInfo.vue'
 import officePageInfo from '../views/officePageInfo.vue'
 import viewSchedule from '../views/ViewSchedule.vue'
 import appointmentRequest from '../views/AppointmentRequest.vue'
@@ -83,6 +84,14 @@ const router = new Router({
       path: "/officeInfo",
       name: "officeInfo",
       component: officeInfo,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/patientOfficeInfo",
+      name: "patientOfficeInfo",
+      component: patientOfficeInfo,
       meta: {
         requiresAuth: false
       }

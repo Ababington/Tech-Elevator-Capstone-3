@@ -12,9 +12,11 @@
 #app{
          background-image: linear-gradient(
     to bottom right,
-    rgb(71, 71, 71),
+    rgb(158, 158, 158),
     rgb(216, 216, 216)
   );
+  
+    height: 1100px;
 }
 #nav{
   border: 2px solid black;
