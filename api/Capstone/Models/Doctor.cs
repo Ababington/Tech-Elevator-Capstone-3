@@ -12,5 +12,6 @@ namespace Capstone.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string User_Role { get; set; }
+        public WeekAvailability WeeklyHours { get; set; } = new WeekAvailability();
     }
 }

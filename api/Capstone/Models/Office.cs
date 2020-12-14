@@ -17,5 +17,6 @@ namespace Capstone.Models
         public string Zip { get; set; }
         public List<Doctor> DocsInOffice { get; set; }
         public List<Review> OfficeReviews { get; set; }
+        public WeekAvailability WeeklyHours { get; set; }
     }
 }
