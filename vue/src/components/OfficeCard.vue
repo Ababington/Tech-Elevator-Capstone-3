@@ -15,8 +15,6 @@
           </span>
           </div>
       </div>
-
-      
     
   </div>
   
@@ -42,7 +40,7 @@ export default {
     height: cover;
     padding: 10px;
     margin: 50px;
-    margin-left: 150px;
+    margin-left: 200px;
 }
 
 .officeCardTitle {
