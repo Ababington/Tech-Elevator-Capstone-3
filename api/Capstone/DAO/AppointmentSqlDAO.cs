@@ -15,9 +15,34 @@ namespace Capstone.DAO
             connectionString = dbConnectionString;
         }
 
-        public bool CreateAppointmentRequest(Appointment appointment)
+        public Appointment CreateAppointmentRequest(Appointment appointment)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(@"insert into appointments (patientId, doctorId, officeId, date, time, message, virtual, status) 
+                                                    values(@patientId, @doctorId, @officeId, @date, @time, @message, @virtual, @status);", conn);
+                    cmd.Parameters.AddWithValue("@patientId", appointment.PatientId);
+                    cmd.Parameters.AddWithValue("@doctorId", appointment.DoctorId);
+                    cmd.Parameters.AddWithValue("@officeId", appointment.OfficeId);
+                    cmd.Parameters.AddWithValue("@date", appointment.Date);
+                    cmd.Parameters.AddWithValue("@time", appointment.Time);
+                    cmd.Parameters.AddWithValue("@message", appointment.Message);
+                    cmd.Parameters.AddWithValue("@virtual", appointment.Virtual);
+                    cmd.Parameters.AddWithValue("@status", appointment.Status);
+
+
+
+                    cmd.ExecuteNonQuery();
+                    return appointment;
+                }
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
         }
 
         public List<Appointment> GetAppointmentsByPatient(int userId)

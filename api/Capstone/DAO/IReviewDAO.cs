@@ -9,6 +9,6 @@ namespace Capstone.DAO
     public interface IReviewDAO
     {
         List<Review> GetOfficeReviews(int officeId); //TODO change return datatype when adding Review class, move to reviewDAO
-        bool PostNewReview(); //TODO move to reviewDAO            Add Review Datatype
+        Review PostNewReview(Review review); //TODO move to reviewDAO            Add Review Datatype
     }
 }
