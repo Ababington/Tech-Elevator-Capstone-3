@@ -49,11 +49,15 @@ namespace Capstone.Controllers
             try
             {
                 Doctor infoDoc = doctorDAO.GetmyInfo(userId);
-                return infoDoc;
+                if(infoDoc == null)
+                {
+                    return NoContent(); 
+                }
+                return Ok(infoDoc);
             }
             catch (Exception)
             {
-                throw new NotImplementedException("This method is not implemented");
+               return StatusCode(500);
             }
         }
 
@@ -63,11 +67,11 @@ namespace Capstone.Controllers
             try
             {
                 Doctor updateDoc = doctorDAO.UpdateMyInfo(doctor);
-                return updateDoc;
+                return Ok(updateDoc);
             }
             catch (Exception)
             {
-                throw new NotImplementedException("This method is not implemented");
+                return StatusCode(500);
             }
         }
 
@@ -77,11 +81,18 @@ namespace Capstone.Controllers
             try
             {
                 List<Office> myOffice = officeDAO.GetMyOffices(userId);
-                return myOffice;
+                if (myOffice.Count > 0)
+                {
+                    return Ok(myOffice);
+                }
+                else
+                {
+                    return NoContent();
+                }
             }
             catch (Exception)
             {
-                throw new NotImplementedException("This method is not implemented");
+                return StatusCode(500);
             }
         }
 
@@ -91,11 +102,18 @@ namespace Capstone.Controllers
             try
             {
                 List<Review> myOfficeReview = reviewDAO.GetOfficeReviews(officeId);
-                return myOfficeReview;
+                if(myOfficeReview.Count > 0)
+                {
+                    return Ok(myOfficeReview);
+                }
+                else
+                {
+                    return NoContent();
+                }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                return StatusCode(500);
             }
         }
 
@@ -105,7 +123,14 @@ namespace Capstone.Controllers
             try
             {
                 List<Appointment> docAppts = appointmentDAO.GetAppointmentsByDoctor(userId);
-                return docAppts;
+                if(docAppts.Count > 0)
+                {
+                    return Ok(docAppts);
+                }
+                else
+                {
+                    return NoContent();
+                }
             }
             catch (Exception)
             {
