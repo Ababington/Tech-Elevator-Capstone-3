@@ -10,11 +10,13 @@ import doctor from '../views/Doctor.vue'
 import patient from '../views/Patient.vue'
 import reviews from '../views/Reviews.vue'
 import officeInfo from '../views/OfficeInfo.vue'
+import patientOfficeInfo from '../views/PatientOfficeInfo.vue'
 import officePageInfo from '../views/officePageInfo.vue'
 import viewSchedule from '../views/ViewSchedule.vue'
 import appointmentRequest from '../views/AppointmentRequest.vue'
 import DoctorsOffices from '../views/DoctorsOfficesView.vue'
 import doctorButtons from '../components/DoctorButtons.vue';
+import drMarioImg from '../components/DrMarioImg.vue';
 
 Vue.use(Router)
 
@@ -88,6 +90,14 @@ const router = new Router({
       }
     },
     {
+      path: "/patientOfficeInfo",
+      name: "patientOfficeInfo",
+      component: patientOfficeInfo,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
       path: "/officePageInfo",
       name: "officePageInfo",
       component: officePageInfo,
@@ -134,6 +144,16 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+      
+    },
+    {
+      path: "/drMarioImg",
+      name: "drMarioImg",
+      component: drMarioImg,
+      meta: {
+        requiresAuth: true
+      }
+      
     },
     {
       path: `/patient/doctors/:id/offices`,

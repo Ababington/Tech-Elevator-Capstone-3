@@ -10,11 +10,7 @@
 
 <style scoped>
 #app{
-         background-image: linear-gradient(
-    to bottom right,
-    rgb(71, 71, 71),
-    rgb(216, 216, 216)
-  );
+         background-color: white
 }
 #nav{
   border: 2px solid black;

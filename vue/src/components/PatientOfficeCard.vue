@@ -31,11 +31,11 @@ export default {
 
 <style>
 
-.officeCard {
+.patientOfficeCard {
     border: 2px solid black;
     border-radius: 10px;
     width: 275px;
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(218, 236, 53));
+    background-image: linear-gradient(to bottom right, rgb(255, 134, 154), rgb(255, 255, 255));
     background-color: rgb(219, 219, 219);
     height: cover;
     padding: 10px;
@@ -43,7 +43,7 @@ export default {
     margin-left: 200px;
 }
 
-.officeCardTitle {
+.patientOfficeCardTitle {
   margin: 50px;
 }
 
