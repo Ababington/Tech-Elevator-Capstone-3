@@ -39,5 +39,9 @@ export default {
 
     GetVerifiedDoctors(){
         return axios.get('/patient/getVerifiedDoctors');
+    },
+
+    GetDoctorsOffices(doctorId){
+        return axios.get(`/patient/getOfficesByDoctor/${doctorId}`);
     }
 }
