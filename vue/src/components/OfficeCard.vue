@@ -40,7 +40,7 @@ export default {
     height: cover;
     padding: 10px;
     margin: 50px;
-    margin-left: 200px;
+    margin-left: 250px;
 }
 
 .officeCardTitle {

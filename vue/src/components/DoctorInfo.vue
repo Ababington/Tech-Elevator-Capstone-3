@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="hours">
   <div for="officeHours">Doctors Available Hours: </div><br>
 <label for="monday">Monday</label>
 <input for="monday" type ="time" v-model="this.office.monday.start"/>
@@ -110,5 +110,7 @@ export default {
 </script>
 
 <style>
-
+.hours{
+  padding-top:60px ;
+}
 </style>
