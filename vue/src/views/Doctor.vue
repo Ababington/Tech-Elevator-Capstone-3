@@ -38,7 +38,7 @@ export default {
 
 </script>
 
-<style>
+<style >
 .doctorPage{
         background-image:url("../img/drmario5.jpg");
        background-size:cover;

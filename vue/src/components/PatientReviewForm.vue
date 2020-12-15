@@ -70,6 +70,6 @@ patientService.getAllOffices().then((response) => {
 }
 </script>
 
-<style>
+<style >
 
 </style>

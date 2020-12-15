@@ -35,7 +35,7 @@ export default {
 
 
 
-<style>
+<style >
 .appointmentCard {
 
     border: 2px solid black;
