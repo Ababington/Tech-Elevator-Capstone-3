@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .doctorOffice{
   font-family:"Courier", impact, monospace ;
