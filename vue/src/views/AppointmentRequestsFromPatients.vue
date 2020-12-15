@@ -11,7 +11,7 @@
     <appointment-requests-card
       v-bind:appointment="appointment"
       v-bind:key="appointment.appointmentId"
-      v-for="appointment in $store.state.pendingAppointmentsStatic"
+      v-for="appointment in $pendingAppointments"
     >
       <router-link
         v-bind:to="{
@@ -34,15 +34,30 @@
 </template>
 
 <script>
-import appointmentRequestsCard from "../components/AppointmentRequestsCard";
+//import appointmentDoctorCard from "../components/AppointmentDoctorCard";
+import doctorService from '../services/DoctorService';
 
 export default {
   components: {
-    appointmentRequestsCard,
+    //appointmentDoctorCard
   },
+
   data() {
-    return {};
+    return {
+      pendingAppointments: []
+    };
   },
+
+  created: {
+    pendingAppointments() {
+      doctorService.GetAppointments()
+      .then((response) => {
+        this.pendingAppointments = response.data.filter(appt => {
+          return appt.status == 'pending';
+        });
+      });
+    }
+  }
 };
 </script>
 
