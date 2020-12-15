@@ -138,7 +138,7 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpPut("{userId}/getAppointments/respondToPending")] //Done
+        [HttpPut("respondToPending")] //Done
         public ActionResult RespondToPendingAppointment(Appointment appointment)
         {
             try

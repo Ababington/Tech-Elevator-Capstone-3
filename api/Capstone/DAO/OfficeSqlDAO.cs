@@ -45,7 +45,41 @@ namespace Capstone.DAO
 
         public List<Office> GetAllOffices()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Office> allOffices = new List<Office>();
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(
+                        @"select office.id, name, phone, streetAddress, streetAddress2, city, state, zip from doctor_day
+                        join office on office.id = doctor_day.officeId
+                        join office_address on office_address.officeId = office.id
+                        join addresses on addresses.addressId = office_address.addressId
+                        group by office.id, name, phone, streetAddress, streetAddress2, city, state, zip;", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Office o = new Office();
+                        o.OfficeId = Convert.ToInt32(reader["id"]);
+                        o.Name = Convert.ToString(reader["name"]);
+                        o.Phone = Convert.ToString(reader["phone"]);
+                        o.StreetAddress = Convert.ToString(reader["streetAddress"]);
+                        o.StreetAddress2 = Convert.ToString(reader["streetAddress2"]);
+                        o.City = Convert.ToString(reader["city"]);
+                        o.State = Convert.ToString(reader["state"]);
+                        o.Zip = Convert.ToString(reader["zip"]);
+
+                        allOffices.Add(o);
+                    }
+                }
+                return allOffices;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public List<Office> GetMyOffices(int doctorId)

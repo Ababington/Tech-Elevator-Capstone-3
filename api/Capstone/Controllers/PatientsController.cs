@@ -48,7 +48,26 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpGet("getOfficesByDoctor/{doctorId}")] //Done
+        [HttpGet("getOffices")]
+        public ActionResult<List<Office>> GetAllOffices()
+        {
+            try
+            {
+                List<Office> allOffices = officeDAO.GetAllOffices();
+                foreach(Office office in allOffices)
+                {
+                    office.DocsInOffice = doctorDAO.GetDoctorsByOffice(office.OfficeId);
+                }
+                return allOffices;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet("getOffices/{doctorId}")] //Done
         public ActionResult<List<Office>> GetOfficesByDoctor(int doctorId)
         {
             try
@@ -67,7 +86,7 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpGet("getOfficesByDoctor/{doctorId}/{officeId}")] //done
+        [HttpGet("getReviews/{officeId}")] //done
         public ActionResult <List<Review>> GetOfficeReviews(int officeId)
         {
            
@@ -142,7 +161,7 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpPost("{patient}/requestAppointment")] //done
+        [HttpPost("requestAppointment")] //done
         public ActionResult<Appointment> CreateAppointmentRequest(Appointment appointments)
         {
             try
