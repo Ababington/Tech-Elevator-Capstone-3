@@ -16,6 +16,8 @@ import viewSchedule from '../views/ViewSchedule.vue'
 import appointmentRequest from '../views/AppointmentRequest.vue'
 import DoctorsOffices from '../views/DoctorsOfficesView.vue'
 import doctorButtons from '../components/DoctorButtons.vue';
+import WriteAReview from '../views/WriteAReview'
+import AllDoctorPatient from '../views/AllDoctorPatient'
 import drMarioImg from '../components/DrMarioImg.vue';
 
 Vue.use(Router)
@@ -159,6 +161,22 @@ const router = new Router({
       path: `/patient/doctors/:id/offices`,
       name: DoctorsOffices,
       component: DoctorsOffices,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: `/patient/writeareview`,
+      name: WriteAReview,
+      component: WriteAReview,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: `/patient/alldoctors`,
+      name: AllDoctorPatient,
+      component: AllDoctorPatient,
       meta: {
         requiresAuth: true
       }
