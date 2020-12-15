@@ -1,16 +1,19 @@
 <template>
   <div class="doctorPage">
    <doctor-buttons/>
+   <notifications-list/>
   </div>
 </template>
 
 <script>
 
 import doctorButtons from '../components/DoctorButtons.vue';
+import NotificationsList from '../components/NotificationsList'
 
 export default {
   components:{
         doctorButtons,
+        NotificationsList
   },
   data() {
     return {

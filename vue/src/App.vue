@@ -5,8 +5,11 @@
     <router-link class="logoutBtn" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"></router-link>
     </div>
     <router-view />
+    
   </div>
 </template>
+
+
 
 <style scoped>
 #app{
