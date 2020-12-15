@@ -188,6 +188,35 @@ namespace Capstone.DAO
             }
         }
 
+        public List<Doctor> GetDoctorsByOffice(int officeId)
+        {
+            try
+            {
+                List<Doctor> docsInOffice = new List<Doctor>();
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(
+                        @" select userId, firstName, lastName, hourlyRate from doctor
+                        join doctor_day on doctor.userId=doctor_day.doctorId
+                        where officeId=@officeId
+                        group by userId, firstName, lastName, hourlyRate", conn);
+                    cmd.Parameters.AddWithValue("@officeId", officeId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Doctor doctorRead = GetDoctorFromReader(reader);
+                        docsInOffice.Add(doctorRead);
+                    }
+                    return docsInOffice;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public List<Doctor> GetOtherDoctorsInOffice(int officeId, int doctorId)
         {
             try
@@ -219,6 +248,7 @@ namespace Capstone.DAO
                 throw;
             }
         }
+
         private Doctor GetDoctorFromReader(SqlDataReader reader)
         {
             Doctor doctorRead = new Doctor()
