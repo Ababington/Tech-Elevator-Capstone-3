@@ -1,5 +1,7 @@
 <template>
+<div>
   <patient-review-form/>
+</div>
 </template>
 
 <script>

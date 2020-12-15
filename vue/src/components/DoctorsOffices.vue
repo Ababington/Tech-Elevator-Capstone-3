@@ -1,7 +1,7 @@
 <template>
 <div>
 <div v-for="office in offices" v-bind:key="office.id" v-bind:office="office">
-   <office-card>
+   <office-card/>
 
 </div>
 </div>
