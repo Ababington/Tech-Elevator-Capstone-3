@@ -13,7 +13,7 @@
 <input type="number" min="1" max="5" v-model="review.rating"> <br>
 
 <label for="message">Message: </label>
-<textarea rows="10" cols="50" v-model="office.message"><br>
+<textarea rows="10" cols="50" v-model="office.message"></textarea><br>
 
 <label for="anonymous">Do you want this review to be anonymous?</label>
 <select name="anonymous" v-model="review.anonymous">
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import patientService from '../services/PatientService.js'
+
 export default {
 
     data(){
@@ -48,14 +50,14 @@ export default {
     },
 
     created() {
-PatientService.getAllOffices().then((response) => {
+patientService.getAllOffices().then((response) => {
     this.offices = response.data;
 })
     },
 
     methods: {
         postReview(){
-            PatientService.PostNewReview(this.review).then((response) => {
+            patientService.PostNewReview(this.review).then((response) => {
                 if(response.status === 201){
                     this.review = [];
                 }

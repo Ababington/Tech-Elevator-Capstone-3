@@ -11,9 +11,9 @@
 <script>
 export default {
 
-    props: {
-        review
-    }
+    // props: {
+    //     review
+    // }
 
 }
 </script>

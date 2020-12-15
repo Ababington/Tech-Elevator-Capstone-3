@@ -1,5 +1,7 @@
 <template>
+<div>
   <all-doctors/>
+  </div>
 </template>
 
 <script>

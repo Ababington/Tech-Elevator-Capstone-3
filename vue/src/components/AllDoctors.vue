@@ -4,7 +4,7 @@
 
 <router-link v-bind:to="{name : 'doctorsOffices', params:{id: doctor.userId}}"> {{doctor.name}} </router-link>   
 
-
+</div>
 </div>
 </template>
 
