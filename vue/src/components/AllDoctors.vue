@@ -32,6 +32,6 @@ patientService.GetVerifiedDoctors().then((response) => {
 
 
 
-<style>
+<style >
 
 </style>

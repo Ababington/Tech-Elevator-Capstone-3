@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
   .admin-view-container {
     display: grid;
     grid-template-columns: 2fr, 1fr;

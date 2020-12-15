@@ -109,7 +109,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .hours{
   padding-top:60px ;
 }

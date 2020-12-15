@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 
 .patientOfficeCard {
     border: 2px solid black;

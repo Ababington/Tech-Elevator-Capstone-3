@@ -47,6 +47,6 @@ created(){
 }
 </script>
 
-<style>
+<style >
 
 </style>
