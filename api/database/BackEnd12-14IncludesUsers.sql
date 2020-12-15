@@ -432,7 +432,7 @@ INSERT INTO patient_address (addressId, patientId) VALUES ((select addressId fro
 
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('Zoltan', 'YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','patient');
 INSERT INTO patients (patientId, firstName, lastName, phone, email, dateOfBirth) VALUES ((select users.user_id from users where username = 'Zoltan'), 'Jesse', 'Montgomery', '9982103869', 'dudeSweet@gmail.com', '11/15/1970');
-INSERT INTO addresses (streetAddress, city, state, zip) VALUES ('231 japan ave','Britannia', 'PA', 12432);
+INSERT INTO addresses (streetAddress, city, state, zip) VALUES ('420 Andthen Lane','Ashton', 'PA', 12432);
 INSERT INTO patient_address (addressId, patientId) VALUES ((select addressId from addresses where streetAddress='231 japan ave'), (select users.user_id from users where username = 'Zoltan'));
 
 
@@ -473,24 +473,6 @@ INSERT INTO doctor_day (doctorId, dayId, officeId, startTime, endTime) VALUES ((
 INSERT INTO doctor_day (doctorId, dayId, officeId, startTime, endTime) VALUES ((select users.user_id from users where username = 'SuperMario64'), 3, (select id from office where name='Nintendo'), '9:00', '17:00');
 INSERT INTO doctor_day (doctorId, dayId, officeId, startTime, endTime) VALUES ((select users.user_id from users where username = 'SuperMario64'), 4, (select id from office where name='Nintendo'), '9:00', '17:00');
 INSERT INTO doctor_day (doctorId, dayId, officeId, startTime, endTime) VALUES ((select users.user_id from users where username = 'SuperMario64'), 5, (select id from office where name='Nintendo'), '9:00', '17:00');
-
-INSERT INTO users (username, password_hash, salt, user_role) VALUES ('AttackOnHospital', 'YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','doctor');
-INSERT INTO doctor (userId, hourlyRate, firstName, lastName) VALUES ((select users.user_id from users where username = 'AttackOnHospital'), '110.00', 'Rei', 'Takashima');
-INSERT INTO office (phone, name) VALUES ('8953321918', 'Clankers Cavern');
-INSERT INTO addresses (streetAddress, city, state, zip) VALUES ('321 Jiggy Lane', 'Spiral Mountain', 'BK', 99864);
-INSERT INTO office_address (addressId, officeId) VALUES ((select addressId from addresses where streetAddress='321 Jiggy Lane'), (select id from office where name='Clankers Cavern'));
-INSERT INTO office_day (officeId, dayId, startTime, endTime) VALUES ((select id from office where name='Clankers Cavern'), 1, '9:00', '17:00');
-INSERT INTO office_day (officeId, dayId, startTime, endTime) VALUES ((select id from office where name='Clankers Cavern'), 2, '9:00', '17:00');
-INSERT INTO office_day (officeId, dayId, startTime, endTime) VALUES ((select id from office where name='Clankers Cavern'), 3, '9:00', '17:00');
-INSERT INTO office_day (officeId, dayId, startTime, endTime) VALUES ((select id from office where name='Clankers Cavern'), 4, '9:00', '17:00');
-INSERT INTO office_day (officeId, dayId, startTime, endTime) VALUES ((select id from office where name='Clankers Cavern'), 5, '9:00', '17:00');
-INSERT INTO office_day (officeId, dayId, startTime, endTime) VALUES ((select id from office where name='Clankers Cavern'), 6, '10:00', '12:00');
-INSERT INTO office_day (officeId, dayId, startTime, endTime) VALUES ((select id from office where name='Clankers Cavern'), 7, '0:00', '0:00');
-INSERT INTO doctor_day (doctorId, dayId, officeId, startTime, endTime) VALUES ((select users.user_id from users where username = 'AttackOnHospital'), 1, (select id from office where name='Clankers Cavern'), '8:00', '17:00');
-INSERT INTO doctor_day (doctorId, dayId, officeId, startTime, endTime) VALUES ((select users.user_id from users where username = 'AttackOnHospital'), 2, (select id from office where name='Clankers Cavern'), '8:00', '17:00');
-INSERT INTO doctor_day (doctorId, dayId, officeId, startTime, endTime) VALUES ((select users.user_id from users where username = 'AttackOnHospital'), 3, (select id from office where name='Clankers Cavern'), '8:00', '17:00');
-INSERT INTO doctor_day (doctorId, dayId, officeId, startTime, endTime) VALUES ((select users.user_id from users where username = 'AttackOnHospital'), 4, (select id from office where name='Clankers Cavern'), '8:00', '17:00');
-INSERT INTO doctor_day (doctorId, dayId, officeId, startTime, endTime) VALUES ((select users.user_id from users where username = 'AttackOnHospital'), 5, (select id from office where name='Clankers Cavern'), '8:00', '17:00');
 
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('DMWonderful', 'YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','doctor');
 INSERT INTO doctor (userId, hourlyRate, firstName, lastName) VALUES ((select users.user_id from users where username = 'DMWonderful'), '110.00', 'Rei', 'Takashima');
