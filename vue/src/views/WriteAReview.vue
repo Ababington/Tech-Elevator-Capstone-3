@@ -17,7 +17,7 @@ export default {
 
 <style >
 .writeReviewImg{
-        background-image:url("../img/chansey.jpg");
+        background-image:url("../img/chansey2.jpg");
         padding: 50px;
        background-size:cover;
         background-attachment: fixed;
