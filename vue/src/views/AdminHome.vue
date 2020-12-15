@@ -27,4 +27,12 @@ export default {
   .office-info-container {
    margin:20px;
   }
+  .admin-view-container{
+        background-image:url("../img/drmario.jpg");
+       background-size:cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        padding:25px ;
+        height: 1500px;
+}
 </style>
