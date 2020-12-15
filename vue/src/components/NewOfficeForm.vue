@@ -1,7 +1,7 @@
 <template>
-
+<div>
   <form v-on:submit.prevent="CreateNewOffice()">
-    <div>Hello</div>
+    <h3>Create New Office Form:</h3><br>
 
     <label for="name">Name: </label>
     <input type="text" required v-model="office.name" /><br />
@@ -54,6 +54,7 @@
 
     <button type="submit">Create Office</button>
   </form>
+</div>
 </template>
 
 <script>

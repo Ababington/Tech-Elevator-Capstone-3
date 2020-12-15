@@ -1,6 +1,6 @@
 <template>
   <div class="admin-view-container">
-      <h1>Home</h1>
+      <h1>Admin Home</h1>
       <div class="office-info-container">
         <new-office-form/>
       </div>
@@ -23,16 +23,8 @@ export default {
 </script>
 
 <style >
-  .admin-view-container {
-    display: grid;
-    grid-template-columns: 2fr, 1fr;
-    grid-template-areas: 
-      "office-info register-doctor";
-  }
+  
   .office-info-container {
-    grid-area: "office-info"
-  }
-  .register-doctor-container {
-    grid-area: "register-doctor"
+   margin:20px;
   }
 </style>
