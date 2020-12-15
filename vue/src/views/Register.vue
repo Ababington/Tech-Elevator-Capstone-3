@@ -42,13 +42,19 @@
         Create Account
       </button>
     </form>
+    <dr-mario-img/>
   </div>
 </template>
 
 <script>
 import authService from '../services/AuthService';
+import drMarioImg from '../components/DrMarioImg.vue'
 
 export default {
+    components:{
+    drMarioImg
+  },
+
   name: 'register',
   data() {
     return {
@@ -96,4 +102,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>
