@@ -13,7 +13,7 @@ import officeInfo from '../views/OfficeInfo.vue'
 import patientOfficeInfo from '../views/PatientOfficeInfo.vue'
 import officePageInfo from '../views/officePageInfo.vue'
 import viewSchedule from '../views/ViewSchedule.vue'
-import appointmentRequest from '../views/AppointmentRequest.vue'
+import appointmentRequestsFromPatients from '../views/AppointmentRequestsFromPatients.vue'
 import doctorsOffices from '../views/DoctorsOfficesView.vue'
 import doctorButtons from '../components/DoctorButtons.vue'
 import writeAReview from '../views/WriteAReview.vue'
@@ -109,9 +109,9 @@ const router = new Router({
       }
     },
     {
-      path: "/appointmentRequest",
+      path: "/appointmentRequestsFromPatients",
       name: "appointmentRequest",
-      component: appointmentRequest,
+      component: appointmentRequestsFromPatients,
       meta: {
         requiresAuth: false
       }
