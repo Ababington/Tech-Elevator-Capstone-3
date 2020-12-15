@@ -1,27 +1,38 @@
 <template>
   <div class="doctorPage">
-   <doctor-buttons/>
+    <doctor-buttons/>
+   <notifications-list v-if="pending_appointments.length > 0"></notifications-list>
   </div>
 </template>
 
 <script>
 
 import doctorButtons from '../components/DoctorButtons.vue';
+import NotificationsList from '../components/NotificationsList';
+import DoctorService from '../services/DoctorService'
 
 export default {
   components:{
         doctorButtons,
+        NotificationsList
   },
   data() {
     return {
-      appointment: [],
+      pending_appointments: [],
+      appointments: [],
       office: [],
       review: [],
       docDay_office: [],
     };
   },
   methods:{
-      appointments(){
+
+      getPendingAppointments(){
+        return this.appointments.filter((appointment) => {
+          return appointment.status == "pending";
+        })
+      },
+         appointments(){
           this.$router.push("pathgoeshere");
       },
       officeInfo(){
@@ -33,6 +44,16 @@ export default {
       schedule(){
           this.$router.push("pathgoeshere");
       }
+       
+      },
+
+  created(){
+    DoctorService.GetAppointments(this.$store.state.user.userId).then((response) => {
+      this.appointments = response.data;
+      this.pending_appointments = this.getPendingAppointments();
+    }).catch((error) => {
+      error.status;
+    })
   }
 };
 
