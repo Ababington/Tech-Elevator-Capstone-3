@@ -1,6 +1,6 @@
 <template>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <div v-if="show" class="alert alert-success alert-dismissible fade show" role="alert">
+      <button v-on:click="show = false" type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
         You have a new appointment!
@@ -9,6 +9,12 @@
 
 <script>
 export default {
+
+  data(){
+    return{
+      show: true
+    }
+  }
 
 }
 </script>

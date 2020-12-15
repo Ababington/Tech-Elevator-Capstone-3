@@ -21,8 +21,8 @@ export default {
     return axios.get(`/doctor/myOffices/${office.id}/reviews/responses`); //returns array of responses
   },
 
-  GetAppointments() {
-    return axios.get('/doctor/getAppointments'); //returns array of appointments (pending && approved --maybe split up?)
+  GetAppointments(doctorId) {
+    return axios.get(`/doctor/${doctorId}/getAppointments`); //returns array of appointments (pending && approved --maybe split up?)
   },
 
   RespondToPendingAppointment(appointment) {
