@@ -26,7 +26,7 @@ export default {
     },
 
     GetAllDoctors() {
-        return axios.get('/patients/doctorsList');
+        return axios.get('/patients/getDoctors');
     },
 
     GetMyAppointments(patient) {

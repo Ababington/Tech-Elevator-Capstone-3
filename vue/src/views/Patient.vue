@@ -1,10 +1,6 @@
 <template>
 <div class='patient'>
-    <div v-for="patient in patient" v-bind:key="patient.id"></div>
     <patient-buttons/>
-    <router-link v-bind:to="{name: 'patientOfficeInfo'}"><button class="patientOfficeInfo" v-on:click="patientOfficeInfo">Office Info</button></router-link>
-    <router-link v-bind:to="{name: 'reviews'}"><button class="doctorReviews" v-on:click="reviews">Office Reviews</button></router-link>
-
     <appointment-form/>
 </div>
 </template>
