@@ -164,7 +164,7 @@ export default {
         
   height: 22px;
   width: 100px;
-  top:18.1%;
+  top:20.2%;
   left:55%;
   position: absolute;
   transform: translate(-50%, -50%);
