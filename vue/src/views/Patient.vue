@@ -27,7 +27,7 @@ export default {
 .patient{
         background-image:url("../img/chansey.jpg");
         padding: 50px;
-       background-size:cover%;
+       background-size:cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
         height: 945px;
