@@ -166,7 +166,7 @@ const router = new Router({
       }
     },
     {
-      path: `/patient/writeareview`,
+      path: `/patient/WriteAReview`,
       name: WriteAReview,
       component: WriteAReview,
       meta: {
