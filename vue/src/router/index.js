@@ -14,11 +14,12 @@ import patientOfficeInfo from '../views/PatientOfficeInfo.vue'
 import officePageInfo from '../views/officePageInfo.vue'
 import viewSchedule from '../views/ViewSchedule.vue'
 import appointmentRequest from '../views/AppointmentRequest.vue'
-import DoctorsOffices from '../views/DoctorsOfficesView.vue'
-import doctorButtons from '../components/DoctorButtons.vue';
-import WriteAReview from '../views/WriteAReview'
-import AllDoctorPatient from '../views/AllDoctorPatient'
-import drMarioImg from '../components/DrMarioImg.vue';
+import doctorsOffices from '../views/DoctorsOfficesView.vue'
+import doctorButtons from '../components/DoctorButtons.vue'
+import writeAReview from '../views/WriteAReview.vue'
+import allDoctorPatient from '../views/AllDoctorPatient.vue'
+import drMarioImg from '../components/DrMarioImg.vue'
+import patientReviewForm from '../components/PatientReviewForm.vue'
 
 Vue.use(Router)
 
@@ -159,24 +160,32 @@ const router = new Router({
     },
     {
       path: `/patient/doctors/:id/offices`,
-      name: DoctorsOffices,
-      component: DoctorsOffices,
+      name: `DoctorsOffices`,
+      component: doctorsOffices,
       meta: {
         requiresAuth: true
       }
     },
     {
-      path: `/patient/WriteAReview`,
-      name: WriteAReview,
-      component: WriteAReview,
+      path: "/writeAReview",
+      name: "writeAReview",
+      component: writeAReview,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
-      path: `/patient/alldoctors`,
-      name: AllDoctorPatient,
-      component: AllDoctorPatient,
+      path: "/patientReviewForm",
+      name: "patientReviewForm",
+      component: patientReviewForm,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "allDoctorPatient",
+      name: "allDoctorPatient",
+      component: allDoctorPatient,
       meta: {
         requiresAuth: true
       }

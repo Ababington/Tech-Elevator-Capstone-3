@@ -4,7 +4,8 @@
     <!--v-on:submit.prevent="ApproveDoctorUser()"-->
    
       <div v-for="doctor in doctors" v-bind:key="doctor.id">
-        {{ doctor.username }}
+        {{ doctor.username }} 
+        {{returnDoctorStatus(doctor)}}
        
         
       </div>
@@ -17,6 +18,7 @@
 import adminService from "../services/AdminService";
 
 export default {
+ 
   data() {
     return {
       doctors: [],
@@ -28,6 +30,19 @@ export default {
       })
     },
   methods: {
+    returnDoctorStatus(doctor){
+      if(doctor.role == "doctor"){
+        return "Not Activated"
+      }
+      else if(doctor.role == "doctorVerified")
+    {
+      return "Activated"
+    }
+    else{
+      return "Check Me"
+    }
+    
+    },
     
     // ApproveDoctorUser() {
     //   adminService.ApproveDoctorUser(this.doctor).then((response) => {

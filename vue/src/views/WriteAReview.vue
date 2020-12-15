@@ -1,19 +1,27 @@
 <template>
-<div>
+<div class="writeReviewImg">
   <patient-review-form/>
 </div>
 </template>
 
 <script>
-import PatientReviewForm from "../components/PatientReviewForm"
+import patientReviewForm from '../components/PatientReviewForm';
+
 export default {
     components:{
-        PatientReviewForm
+        patientReviewForm
     }
 
 }
 </script>
 
-<style scoped>
-
+<style >
+.writeReviewImg{
+        background-image:url("../img/chansey.jpg");
+        padding: 50px;
+       background-size:cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        height: 945px;
+        }
 </style>
