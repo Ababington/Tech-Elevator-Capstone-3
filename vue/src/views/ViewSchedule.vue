@@ -52,7 +52,6 @@ created(){
        background-size:150%;
         background-repeat: no-repeat;
         background-image: fixed;
-        height: 670px;
         width: 470px;
         margin: 50px;
         padding:10px;

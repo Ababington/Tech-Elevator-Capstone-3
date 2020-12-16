@@ -24,7 +24,7 @@
         <input name="time" type="time" v-model="appointment.time">
         <br/><br/>
 
-        <button type="submit">Submit Appointment Request</button>
+        <button type="submit" class="appointmentSubmit">Submit Appointment Request</button>
     </form>
 </template>
 
@@ -103,4 +103,20 @@ export default {
         margin-left:270px;
         margin-top:125px ;
 }
+[class="appointmentSubmit"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 100%;
+  background:#CC6666;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+[class="appointmentSubmit"]:hover { background:#CC4949; }
 </style>

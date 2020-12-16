@@ -88,9 +88,22 @@ export default {
 </script>
 
 <style>
-.postReview{
-  margin-top: 20px;
+[class="postReview"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 100%;
+  background:#CC6666;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:20px;
+  font-weight:700;
 }
+[class="postReview"]:hover { background:#CC4949; }
 .reviewForm{
     border: 2px solid black;
     border-radius: 10px;

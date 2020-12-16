@@ -1,10 +1,10 @@
 <template>
   <div class="doctor">
     <h1 class="doctorHomePageTitle"></h1>
-    <router-link v-bind:to="{name: 'appointmentRequest'}"><button  class="doctorAppointmentRequest" v-on:click="appointmentRequest"></button></router-link>
-    <router-link v-bind:to="{name: 'officeInfo'}"><button class="doctorOfficeBtn" v-on:click="officeInfo"></button></router-link>
-    <router-link v-bind:to="{name: 'doctorReviews'}"><button class="doctorReviews" v-on:click="doctorReviews"></button></router-link>
-    <router-link v-bind:to="{name: 'viewSchedule'}"><button class="doctorViewSchedule" v-on:click="viewSchedule"></button></router-link>
+    <router-link v-bind:to="{name: 'appointmentRequest'}"><button  class="doctorAppointmentRequest" ></button></router-link>
+    <router-link v-bind:to="{name: 'officeInfo'}"><button class="doctorOfficeBtn" ></button></router-link>
+    <router-link v-bind:to="{name: 'doctorReviews'}"><button class="doctorReviews"></button></router-link>
+    <router-link v-bind:to="{name: 'viewSchedule'}"><button class="doctorViewSchedule" ></button></router-link>
 
   <doctor-info/>
 
