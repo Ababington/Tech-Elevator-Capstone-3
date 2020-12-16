@@ -169,48 +169,55 @@ namespace Capstone.Controllers
                 DayOfWeek day = appointment.Date.DayOfWeek;
                 string dayString = Convert.ToString(day);
                 Doctor doctor = doctorDAO.GetmyInfo(appointment.DoctorId);
+                TimeSpan appointmentTime = new TimeSpan(0, 30, 0);
                 bool isWorking = false;
                 if(dayString == "Monday")
                 {
-                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Monday.Start) <= Convert.ToInt32(appointment.Time)
-                        && Convert.ToInt32(doctor.WeeklyHours.Monday.End) >= Convert.ToInt32(appointment.Time);
+                    int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Monday.Start, appointment.Time);
+                    int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Monday.End, appointment.Time.Add(appointmentTime));
+                    isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
                 }
                 else if (dayString == "Tuesday")
                 {
-                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Tuesday.Start) <= Convert.ToInt32(appointment.Time)
-                        && Convert.ToInt32(doctor.WeeklyHours.Tuesday.End) >= Convert.ToInt32(appointment.Time);
+                    int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Tuesday.Start, appointment.Time);
+                    int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Tuesday.End, appointment.Time.Add(appointmentTime));
+                    isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
                 }
                 else if (dayString == "Wednesday")
                 {
-                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Wednesday.Start) <= Convert.ToInt32(appointment.Time)
-                        && Convert.ToInt32(doctor.WeeklyHours.Wednesday.End) >= Convert.ToInt32(appointment.Time);
+                    int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Wednesday.Start, appointment.Time);
+                    int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Wednesday.End, appointment.Time.Add(appointmentTime));
+                    isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
                 }
                 else if (dayString == "Thursday")
                 {
-                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Thursday.Start) <= Convert.ToInt32(appointment.Time)
-                        && Convert.ToInt32(doctor.WeeklyHours.Thursday.End) >= Convert.ToInt32(appointment.Time);
+                    int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Thursday.Start, appointment.Time);
+                    int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Thursday.End, appointment.Time.Add(appointmentTime));
+                    isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
                 }
                 else if (dayString == "Friday")
                 {
-                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Friday.Start) <= Convert.ToInt32(appointment.Time)
-                        && Convert.ToInt32(doctor.WeeklyHours.Friday.End) >= Convert.ToInt32(appointment.Time);
+                    int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Friday.Start, appointment.Time);
+                    int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Friday.End, appointment.Time.Add(appointmentTime));
+                    isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
                 }
                 else if (dayString == "Saturday")
                 {
-                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Saturday.Start) <= Convert.ToInt32(appointment.Time)
-                        && Convert.ToInt32(doctor.WeeklyHours.Saturday.End) >= Convert.ToInt32(appointment.Time);
+                    int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Saturday.Start, appointment.Time);
+                    int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Saturday.End, appointment.Time.Add(appointmentTime));
+                    isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
                 }
                 else
                 {
-                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Sunday.Start) <= Convert.ToInt32(appointment.Time)
-                        && Convert.ToInt32(doctor.WeeklyHours.Sunday.End) >= Convert.ToInt32(appointment.Time);
+                    int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Sunday.Start, appointment.Time);
+                    int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Sunday.End, appointment.Time.Add(appointmentTime));
+                    isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
                 }
 
                 if(isWorking)
                 {
                     List<Appointment> docAppts = appointmentDAO.GetAppointmentsByDoctor(appointment.DoctorId);
                     bool isAvailable = true;
-                    TimeSpan appointmentTime = new TimeSpan(0, 30, 0);
                     foreach(Appointment a in docAppts)
                     {
                         if ( (a.Time >= appointment.Time && a.Time < appointment.Time.Add(appointmentTime)) || 
