@@ -87,8 +87,9 @@ namespace Capstone.DAO
                     if (doctorRead != null)
                     {
                         cmd = new SqlCommand(
-                            @"select day, startTime, endTime from doctor_day
+                            @"select day, startTime, endTime, office.id, office.name from doctor_day
                             join daysOfTheWeek on daysOfTheWeek.dayId=doctor_day.dayId
+							join office on doctor_day.officeId=office.id
                             where doctorId = @userId", conn);
                         cmd.Parameters.AddWithValue("@userId", id);
                         reader = cmd.ExecuteReader();
@@ -99,36 +100,50 @@ namespace Capstone.DAO
                                 string placeholder = Convert.ToString(reader["day"]);
                                 doctorRead.WeeklyHours.Monday.Start = reader.GetTimeSpan(1);
                                 doctorRead.WeeklyHours.Monday.End = reader.GetTimeSpan(2);
+                                doctorRead.WeeklyHours.Monday.OfficeOfDay.OfficeId = Convert.ToInt32(reader["id"]);
+                                doctorRead.WeeklyHours.Monday.OfficeOfDay.Name = Convert.ToString(reader["name"]);
                             }
                             if(Convert.ToString(reader["day"]) == "Tuesday")
                             {
                                 doctorRead.WeeklyHours.Tuesday.Start = reader.GetTimeSpan(1);
                                 doctorRead.WeeklyHours.Tuesday.End = reader.GetTimeSpan(2);
+                                doctorRead.WeeklyHours.Tuesday.OfficeOfDay.OfficeId = Convert.ToInt32(reader["id"]);
+                                doctorRead.WeeklyHours.Tuesday.OfficeOfDay.Name = Convert.ToString(reader["name"]);
                             }
                             if (Convert.ToString(reader["day"]) == "Wednesday")
                             {
                                 doctorRead.WeeklyHours.Wednesday.Start = reader.GetTimeSpan(1);
                                 doctorRead.WeeklyHours.Wednesday.End = reader.GetTimeSpan(2);
+                                doctorRead.WeeklyHours.Wednesday.OfficeOfDay.OfficeId = Convert.ToInt32(reader["id"]);
+                                doctorRead.WeeklyHours.Wednesday.OfficeOfDay.Name = Convert.ToString(reader["name"]);
                             }
                             if (Convert.ToString(reader["day"]) == "Thursday")
                             {
                                 doctorRead.WeeklyHours.Thursday.Start = reader.GetTimeSpan(1);
                                 doctorRead.WeeklyHours.Thursday.End = reader.GetTimeSpan(2);
+                                doctorRead.WeeklyHours.Thursday.OfficeOfDay.OfficeId = Convert.ToInt32(reader["id"]);
+                                doctorRead.WeeklyHours.Thursday.OfficeOfDay.Name = Convert.ToString(reader["name"]);
                             }
                             if (Convert.ToString(reader["day"]) == "Friday")
                             {
                                 doctorRead.WeeklyHours.Friday.Start = reader.GetTimeSpan(1);
                                 doctorRead.WeeklyHours.Friday.End = reader.GetTimeSpan(2);
+                                doctorRead.WeeklyHours.Friday.OfficeOfDay.OfficeId = Convert.ToInt32(reader["id"]);
+                                doctorRead.WeeklyHours.Friday.OfficeOfDay.Name = Convert.ToString(reader["name"]);
                             }
                             if (Convert.ToString(reader["day"]) == "Saturday")
                             {
                                 doctorRead.WeeklyHours.Saturday.Start = reader.GetTimeSpan(1);
                                 doctorRead.WeeklyHours.Saturday.End = reader.GetTimeSpan(2);
+                                doctorRead.WeeklyHours.Saturday.OfficeOfDay.OfficeId = Convert.ToInt32(reader["id"]);
+                                doctorRead.WeeklyHours.Saturday.OfficeOfDay.Name = Convert.ToString(reader["name"]);
                             }
                             if (Convert.ToString(reader["day"]) == "Sunday")
                             {
                                 doctorRead.WeeklyHours.Sunday.Start = reader.GetTimeSpan(1);
                                 doctorRead.WeeklyHours.Sunday.End = reader.GetTimeSpan(2);
+                                doctorRead.WeeklyHours.Sunday.OfficeOfDay.OfficeId = Convert.ToInt32(reader["id"]);
+                                doctorRead.WeeklyHours.Sunday.OfficeOfDay.Name = Convert.ToString(reader["name"]);
                             }
                         }
 
