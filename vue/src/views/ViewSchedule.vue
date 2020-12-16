@@ -1,13 +1,13 @@
 <template>
-  <div> 
+  <div class="schedule-Info"> 
 
     <h1 class="scheduleTitle"></h1>
 
-    
-    <router-link v-bind:to="{name: 'doctor'}"><button id="doctorViewScheduleHere" v-on:click="doctor" ></button></router-link>
-    <router-link v-bind:to="{name: 'officeInfo'}"><button class="officeViewScheduleOffice" v-on:click="officeInfo"></button></router-link>
-    <router-link v-bind:to="{name: 'doctorReviews'}"><button class="reviewsViewScheduleHere" v-on:click="doctorReviews"></button></router-link>
-    <router-link v-bind:to="{name: 'appointmentRequest'}"><button class="apptViewSchedule" v-on:click="appointmentRequest"></button></router-link>
+
+    <router-link v-bind:to="{name: 'doctor'}"><button id="doctorViewScheduleHere"></button></router-link>
+    <router-link v-bind:to="{name: 'officeInfo'}"><button class="officeViewScheduleOffice"></button></router-link>
+    <router-link v-bind:to="{name: 'doctorReviews'}"><button class="reviewsViewScheduleHere"></button></router-link>
+    <router-link v-bind:to="{name: 'appointmentRequest'}"><button class="apptViewSchedule"></button></router-link>
     
     
        <div class="appointmentList">My Appointment List:</div>
