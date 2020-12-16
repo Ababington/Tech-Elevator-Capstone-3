@@ -25,9 +25,13 @@
 
 <button type="submit" v-on:click="createSchedule">Submit Schedule</button>
 
-<div for="costPerHour">Cost Per Hour</div><br>
+<div for="costPerHour"><b>Cost Per Hour:</b></div>
 <input type="number" v-model="this.doctor.hourlyRate"/>
+<<<<<<< HEAD
 <button type="submit" v-on:click="updateHourlyRate">Confirm Hourly Rate</button>
+=======
+<button class="updateHourlyRateBtn" type="submit" v-on:click="updateHourlyRate()">Confirm Hourly Rate</button>
+>>>>>>> 3275ac740caf558bdea8fa1744b61a983f91cfc7
 </div>
 
 
@@ -122,6 +126,20 @@ export default {
 
 <style >
 .hours{
-  padding-top:60px ;
+  border: 2px solid black;
+  background-image: linear-gradient(to bottom right,rgb(218, 236, 53), rgb(255, 255, 255));
+  font-weight:bold;
+  text-align: right;
+  width: 380px;
+  margin-left: 200px;
+  margin-top: 150px;
+  padding: 20px;
+}
+.createScheduleBtn{
+  margin-top:5px;
+  margin-bottom:50px;
+}
+.updateHourlyRateBtn{
+  margin-top:5px;
 }
 </style>
