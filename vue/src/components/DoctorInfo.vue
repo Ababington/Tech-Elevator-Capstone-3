@@ -1,5 +1,6 @@
 <template>
 <div class="hours">
+<form v-on:submit.prevent="updateInfo()">
   <div for="officeHours">Doctors Available Hours: </div><br>
 <label for="monday">Monday</label>
 <input for="monday" type ="time" v-model="this.doctor.weeklyHours.monday.start"/>
@@ -23,15 +24,13 @@
 <input for="sunday" type ="time" v-model="this.doctor.weeklyHours.sunday.start"/>
 <input for="sunday" type ="time" v-model="this.doctor.weeklyHours.sunday.end"/><br>
 
-<button type="submit" v-on:click="createSchedule">Submit Schedule</button>
 
 <div for="costPerHour"><b>Cost Per Hour:</b></div>
 <input type="number" v-model="this.doctor.hourlyRate"/>
-<<<<<<< HEAD
-<button type="submit" v-on:click="updateHourlyRate">Confirm Hourly Rate</button>
-=======
-<button class="updateHourlyRateBtn" type="submit" v-on:click="updateHourlyRate()">Confirm Hourly Rate</button>
->>>>>>> 3275ac740caf558bdea8fa1744b61a983f91cfc7
+
+
+<button class="updatemyinfo" type="submit">Update My Information</button>
+</form>
 </div>
 
 
@@ -88,7 +87,7 @@ export default {
       HourlyRate: "",
       FirstName: "",
       LastName: "",
-      User_Role: "",
+      user_Role: "",
       
       }
       
@@ -104,12 +103,14 @@ export default {
         }
       }) 
     },
-    updateHourlyRate(){
-      doctorService.hourlyRate(this.doctor)
+    updateInfo(){
+      doctorService.UpdateMyInfo(this.doctor)
       .then(response => {
         if(response.status === 200)
         {
-          this.doctor = [];
+          this.doctor = doctorService.GetMyInfo(this.$store.state.user.userId).then((response) => {
+        this.doctor = response.data;
+      });
         }
       })
     }
@@ -135,11 +136,9 @@ export default {
   margin-top: 150px;
   padding: 20px;
 }
-.createScheduleBtn{
-  margin-top:5px;
-  margin-bottom:50px;
+.updatemyinfo{
+  margin-top:15px;
+  margin-bottom:5px;
 }
-.updateHourlyRateBtn{
-  margin-top:5px;
-}
+
 </style>
