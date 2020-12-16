@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1 class="patientHomePageTitle"></h1>
-<router-link v-bind:to="{name: 'writeAReview'}" ><button class="patientWriteReview" v-on:click="writeAReview"></button></router-link>
-<router-link v-bind:to="{name: 'patientOfficeInfo'}"><button class="patientOfficeInfoBtn" v-on:click="patientOfficeInfo"></button></router-link>
+<router-link v-bind:to="{name: 'writeAReview'}" ><button class="patientWriteReview"></button></router-link>
+<router-link v-bind:to="{name: 'patientOfficeInfo'}"><button class="patientOfficeInfoBtn"></button></router-link>
 
     </div>
 </template>
