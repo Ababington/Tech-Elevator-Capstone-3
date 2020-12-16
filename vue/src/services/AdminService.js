@@ -10,7 +10,7 @@ export default {
     return axios.post('/admin/createNewOffice', office);
   },
 
-  ApproveDoctorUser(doctor) {
-    return axios.push('/admin/approveDoctorUser', doctor);
+  ChangeDoctorStatus(doctor) {
+    return axios.put('/admin/approveDoctorUser', doctor);
   }
 }

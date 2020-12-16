@@ -1,33 +1,33 @@
 <template>
 <div class="hours">
-  <div for="officeHours">Doctors Available Hours: </div><br>
-<label for="monday">Monday</label>
+  <div for="officeHours"><b>Doctors Available Hours: </b></div><br>
+<label for="monday">Monday:</label>
 <input for="monday" type ="time" v-model="this.office.monday.start"/>
 <input for="monday" type ="time" v-model="this.office.monday.end"/><br>
-<label for="tuesday">Tuesday</label>
+<label for="tuesday">Tuesday:</label>
 <input for="tueday" type ="time" v-model="this.office.tuesday.start"/>
 <input for="tueday" type ="time" v-model="this.office.tuesday.end"/><br>
-<label for="wednesday">Wednesday</label>
+<label for="wednesday">Wednesday:</label>
 <input for="wednesday" type ="time" v-model="this.office.wednesday.start"/>
 <input for="wednesday" type ="time" v-model="this.office.wednesday.end"/><br>
-<label for="thursday">Thursday</label>
+<label for="thursday">Thursday:</label>
 <input for="thursday" type ="time" v-model="this.office.thursday.start"/>
 <input for="thursday" type ="time" v-model="this.office.thursday.end"/><br>
-<label for="friday">Friday</label>
+<label for="friday">Friday:</label>
 <input for="friday" type ="time" v-model="this.office.friday.start"/>
 <input for="friday" type ="time" v-model="this.office.friday.end"/><br>
-<label for="saturday">Saturday</label>
+<label for="saturday">Saturday:</label>
 <input for="saturday" type ="time" v-model="this.office.saturday.start"/>
 <input for="saturday" type ="time" v-model="this.office.saturday.end"/><br>
-<label for="sunday">Sunday</label>
+<label for="sunday">Sunday:</label>
 <input for="sunday" type ="time" v-model="this.office.sunday.start"/>
 <input for="sunday" type ="time" v-model="this.office.sunday.end"/><br>
 
-<button type="submit" v-on:click="createSchedule()">Submit Schedule</button>
+<button class="createScheduleBtn" type="submit" v-on:click="createSchedule()">Submit Schedule</button><br>
 
-<div for="costPerHour">Cost Per Hour</div><br>
+<div for="costPerHour"><b>Cost Per Hour:</b></div>
 <input type="number" v-model="this.doctor.hourlyRate"/>
-<button type="submit" v-on:click="updateHourlyRate()">Confirm Hourly Rate</button>
+<button class="updateHourlyRateBtn" type="submit" v-on:click="updateHourlyRate()">Confirm Hourly Rate</button>
 </div>
 
 
@@ -111,6 +111,20 @@ export default {
 
 <style >
 .hours{
-  padding-top:60px ;
+  border: 2px solid black;
+  background-image: linear-gradient(to bottom right,rgb(218, 236, 53), rgb(255, 255, 255));
+  font-weight:bold;
+  text-align: right;
+  width: 380px;
+  margin-left: 200px;
+  margin-top: 150px;
+  padding: 20px;
+}
+.createScheduleBtn{
+  margin-top:5px;
+  margin-bottom:50px;
+}
+.updateHourlyRateBtn{
+  margin-top:5px;
 }
 </style>

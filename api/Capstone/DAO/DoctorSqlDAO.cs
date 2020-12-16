@@ -17,14 +17,15 @@ namespace Capstone.DAO
         }
       
 
-        public int ApproveDoctorUser (Doctor doctor)
+        public int ChangeDoctorUserStatus(Doctor doctor)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("update users set user_role = 'doctorVerified' where user_id = @user_id;", conn);
+                    SqlCommand cmd = new SqlCommand("update users set user_role = @doctor_status where user_id = @user_id;", conn);
+                    cmd.Parameters.AddWithValue("@doctor_status", doctor.User_Role);
                     cmd.Parameters.AddWithValue("@user_id", doctor.UserId);
 
                     int result = cmd.ExecuteNonQuery();

@@ -2,14 +2,14 @@
   <div>
     <h2 class="doctorsList">Doctors List:</h2>
     
-    <div v-on:submit.prevent="ApproveDoctorUser()">
+   
       <div v-for="doctor in doctors" v-bind:key="doctor.id">
         <label class="doctorUserName">{{ doctor.username }}</label>
         <label class="doctorStatus">{{returnDoctorStatus(doctor)}}</label>
-        <button class="activateBtn" type="submit" >Activate</button>
-        <button class="deactivateBtn" type="submit">Deactivate</button>
+        <button class="activateBtn" type="submit" v-if="doctor.role =='doctor'" v-on:click="doctor.user_role='doctorVerified';ChangeDoctorStatus(doctor)">Activate</button>
+        <button class="deactivateBtn" type="submit" v-if="doctor.role =='doctorVerified'" v-on:click="doctor.user_role='doctor';ChangeDoctorStatus(doctor)">Deactivate</button>
       </div>
-    </div>
+    
    
   </div>
 </template>
@@ -29,7 +29,7 @@ export default {
         this.doctors = response.data;
       })
     },
-  methods: {
+  methods:{
     returnDoctorStatus(doctor){
       if(doctor.role == "doctor"){
         return "Not Activated"
@@ -44,11 +44,13 @@ export default {
     
     },
     
-    ApproveDoctorUser() {
-      adminService.ApproveDoctorUser(this.doctor).then((response) => {
+    ChangeDoctorStatus(doctor) {
+      adminService.ChangeDoctorStatus(doctor).then((response) => {
         if (response.status === 200 || response.status === 201) {
           alert("Doctor Status Confirmed");
-          this.$router.push("adminHome");
+          adminService.GetPendingDoctors().then((response) => {
+        this.doctors = response.data;
+      })
         }
       });
     }, 

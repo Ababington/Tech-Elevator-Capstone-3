@@ -32,9 +32,6 @@ export default {
           return appointment.status == "pending";
         })
       },
-         appointments(){
-          this.$router.push("pathgoeshere");
-      },
       officeInfo(){
           this.$router.push("pathgoeshere");
       },

@@ -87,7 +87,7 @@ namespace Capstone.Controllers
         {
             try
             {
-                int approvedoc = doctorDAO.ApproveDoctorUser(doctor);
+                int approvedoc = doctorDAO.ChangeDoctorUserStatus(doctor);
                 if (approvedoc == 1)
                 {
                     return Ok(doctor);
