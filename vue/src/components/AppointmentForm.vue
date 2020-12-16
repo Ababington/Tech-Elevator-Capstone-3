@@ -30,7 +30,7 @@ export default {
     data(){
         return{
             appointment: {
-                userId: '',
+                patientId: '',
                 doctorId: '',
                 message: '',
                 date: '',
@@ -61,7 +61,7 @@ export default {
     },
 
     created(){
-      this.appointment.userId = this.getUserId();
+      this.appointment.patientId = this.getUserId();
       patientService.GetAllDoctors()
       .then((response) => {
           this.doctors = response.data;
