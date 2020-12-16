@@ -9,5 +9,6 @@ namespace Capstone.Models
     {
         public TimeSpan Start { get; set; }
         public TimeSpan End { get; set; }
+        public Office OfficeOfDay { get; set; } = new Office();
     }
 }

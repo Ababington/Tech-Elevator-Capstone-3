@@ -176,42 +176,71 @@ namespace Capstone.Controllers
                     int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Monday.Start, appointment.Time);
                     int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Monday.End, appointment.Time.Add(appointmentTime));
                     isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
+                    if (isWorking)
+                    {
+                        appointment.OfficeId = doctor.WeeklyHours.Monday.OfficeOfDay.OfficeId;
+                    }
                 }
+
                 else if (dayString == "Tuesday")
                 {
                     int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Tuesday.Start, appointment.Time);
                     int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Tuesday.End, appointment.Time.Add(appointmentTime));
                     isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
+                    if (isWorking)
+                    {
+                        appointment.OfficeId = doctor.WeeklyHours.Tuesday.OfficeOfDay.OfficeId;
+                    }
                 }
                 else if (dayString == "Wednesday")
                 {
                     int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Wednesday.Start, appointment.Time);
                     int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Wednesday.End, appointment.Time.Add(appointmentTime));
                     isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
+                    if (isWorking)
+                    {
+                        appointment.OfficeId = doctor.WeeklyHours.Wednesday.OfficeOfDay.OfficeId;
+                    }
                 }
                 else if (dayString == "Thursday")
                 {
                     int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Thursday.Start, appointment.Time);
                     int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Thursday.End, appointment.Time.Add(appointmentTime));
                     isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
+                    if (isWorking)
+                    {
+                        appointment.OfficeId = doctor.WeeklyHours.Thursday.OfficeOfDay.OfficeId;
+                    }
                 }
                 else if (dayString == "Friday")
                 {
                     int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Friday.Start, appointment.Time);
                     int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Friday.End, appointment.Time.Add(appointmentTime));
                     isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
+                    if (isWorking)
+                    {
+                        appointment.OfficeId = doctor.WeeklyHours.Friday.OfficeOfDay.OfficeId;
+                    }
                 }
                 else if (dayString == "Saturday")
                 {
                     int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Saturday.Start, appointment.Time);
                     int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Saturday.End, appointment.Time.Add(appointmentTime));
                     isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
+                    if (isWorking)
+                    {
+                        appointment.OfficeId = doctor.WeeklyHours.Saturday.OfficeOfDay.OfficeId;
+                    }
                 }
                 else
                 {
                     int startvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Sunday.Start, appointment.Time);
                     int endvsAptTime = TimeSpan.Compare(doctor.WeeklyHours.Sunday.End, appointment.Time.Add(appointmentTime));
                     isWorking = startvsAptTime <= 0 && endvsAptTime >= 0;
+                    if (isWorking)
+                    {
+                        appointment.OfficeId = doctor.WeeklyHours.Sunday.OfficeOfDay.OfficeId;
+                    }
                 }
 
                 if(isWorking)

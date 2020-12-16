@@ -1,5 +1,6 @@
 <template>
 <div class="hours">
+<<<<<<< HEAD
   <form v-on:submit.prevent="updateInfo()">
   <h2 for="officeHours">Doctors Available Hours</h2>
   <label>医師の利用可能時間</label><br>
@@ -7,6 +8,10 @@
         <label>______________________________________________</label><br><br>
         <div class="hourSchedule">
 
+=======
+<form v-on:submit.prevent="updateInfo()">
+  <div for="officeHours">Doctors Available Hours: </div><br>
+>>>>>>> 3f90fb1f89b96c2a82c3816ec06d29aab321f4f4
 <label for="monday">Monday</label>
 <input for="monday" type ="time" v-model="doctor.weeklyHours.monday.start"/>
 <input for="monday" type ="time" v-model="doctor.weeklyHours.monday.end"/><br>
@@ -101,7 +106,7 @@ export default {
       HourlyRate: "",
       FirstName: "",
       LastName: "",
-      User_Role: "",
+      user_Role: "",
       
       }
       
@@ -166,12 +171,9 @@ export default {
   margin-top: 150px;
   padding: 20px;
 }
-.createScheduleBtn{
-  margin-top:5px;
-  margin-bottom:50px;
-}
-.updateHourlyRateBtn{
-  margin-top:5px;
+.updatemyinfo{
+  margin-top:15px;
+  margin-bottom:5px;
 }
 [class="updatemyinfo"] {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;

@@ -57,6 +57,12 @@ export default {
                     alert("Appointment Submitted");
                     this.appointment = {};
                 }
+                else if (response.status == 409)
+                {
+                    alert("Doctor is unavilable at this time. Please try another time/date");
+                    this.appointment.date = '';
+                    this.appointment.time = '';
+                }
             })
             .catch((error) => {
                 error.status;
@@ -76,6 +82,33 @@ export default {
 </script>
 
 <style >
+.appointmentForm{
+    border: 2px solid rgb(5, 7, 88);
+    margin-right:1000px ;
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-bottom: 40px;
+    padding: 10px;
+    padding-right: 20px;
+}
+.feedback-input {
+  color:rgb(0, 0, 0);
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border:2px solid #CC6666;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.feedback-input:focus { border:2px solid #CC4949; }
 
 .submitJapanese{
     text-align: center;
