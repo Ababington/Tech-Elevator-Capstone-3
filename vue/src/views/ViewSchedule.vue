@@ -315,6 +315,7 @@ created(){
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-color: #f86369;
   height: 1100px;
   padding: 50px;
 }

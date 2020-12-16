@@ -29,6 +29,7 @@ export default {
        background-size:cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
+        background-color: #cdffcc;
         height: 1100px;
         }
 
@@ -88,6 +89,7 @@ export default {
   background-image:url("../img/pill1.jpg");
        background-size:cover;
         background-repeat: no-repeat;
+        background-color: #cdffcc;
         
   height: 35px;
   width: 220px;
