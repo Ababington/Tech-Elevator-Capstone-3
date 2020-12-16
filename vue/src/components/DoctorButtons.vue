@@ -1,7 +1,7 @@
 <template>
   <div class="doctor">
     <router-link v-bind:to="{name: 'appointmentRequest'}"><button  class="doctorAppointmentRequest" v-on:click="appointmentRequest"></button></router-link>
-    <router-link v-bind:to="{name: 'officeInfo'}"><button class="doctorOffice" v-on:click="officeInfo"></button></router-link>
+    <router-link v-bind:to="{name: 'officeInfo'}"><button class="doctorOfficeBtn" v-on:click="officeInfo"></button></router-link>
     <router-link v-bind:to="{name: 'reviews'}"><button class="doctorReviews" v-on:click="reviews"></button></router-link>
     <router-link v-bind:to="{name: 'viewSchedule'}"><button class="doctorViewSchedule" v-on:click="viewSchedule"></button></router-link>
 
@@ -46,7 +46,7 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
 .doctor{
   margin:50px;
 }
@@ -108,7 +108,7 @@ export default {
   top: 50%;
 }
 
-.doctorOffice{
+.doctorOfficeBtn{
   font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
@@ -119,13 +119,13 @@ export default {
         
   height: 35px;
   width: 220px;
-  top:5.8%;
+  top:12%;
   left:19%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
 }
-.doctorOffice:before {
+.doctorOfficeBtn:before {
   content: "Office Info";
   padding-top: 2px;
   padding-left:4px ;
@@ -136,7 +136,7 @@ export default {
   position: absolute;
   transition: 0.5s;
 }
-.doctorOffice:after {
+.doctorOfficeBtn:after {
   content: "オフィス情報";
   padding-left:50px;
   padding-top: 4px;
@@ -148,12 +148,13 @@ export default {
   top: 140%;
   transition: 0.5s;
 }
-.doctorOffice:hover:before {
+.doctorOfficeBtn:hover:before {
   top: -50%;
 }
-.doctorOffice:hover:after {
+.doctorOfficeBtn:hover:after {
   top: 50%;
 }
+
 
 .doctorReviews{
   font-family: "Courier", impact, monospace;
