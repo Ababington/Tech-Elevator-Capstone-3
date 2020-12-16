@@ -8,11 +8,12 @@
           {{office.name}}
         </option></select
       ><br />
+     
       <label for="rating">Rating (between 1 and 5): </label>
       <input type="number" min="1" max="5" v-model="review.rating" /> <br />
 
       <label for="message">Message: </label>
-      <textarea rows="10" cols="50" v-model="review.message"></textarea><br />
+      <textarea rows="10" cols="40" v-model="review.message"></textarea><br />
 
       <label for="anonymous">Do you want this review to be anonymous?</label>
       <select name="anonymous" v-model="review.anonymous">
@@ -80,9 +81,22 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .reviewForm{
-    border: 2px solid rgb(5, 7, 88);
-    margin-right:1400px ;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: linear-gradient(to bottom right,rgb(218, 236, 53), rgb(255, 255, 255));
+       background-size:150%;
+        background-repeat: no-repeat;
+        background-image: fixed;
+        height: 670px;
+        width: 470px;
+        margin: 50px;
+        padding:10px;
+        padding-top: 20px;
+        margin-left:270px;
+        margin-top:125px ;
+
 }
 </style>

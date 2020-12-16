@@ -123,6 +123,7 @@ export default {
 <style >
 .hours{
   border: 2px solid black;
+   border-radius: 10px;
   background-image: linear-gradient(to bottom right,rgb(218, 236, 53), rgb(255, 255, 255));
   font-weight:bold;
   text-align: right;
