@@ -3,8 +3,8 @@
     <router-link v-bind:to="{name: 'doctor'}"><button class="doctor" >Doctor Home Page</button></router-link>
     <h1 class="scheduleTitle"></h1>
        <h2 class="appointmentList">My Appointment List:</h2>
-       <span v-for="appointment in appointments" v-bind:key="appointment.id" v-bind:appointment="appointment">
-          <appointment-doctor-card/>
+       <span v-for="appointment in appointments" v-bind:key="appointment.id">
+          <appointment-doctor-card  v-bind:appointment= "appointment"/>
        </span>    
           </div>
     

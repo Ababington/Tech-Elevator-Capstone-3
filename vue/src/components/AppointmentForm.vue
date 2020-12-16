@@ -53,6 +53,12 @@ export default {
                     alert("Appointment Submitted");
                     this.appointment = {};
                 }
+                else if (response.status == 409)
+                {
+                    alert("Doctor is unavilable at this time. Please try another time/date");
+                    this.appointment.date = '';
+                    this.appointment.time = '';
+                }
             })
             .catch((error) => {
                 error.status;
