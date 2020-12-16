@@ -9,7 +9,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .homeImg{
   background-image:url("../img/drmario.jpg");
   opacity: 0.5;

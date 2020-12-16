@@ -1,25 +1,32 @@
 <template>
   <div>
       <form v-on:submit.prevent="PostNewReview()" class="reviewForm">
+        <h2>Review Form</h2>
+        <label> レビューフォーム</label>
+        <br/>
+        <label>______________________________________________</label><br>
+        <label>______________________________________________</label><br><br>
      
-      <label for="office">Office: </label>
-      <select name="office" v-model="officeName" class="feedback-input">
+      <label for="office"><b>Office</b> | オフィス: </label>
+      <select name="office" v-model="officeName">
         <option v-for="office in offices" v-bind:key="office.Id">
           {{office.name}}
         </option></select
       ><br />
-      <label for="rating">Rating (between 1 and 5): </label>
-      <input type="number" min="1" max="5" v-model="review.rating" class="feedback-input"/> <br />
+     
+      <label for="rating"><b>Rating</b> | 評価 (between 1 and 5): </label>
+      <input type="number" min="1" max="5" v-model="review.rating" /> <br />
 
-      <label for="message">Message: </label>
-      <textarea rows="10" cols="50" v-model="review.message" placeholder="Give us your feedback here!" class="feedback-input"></textarea><br />
+      <label for="message"><b> Message  </b>| メッセージ:</label>
+      <textarea rows="10" cols="40" v-model="review.message"></textarea><br />
 
-      <label for="anonymous">Do you want this review to be anonymous?</label>
-      <select name="anonymous" v-model="review.anonymous" class="feedback-input">
+      <label for="anonymous">Do you want this review to be anonymous?</label><br>
+      <label>このレビューを匿名にしますか？</label>
+      <select name="anonymous" v-model="review.anonymous">
         <option>true</option>
         <option>false</option></select><br />
 
-      <button type="submit">Post Review</button>
+      <button type="submit" class="postReview">Post Review</button>
     </form>
   </div>
 </template>
@@ -80,15 +87,38 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+[class="postReview"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 100%;
+  background:#CC6666;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:20px;
+  font-weight:700;
+}
+[class="postReview"]:hover { background:#CC4949; }
 .reviewForm{
-    border: 2px solid rgb(5, 7, 88);
-    margin-right:1000px ;
-    margin-top: 40px;
-    margin-left: 10px;
-    margin-bottom: 40px;
-    padding: 10px;
-    padding-right: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(218, 236, 53));
+       background-size:150%;
+        background-repeat: no-repeat;
+        background-image: fixed;
+        width: 470px;
+        margin: 50px;
+        padding:10px;
+        padding-top: 20px;
+        margin-left:270px;
+        margin-top:125px ;
+
 }
 
 
