@@ -2,25 +2,25 @@
     <form class="appointment-form" v-on:submit.prevent="PostNewAptRequest()">
 
         <h2>Submit Appointment Form</h2>
-        <label>|| 予約フォームを送信する</label>
+        <label>予約フォームを送信する</label>
         <br/>
         <label>______________________________________________</label><br>
         <label>______________________________________________</label><br><br>
-        <label for="doctor"><b>Doctor: </b></label>
+        <label for="doctor"><b>Doctor </b>| 医師:</label>
         <select name="doctor" v-model="appointment.doctorId">
             <option v-for="doctor in doctors" v-bind:key="doctor.userId" v-bind:value="doctor.userId">
                 Dr. {{doctor.firstName}} {{doctor.lastName}}
             </option>
         </select><br/>
         <div class="reasonForVisitMessage">
-        <label for="reasonForVisit">Reason for visit: </label><br/>
+        <label for="reasonForVisit"><b>Reason for visit</b> | 訪問の理由: </label><br/>
         <textarea cols=40 rows=8 v-model="appointment.message"></textarea><br>
         </div>
         <div class="dateTime">
-        <label for="date">Date: </label>
+        <label for="date"><b>Date</b> | 日付: </label>
         <input type = "date" v-model="appointment.date"/>
         </div>
-        <label for="time">Time: </label>
+        <label for="time"><b>Time</b> | 時間: </label>
         <input name="time" type="time" v-model="appointment.time">
         <br/><br/>
 
@@ -92,11 +92,10 @@ export default {
     border: 2px solid black;
     border-radius: 10px;
     font-family: 'Courier New', Courier, monospace;
-    background-image: linear-gradient(to bottom right,rgb(218, 236, 53), rgb(255, 255, 255));
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(218, 236, 53));
        background-size:150%;
         background-repeat: no-repeat;
         background-image: fixed;
-        height: 670px;
         width: 470px;
         margin: 50px;
         padding:10px;

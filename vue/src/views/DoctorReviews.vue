@@ -2,10 +2,10 @@
   <div class="doctorReviewBackground">
     
     
-    <h1 class="doctorAppointmentTitle"></h1>
+    <h1 class="doctorAppointmentTitleHere"></h1>
     <router-link v-bind:to="{name: 'doctor'}"><button class="doctorAppointment" id="doctorAppointmentButton" v-on:click="doctor"></button></router-link>
     <router-link v-bind:to="{name: 'officeInfo'}"><button class="appointmentOffice" v-on:click="officeInfo"></button></router-link>
-    <router-link v-bind:to="{name: 'appointmentRequest'}"><button  class="doctorAppointmentRequestBtn" v-on:click="appointmentRequest"></button></router-link>
+    <router-link v-bind:to="{name: 'appointmentRequest'}"><button  class="doctorAppointmentRequestBtnHere" v-on:click="appointmentRequest"></button></router-link>
     <router-link v-bind:to="{name: 'viewSchedule'}"><button class="appointmentViewSchedule" v-on:click="viewSchedule"></button></router-link>
     
   </div>
@@ -38,8 +38,8 @@ export default {
 <style >
 
 
-.doctorAppointmentTitle {
-  font-family: "Courier", impact, monospace;
+.doctorAppointmentTitleHere {
+      font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
@@ -49,15 +49,15 @@ export default {
     rgb(228, 228, 228)
   );
   height: 60px;
-  width: 650px;
-  top:8.7%;
-  left:20.8%;
+  width: 730px;
+  top:10.5%;
+  left:23.4%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
  
 }
-.doctorAppointmentTitle:before {
+.doctorAppointmentTitleHere:before {
   content: "Reviews Page";
  
   padding-left:25px ;
@@ -68,7 +68,7 @@ export default {
   position: absolute;
   transition: 0.5s;
 }
-.doctorAppointmentTitle:after {
+.doctorAppointmentTitleHere:after {
   content: "レビューページ";
    padding-top:10px ;
   padding-left:110px ;
@@ -80,10 +80,10 @@ export default {
   top: 140%;
   transition: 0.5s;
 }
-.doctorAppointmentTitle:hover:before {
+.doctorAppointmentTitleHere:hover:before {
   top: -50%;
 }
-.doctorAppointmentTitle:hover:after {
+.doctorAppointmentTitleHere:hover:after {
   top: 50%;
 }
 
@@ -189,8 +189,8 @@ export default {
   top: 50%;
 }
 
-.doctorAppointmentRequestBtn{
-  font-family: "Courier", impact, monospace;
+.doctorAppointmentRequestBtnHere{
+     font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
@@ -200,13 +200,13 @@ export default {
         
   height: 35px;
   width: 220px;
-  top:27.1%;
-  left:9.5%;
+  top:30.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
 }
-.doctorAppointmentRequestBtn:before {
+.doctorAppointmentRequestBtnHere:before {
   content: "Appointment Request";
   padding-top: 2px;
   padding-left:4px ;
@@ -217,7 +217,7 @@ export default {
   position: absolute;
   transition: 0.5s;
 }
-.doctorAppointmentRequestBtn:after {
+.doctorAppointmentRequestBtnHere:after {
   content: "予定のリクエスト";
   padding-left:50px;
   padding-top: 4px;
@@ -229,10 +229,10 @@ export default {
   top: 140%;
   transition: 0.5s;
 }
-.doctorAppointmentRequestBtn:hover:before {
+.doctorAppointmentRequestBtnHere:hover:before {
   top: -50%;
 }
-.doctorAppointmentRequestBtn\:hover:after {
+.doctorAppointmentRequestBtnHere:hover:after {
   top: 50%;
 }
 

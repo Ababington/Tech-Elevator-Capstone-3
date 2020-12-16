@@ -24,12 +24,12 @@ export default {
 
 <style >
 .writeReviewImg{
-        background-image:url("../img/chansey2.jpg");
+     background-image:url("../img/chansey3.jpg");
         padding: 50px;
        background-size:cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
-        height: 945px;
+        height: 1100px;
         }
 
 .patientReviewTitle {

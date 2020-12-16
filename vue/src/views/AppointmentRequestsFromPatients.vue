@@ -66,7 +66,7 @@ export default {
 
 
 .appointmentTitle {
-  font-family: "Courier", impact, monospace;
+    font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
@@ -76,9 +76,9 @@ export default {
     rgb(228, 228, 228)
   );
   height: 60px;
-  width: 650px;
-  top:4%;
-  left:18%;
+  width: 730px;
+  top:5.9%;
+  left:20.75%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -133,8 +133,8 @@ export default {
         
   height: 35px;
   width: 220px;
-  top:16.5%;
-  left:9.5%;
+  top:20.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -170,18 +170,18 @@ export default {
   top: 50%;
 }
 .appointmentOffice{
-  font-family: "Courier", impact, monospace;
+   font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
-  background-image:url("../img/pill1.jpg");
-       background-size:cover;
+  background-image:url("../img/pill7.jpg");
+       background-size:105%;
         background-repeat: no-repeat;
         
   height: 35px;
   width: 220px;
-  top:21.8%;
-  left:9.5%;
+  top:25.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -217,7 +217,7 @@ export default {
 }
 
 .doctorReviewsQ{
-  font-family: "Courier", impact, monospace;
+   font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
@@ -227,8 +227,8 @@ export default {
         
   height: 35px;
   width: 220px;
-  top:27.1%;
-  left:9.5%;
+  top:30.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -274,8 +274,8 @@ export default {
         
   height: 35px;
   width: 220px;
-  top:32.4%;
-  left:9.5%;
+  top:35.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;

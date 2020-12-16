@@ -1,11 +1,12 @@
 <template>
   <div class="Office-Info"> 
-    <router-link v-bind:to="{name: 'doctor'}"><button class="doctorAppointment" id="doctorAppointmentButton" v-on:click="doctor"></button></router-link>
+    <h1 class="officeCardTitle"></h1>
+    <router-link v-bind:to="{name: 'doctor'}"><button class="doctorAppointment" id="doctorAppointmentButtonHere" v-on:click="doctor"></button></router-link>
     <router-link v-bind:to="{name: 'appointmentRequest'}"><button  class="infoOffice" v-on:click="appointmentRequests"></button></router-link>
     <router-link v-bind:to="{name: 'doctorReviews'}"><button class="appointmentReviewsQ" v-on:click="doctorReviews"></button></router-link>
     <router-link v-bind:to="{name: 'viewSchedule'}"><button class="appointmentViewSchedule" v-on:click="viewSchedule"></button></router-link>
     
-<h1 class="officeCardTitle"></h1>
+
 
     <office-card v-bind:office="office" v-bind:key='office.id' v-for="office in $store.state.officesStatic">
     <router-link v-bind:to="{name: 'officeInfo', params: {id:office.id}}"></router-link>
@@ -41,7 +42,7 @@ export default {
 }
 
 .officeCardTitle {
-  font-family: "Courier", impact, monospace;
+    font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
@@ -51,9 +52,9 @@ export default {
     rgb(228, 228, 228)
   );
   height: 60px;
-  width: 650px;
-  top:4%;
-  left:16%;
+  width: 730px;
+  top:5.9%;
+  left:20.75%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -195,25 +196,25 @@ export default {
   padding: 50px;
 }
 
-#doctorAppointmentButton {
+#doctorAppointmentButtonHere {
   font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
-  background-image:url("../img/pill3.jpg");
+  background-image:url("../img/pill1.jpg");
        background-size:cover;
         background-repeat: no-repeat;
         
   height: 35px;
   width: 220px;
-  top:16.5%;
-  left:9.5%;
+  top:20.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
  
 }
-#doctorAppointmentButton:before {
+#doctorAppointmentButtonHere:before {
   content: "Doctor Home Page";
  
   padding-left:1px ;
@@ -224,7 +225,7 @@ export default {
   position: absolute;
   transition: 0.5s;
 }
-#doctorAppointmentButton:after {
+#doctorAppointmentButtonHere:after {
   content: "ドクターホームページ";
    padding-top:3px ;
   padding-left:1px ;
@@ -236,25 +237,25 @@ export default {
   top: 140%;
   transition: 0.5s;
 }
-#doctorAppointmentButton:hover:before {
+#doctorAppointmentButtonHere:hover:before {
   top: -50%;
 }
-#doctorAppointmentButton:hover:after {
+#doctorAppointmentButtonHere:hover:after {
   top: 50%;
 }
 .infoOffice{
-  font-family: "Courier", impact, monospace;
+      font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
-  background-image:url("../img/pill1.jpg");
-       background-size:cover;
+  background-image:url("../img/pill7.jpg");
+       background-size:105%;
         background-repeat: no-repeat;
         
   height: 35px;
   width: 220px;
-  top:21.8%;
-  left:9.5%;
+  top:25.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -300,8 +301,8 @@ export default {
         
   height: 35px;
   width: 220px;
-  top:27.1%;
-  left:9.5%;
+  top:30.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;

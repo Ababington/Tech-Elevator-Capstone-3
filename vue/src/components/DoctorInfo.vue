@@ -1,33 +1,41 @@
 <template>
 <div class="hours">
-  <div for="officeHours">Doctors Available Hours: </div><br>
-<label for="monday">Monday</label>
+  <h2 for="officeHours">Doctors Available Hours</h2>
+  <label>医師の利用可能時間</label><br>
+  <label>______________________________________________</label><br>
+        <label>______________________________________________</label><br><br>
+        <div class="hourSchedule">
+<label for="monday">Monday:</label>
 <input for="monday" type ="time" v-model="this.doctor.weeklyHours.monday.start"/>
 <input for="monday" type ="time" v-model="this.doctor.weeklyHours.monday.end"/><br>
-<label for="tuesday">Tuesday</label>
+<label for="tuesday">Tuesday:</label>
 <input for="tueday" type ="time" v-model="this.doctor.weeklyHours.tuesday.start"/>
 <input for="tueday" type ="time" v-model="this.doctor.weeklyHours.tuesday.end"/><br>
-<label for="wednesday">Wednesday</label>
+<label for="wednesday">Wednesday:</label>
 <input for="wednesday" type ="time" v-model="this.doctor.weeklyHours.wednesday.start"/>
 <input for="wednesday" type ="time" v-model="this.doctor.weeklyHours.wednesday.end"/><br>
-<label for="thursday">Thursday</label>
+<label for="thursday">Thursday:</label>
 <input for="thursday" type ="time" v-model="this.doctor.weeklyHours.thursday.start"/>
 <input for="thursday" type ="time" v-model="this.doctor.weeklyHours.thursday.end"/><br>
-<label for="friday">Friday</label>
+<label for="friday">Friday:</label>
 <input for="friday" type ="time" v-model="this.doctor.weeklyHours.friday.start"/>
 <input for="friday" type ="time" v-model="this.doctor.weeklyHours.friday.end"/><br>
-<label for="saturday">Saturday</label>
+<label for="saturday">Saturday:</label>
 <input for="saturday" type ="time" v-model="this.doctor.weeklyHours.saturday.start"/>
 <input for="saturday" type ="time" v-model="this.doctor.weeklyHours.saturday.end"/><br>
-<label for="sunday">Sunday</label>
+<label for="sunday">Sunday:</label>
 <input for="sunday" type ="time" v-model="this.doctor.weeklyHours.sunday.start"/>
 <input for="sunday" type ="time" v-model="this.doctor.weeklyHours.sunday.end"/><br>
 
-<button type="submit" v-on:click="createSchedule">Submit Schedule</button>
-
-<div for="costPerHour"><b>Cost Per Hour:</b></div>
+<button type="submit" v-on:click="createSchedule" class="submitSchedule">Submit Schedule</button>
+        </div>
+        <label>______________________________________________</label><br>
+        <label>______________________________________________</label><br><br>
+<div class="costPerHourBtnFull">
+<div class="costPerHourBtn" for="costPerHour"><b>Cost Per Hour</b> | 時間あたりのコスト:</div>
 <input type="number" v-model="this.doctor.hourlyRate"/>
 <button type="submit" v-on:click="updateHourlyRate">Confirm Hourly Rate</button>
+</div>
 </div>
 
 
@@ -121,14 +129,25 @@ export default {
 </script>
 
 <style >
+.costPerHourBtnFull{
+  margin-bottom: 20px;
+}
+.costPerHourBtn{
+  margin-bottom:20px ;
+}
+.submitSchedule{
+  margin-top: 20px;
+}
+.hourSchedule{
+  text-align: right;
+}
 .hours{
   border: 2px solid black;
    border-radius: 10px;
   background-image: linear-gradient(to bottom right,rgb(218, 236, 53), rgb(255, 255, 255));
-  font-weight:bold;
-  text-align: right;
-  width: 380px;
-  margin-left: 200px;
+  font-family: 'Courier New', Courier, monospace;
+  width: 490px;
+  margin-left: 245px;
   margin-top: 150px;
   padding: 20px;
 }
