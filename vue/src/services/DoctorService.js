@@ -9,12 +9,12 @@ export default {
     return axios.put('/doctor/myInfo/update', doctor);
   },
 
-  GetMyOffices() {
-    return axios.get('/doctor/myOffices'); //returns array of offices
+  GetMyOffices(userId) {
+    return axios.get(`/doctor/${userId}/myOffices`); //returns array of offices
   },
 
-  GetOfficeReviews(office) {
-    return axios.get(`/doctor/myOffices/${office.id}/reviews`); //returns array of reviews
+  GetOfficeReviews(officeId) {
+    return axios.get(`/doctor/myOffices/${officeId}`); //returns array of reviews
   },
 
   GetReviewResponses(office) {

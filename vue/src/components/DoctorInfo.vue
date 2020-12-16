@@ -1,37 +1,36 @@
 <template>
 <div class="hours">
+<form v-on:submit.prevent="updateInfo()">
   <div for="officeHours">Doctors Available Hours: </div><br>
 <label for="monday">Monday</label>
-<input for="monday" type ="time" v-model="this.doctor.weeklyHours.monday.start"/>
-<input for="monday" type ="time" v-model="this.doctor.weeklyHours.monday.end"/><br>
+<input for="monday" type ="time" v-model="doctor.weeklyHours.monday.start"/>
+<input for="monday" type ="time" v-model="doctor.weeklyHours.monday.end"/><br>
 <label for="tuesday">Tuesday</label>
-<input for="tueday" type ="time" v-model="this.doctor.weeklyHours.tuesday.start"/>
-<input for="tueday" type ="time" v-model="this.doctor.weeklyHours.tuesday.end"/><br>
+<input for="tueday" type ="time" v-model="doctor.weeklyHours.tuesday.start"/>
+<input for="tueday" type ="time" v-model="doctor.weeklyHours.tuesday.end"/><br>
 <label for="wednesday">Wednesday</label>
-<input for="wednesday" type ="time" v-model="this.doctor.weeklyHours.wednesday.start"/>
-<input for="wednesday" type ="time" v-model="this.doctor.weeklyHours.wednesday.end"/><br>
+<input for="wednesday" type ="time" v-model="doctor.weeklyHours.wednesday.start"/>
+<input for="wednesday" type ="time" v-model="doctor.weeklyHours.wednesday.end"/><br>
 <label for="thursday">Thursday</label>
-<input for="thursday" type ="time" v-model="this.doctor.weeklyHours.thursday.start"/>
-<input for="thursday" type ="time" v-model="this.doctor.weeklyHours.thursday.end"/><br>
+<input for="thursday" type ="time" v-model="doctor.weeklyHours.thursday.start"/>
+<input for="thursday" type ="time" v-model="doctor.weeklyHours.thursday.end"/><br>
 <label for="friday">Friday</label>
-<input for="friday" type ="time" v-model="this.doctor.weeklyHours.friday.start"/>
-<input for="friday" type ="time" v-model="this.doctor.weeklyHours.friday.end"/><br>
+<input for="friday" type ="time" v-model="doctor.weeklyHours.friday.start"/>
+<input for="friday" type ="time" v-model="doctor.weeklyHours.friday.end"/><br>
 <label for="saturday">Saturday</label>
-<input for="saturday" type ="time" v-model="this.doctor.weeklyHours.saturday.start"/>
-<input for="saturday" type ="time" v-model="this.doctor.weeklyHours.saturday.end"/><br>
+<input for="saturday" type ="time" v-model="doctor.weeklyHours.saturday.start"/>
+<input for="saturday" type ="time" v-model="doctor.weeklyHours.saturday.end"/><br>
 <label for="sunday">Sunday</label>
-<input for="sunday" type ="time" v-model="this.doctor.weeklyHours.sunday.start"/>
-<input for="sunday" type ="time" v-model="this.doctor.weeklyHours.sunday.end"/><br>
+<input for="sunday" type ="time" v-model="doctor.weeklyHours.sunday.start"/>
+<input for="sunday" type ="time" v-model="doctor.weeklyHours.sunday.end"/><br>
 
-<button type="submit" v-on:click="createSchedule">Submit Schedule</button>
 
 <div for="costPerHour"><b>Cost Per Hour:</b></div>
 <input type="number" v-model="this.doctor.hourlyRate"/>
-<<<<<<< HEAD
-<button type="submit" v-on:click="updateHourlyRate">Confirm Hourly Rate</button>
-=======
-<button class="updateHourlyRateBtn" type="submit" v-on:click="updateHourlyRate()">Confirm Hourly Rate</button>
->>>>>>> 3275ac740caf558bdea8fa1744b61a983f91cfc7
+
+
+<button class="updatemyinfo" type="submit">Update My Information</button>
+</form>
 </div>
 
 
@@ -88,7 +87,7 @@ export default {
       HourlyRate: "",
       FirstName: "",
       LastName: "",
-      User_Role: "",
+      user_Role: "",
       
       }
       
@@ -104,12 +103,15 @@ export default {
         }
       }) 
     },
-    updateHourlyRate(){
-      doctorService.hourlyRate(this.doctor)
+    updateInfo(){
+      doctorService.UpdateMyInfo(this.doctor)
       .then(response => {
         if(response.status === 200)
         {
-          this.doctor = [];
+        doctorService.GetMyInfo(this.$store.state.user.userId).then((response) => {
+        this.doctor = response.data;
+        alert("Your information has been updated!");
+      });
         }
       })
     }
@@ -135,11 +137,9 @@ export default {
   margin-top: 150px;
   padding: 20px;
 }
-.createScheduleBtn{
-  margin-top:5px;
-  margin-bottom:50px;
+.updatemyinfo{
+  margin-top:15px;
+  margin-bottom:5px;
 }
-.updateHourlyRateBtn{
-  margin-top:5px;
-}
+
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="Office-Info"> 
-        <router-link v-bind:to="{name: 'patient'}" class = "patientHomePage"><button v-on:click="patient" >Home Page</button></router-link>
-    <router-link v-bind:to="{name: 'reviews'}" class = "patientReview"><button v-on:click="reviews">Reviews</button></router-link>
+        <router-link v-bind:to="{name: 'patient'}" class = "patientHomePage"><button>Home Page</button></router-link>
+    <router-link v-bind:to="{name: 'reviews'}" class = "patientReview"><button>Reviews</button></router-link>
 
 <h1 class="officeCardTitle"></h1>
 
