@@ -27,11 +27,7 @@
 
 <div for="costPerHour"><b>Cost Per Hour:</b></div>
 <input type="number" v-model="this.doctor.hourlyRate"/>
-<<<<<<< HEAD
 <button type="submit" v-on:click="updateHourlyRate">Confirm Hourly Rate</button>
-=======
-<button class="updateHourlyRateBtn" type="submit" v-on:click="updateHourlyRate()">Confirm Hourly Rate</button>
->>>>>>> 3275ac740caf558bdea8fa1744b61a983f91cfc7
 </div>
 
 

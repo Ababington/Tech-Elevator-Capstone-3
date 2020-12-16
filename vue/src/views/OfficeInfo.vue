@@ -2,7 +2,7 @@
   <div class="Office-Info"> 
     <router-link v-bind:to="{name: 'doctor'}"><button class="doctorAppointment" id="doctorAppointmentButton" v-on:click="doctor"></button></router-link>
     <router-link v-bind:to="{name: 'appointmentRequest'}"><button  class="infoOffice" v-on:click="appointmentRequests"></button></router-link>
-    <router-link v-bind:to="{name: 'reviews'}"><button class="appointmentReviews" v-on:click="reviews"></button></router-link>
+    <router-link v-bind:to="{name: 'doctorReviews'}"><button class="appointmentReviewsQ" v-on:click="doctorReviews"></button></router-link>
     <router-link v-bind:to="{name: 'viewSchedule'}"><button class="appointmentViewSchedule" v-on:click="viewSchedule"></button></router-link>
     
 <h1 class="officeCardTitle"></h1>
@@ -289,7 +289,7 @@ export default {
   top: 50%;
 }
 
-.appointmentReviews{
+.appointmentReviewsQ{
   font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
@@ -306,7 +306,7 @@ export default {
   transform: translate(-50%, -50%);
   overflow: hidden;
 }
-.appointmentReviews:before {
+.appointmentReviewsQ:before {
   content: "Reviews";
   padding-top: 2px;
   padding-left:4px ;
@@ -317,7 +317,7 @@ export default {
   position: absolute;
   transition: 0.5s;
 }
-.appointmentReviews:after {
+.appointmentReviewsQ:after {
   content: "レビュー";
   padding-left:50px;
   padding-top: 4px;
@@ -329,10 +329,10 @@ export default {
   top: 140%;
   transition: 0.5s;
 }
-.appointmentReviews:hover:before {
+.appointmentReviewsQ:hover:before {
   top: -50%;
 }
-.appointmentReviews:hover:after {
+.appointmentReviewsQ:hover:after {
   top: 50%;
 }
 

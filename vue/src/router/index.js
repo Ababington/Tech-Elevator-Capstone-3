@@ -9,6 +9,7 @@ import adminHome from '../views/AdminHome.vue'
 import doctor from '../views/Doctor.vue'
 import patient from '../views/Patient.vue'
 import reviews from '../views/Reviews.vue'
+import doctorReviews from '../views/DoctorReviews.vue'
 import officeInfo from '../views/OfficeInfo.vue'
 import patientOfficeInfo from '../views/PatientOfficeInfo.vue'
 import officePageInfo from '../views/officePageInfo.vue'
@@ -120,6 +121,14 @@ const router = new Router({
       path: "/reviews",
       name: "reviews",
       component: reviews,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/doctorReviews",
+      name: "doctorReviews",
+      component: doctorReviews,
       meta: {
         requiresAuth: false
       }
