@@ -1,32 +1,36 @@
 <template>
-    <form v-on:submit.prevent="PostNewAptRequest()" class = "appointmentForm">
-        <h2>Appointment Application Form</h2>
+    <form class="appointment-form" v-on:submit.prevent="PostNewAptRequest()">
+
+        <h2>Submit Appointment Form</h2>
+        <label>予約フォームを送信する</label>
         <br/>
-        <label for="doctor">Doctor: </label>
-        <select name="doctor" v-model="appointment.doctorId" class="feedback-input">
+        <label>______________________________________________</label><br>
+        <label>______________________________________________</label><br><br>
+        <label for="doctor"><b>Doctor </b>| 医師:</label>
+        <select name="doctor" v-model="appointment.doctorId">
             <option v-for="doctor in doctors" v-bind:key="doctor.userId" v-bind:value="doctor.userId">
                 Dr. {{doctor.firstName}} {{doctor.lastName}}
             </option>
         </select><br/>
-
-        <label for="reasonForVisit">Reason for visit: </label><br/>
-        <textarea cols=50 rows=10 v-model="appointment.message" placeholder="Please enter the reason for your visit here." class="feedback-input"></textarea><br>
-
-        <label for="date">Date: </label>
-        <input type = "date" v-model="appointment.date" class="feedback-input"/>
-
-        <label for="time">Time: </label>
-        <input name="time" type="time" v-model="appointment.time" class="feedback-input">
+        <div class="reasonForVisitMessage">
+        <label for="reasonForVisit"><b>Reason for visit</b> | 訪問の理由: </label><br/>
+        <textarea cols=40 rows=8 v-model="appointment.message"></textarea><br>
+        </div>
+        <div class="dateTime">
+        <label for="date"><b>Date</b> | 日付: </label>
+        <input type = "date" v-model="appointment.date"/>
+        </div>
+        <label for="time"><b>Time</b> | 時間: </label>
+        <input name="time" type="time" v-model="appointment.time">
         <br/><br/>
 
-        <button type="submit">Submit Appointment Request</button>
+        <button type="submit" class="appointmentSubmit">Submit Appointment Request</button>
     </form>
 </template>
 
 <script>
 import patientService from '../services/PatientService'
 export default {
-
     data(){
         return{
             appointment: {
@@ -106,13 +110,33 @@ export default {
 
 .feedback-input:focus { border:2px solid #CC4949; }
 
-textarea {
-  height: 150px;
-  line-height: 150%;
-  resize:vertical;
+.submitJapanese{
+    text-align: center;
+    text-decoration: overline;
 }
-
-[type="submit"] {
+.dateTime{
+    margin-top:5px ;
+}
+.reasonForVisitMessage{
+    margin-top:20px ;
+    margin-left: 10px;
+}
+.appointment-form{
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(218, 236, 53));
+       background-size:150%;
+        background-repeat: no-repeat;
+        background-image: fixed;
+        width: 470px;
+        margin: 50px;
+        padding:10px;
+        padding-top: 20px;
+        margin-left:270px;
+        margin-top:125px ;
+}
+[class="appointmentSubmit"] {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   width: 100%;
   background:#CC6666;
@@ -127,5 +151,5 @@ textarea {
   margin-top:-4px;
   font-weight:700;
 }
-[type="submit"]:hover { background:#CC4949; }
+[class="appointmentSubmit"]:hover { background:#CC4949; }
 </style>

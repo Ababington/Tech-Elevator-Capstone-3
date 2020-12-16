@@ -39,8 +39,8 @@ export default {
     background-color: rgb(219, 219, 219);
     height: cover;
     padding: 10px;
-    margin: 50px;
-    margin-left: 250px;
+    margin-top: 125px;
+    margin-left: 270px;
 }
 
 .officeCardTitle {

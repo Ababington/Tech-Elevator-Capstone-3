@@ -1,13 +1,10 @@
 <template>
   <div class="schedule-Info"> 
-
     <h1 class="scheduleTitle"></h1>
 
-
-    <router-link v-bind:to="{name: 'doctor'}"><button id="doctorViewScheduleHere"></button></router-link>
-    <router-link v-bind:to="{name: 'officeInfo'}"><button class="officeViewScheduleOffice"></button></router-link>
-    <router-link v-bind:to="{name: 'doctorReviews'}"><button class="reviewsViewScheduleHere"></button></router-link>
-    <router-link v-bind:to="{name: 'appointmentRequest'}"><button class="apptViewSchedule"></button></router-link>
+    <router-link v-bind:to="{name: 'patient'}"><button id="doctorViewScheduleHere" v-on:click="patient" ></button></router-link>
+    <router-link v-bind:to="{name: 'patientOfficeInfo'}"><button class="officeViewScheduleOffice" v-on:click="patientOfficeInfo"></button></router-link>
+    <router-link v-bind:to="{name: 'writeAReviews'}"><button class="reviewsViewScheduleHere" v-on:click="writeAReviews"></button></router-link>
     
     
        <div class="appointmentList">My Appointment List:</div>
@@ -52,6 +49,7 @@ created(){
        background-size:150%;
         background-repeat: no-repeat;
         background-image: fixed;
+        height: 670px;
         width: 470px;
         margin: 50px;
         padding:10px;
@@ -77,7 +75,7 @@ created(){
   overflow: hidden;
 }
 .apptViewSchedule:before {
-  content: "Appointment Requests";
+  content: "View Schedule";
   padding-top: 2px;
   padding-left:4px ;
   width: 250px;
@@ -88,7 +86,7 @@ created(){
   transition: 0.5s;
 }
 .apptViewSchedule:after {
-  content: "予定のリクエスト";
+  content: "スケジュールを見る";
   padding-left:50px;
   padding-top: 4px;
   width: 250px;

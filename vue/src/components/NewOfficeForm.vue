@@ -1,8 +1,8 @@
 <template>
 <div>
-  <form v-on:submit.prevent="CreateNewOffice()">
+  <form v-on:submit.prevent="CreateNewOffice()" class="createOfficeForm">
     <h3>Create New Office Form:</h3><br>
-
+    <div class="createNewOfficeFormText">
     <label for="name">Name: </label>
     <input type="text" required v-model="office.name" /><br />
 
@@ -53,6 +53,7 @@
 <input for="sunday" type ="time" v-model="this.office.sunday.end"/><br> -->
 
     <button type="submit">Create Office</button>
+    </div>
   </form>
 </div>
 </template>
@@ -131,4 +132,24 @@ export default {
 </script>
 
 <style>
+.createNewOfficeFormText{
+  text-align: right;
+}
+.createOfficeForm{
+    border: 2px solid black;
+    text-align: right;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(218, 236, 53));
+       background-size:150%;
+        background-repeat: no-repeat;
+        background-image: fixed;
+        width: 415px;
+        margin: 50px;
+        padding:10px;
+        padding-top: 20px;
+        margin-left:200px;
+        margin-top:150px ;
+
+}
 </style>

@@ -5,7 +5,7 @@
     <h1 class="appointmentTitle"></h1>
     <router-link v-bind:to="{name: 'doctor'}"><button class="doctorAppointment" id="doctorAppointmentButton" v-on:click="doctor"></button></router-link>
     <router-link v-bind:to="{name: 'officeInfo'}"><button class="appointmentOffice" v-on:click="officeInfo"></button></router-link>
-    <router-link v-bind:to="{name: 'reviews'}"><button class="appointmentReviews" v-on:click="reviews"></button></router-link>
+    <router-link v-bind:to="{name: 'doctorReviews'}"><button class="doctorReviewsQ" v-on:click="doctorReviews"></button></router-link>
     <router-link v-bind:to="{name: 'viewSchedule'}"><button class="appointmentViewSchedule" v-on:click="viewSchedule"></button></router-link>
     
     <appointment-requests-card
@@ -66,7 +66,7 @@ export default {
 
 
 .appointmentTitle {
-  font-family: "Courier", impact, monospace;
+    font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
@@ -76,9 +76,9 @@ export default {
     rgb(228, 228, 228)
   );
   height: 60px;
-  width: 650px;
-  top:4%;
-  left:18%;
+  width: 730px;
+  top:5.9%;
+  left:20.75%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -133,8 +133,8 @@ export default {
         
   height: 35px;
   width: 220px;
-  top:16.5%;
-  left:9.5%;
+  top:20.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -170,18 +170,18 @@ export default {
   top: 50%;
 }
 .appointmentOffice{
-  font-family: "Courier", impact, monospace;
+   font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
-  background-image:url("../img/pill1.jpg");
-       background-size:cover;
+  background-image:url("../img/pill7.jpg");
+       background-size:105%;
         background-repeat: no-repeat;
         
   height: 35px;
   width: 220px;
-  top:21.8%;
-  left:9.5%;
+  top:25.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -216,8 +216,8 @@ export default {
   top: 50%;
 }
 
-.appointmentReviews{
-  font-family: "Courier", impact, monospace;
+.doctorReviewsQ{
+   font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
@@ -227,13 +227,13 @@ export default {
         
   height: 35px;
   width: 220px;
-  top:27.1%;
-  left:9.5%;
+  top:30.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
 }
-.appointmentReviews:before {
+.doctorReviewsQ:before {
   content: "Reviews";
   padding-top: 2px;
   padding-left:4px ;
@@ -244,7 +244,7 @@ export default {
   position: absolute;
   transition: 0.5s;
 }
-.appointmentReviews:after {
+.doctorReviewsQ:after {
   content: "レビュー";
   padding-left:50px;
   padding-top: 4px;
@@ -256,10 +256,10 @@ export default {
   top: 140%;
   transition: 0.5s;
 }
-.appointmentReviews:hover:before {
+.doctorReviewsQ:hover:before {
   top: -50%;
 }
-.appointmentReviews:hover:after {
+.doctorReviewsQ:hover:after {
   top: 50%;
 }
 
@@ -274,8 +274,8 @@ export default {
         
   height: 35px;
   width: 220px;
-  top:32.4%;
-  left:9.5%;
+  top:35.3%;
+  left:10%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;

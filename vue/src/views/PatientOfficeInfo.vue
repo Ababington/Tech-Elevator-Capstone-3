@@ -1,9 +1,10 @@
 <template>
-  <div class="Office-Info"> 
-        <router-link v-bind:to="{name: 'patient'}" class = "patientHomePage"><button>Home Page</button></router-link>
-    <router-link v-bind:to="{name: 'reviews'}" class = "patientReview"><button>Reviews</button></router-link>
+  <div class="patientOffice-Info"> 
+<h1 class="patientOfficeCardTitle"></h1>
+<router-link v-bind:to="{name: 'patient'}" ><button class="patientHomePageOffice" v-on:click="patient"></button></router-link>
+<router-link v-bind:to="{name: 'writeAReview'}"><button class="patientOfficeInfoOfficeBtn" v-on:click="writeAReview"></button></router-link>
 
-<h1 class="officeCardTitle"></h1>
+
 
     <patient-office-card v-bind:office="office" v-bind:key='office.id' v-for="office in $store.state.officesStatic">
     <router-link v-bind:to="{name: 'officeInfo', params: {id:office.id}}"></router-link>
@@ -32,14 +33,108 @@ export default {
 
 <style scoped>
 
+.patientOfficeInfoOfficeBtn{
+  font-family: "Courier", impact, monospace;
+  color: black;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  background-image:url("../img/pill4.jpg");
+       background-size:cover;
+        background-repeat: no-repeat;
+        
+  height: 35px;
+  width: 220px;
+  top:25.3%;
+  left:10%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+.patientOfficeInfoOfficeBtn:before {
+  content: "Write a Review";
+  padding-top: 2px;
+  padding-left:4px ;
+  width: 250px;
+    top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  transition: 0.5s;
+}
+.patientOfficeInfoOfficeBtn:after {
+  content: "オフィス情報";
+  padding-left:50px;
+  padding-top: 4px;
+  width: 250px;
+    top:50%;
+  left:40%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 140%;
+  transition: 0.5s;
+}
+.patientOfficeInfoOfficeBtn:hover:before {
+  top: -50%;
+}
+.patientOfficeInfoOfficeBtn:hover:after {
+  top: 50%;
+}
+
+.patientHomePageOffice{
+  font-family: "Courier", impact, monospace;
+  color: black;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  background-image:url("../img/pill1.jpg");
+       background-size:cover;
+        background-repeat: no-repeat;
+        
+  height: 35px;
+  width: 220px;
+  top:20.3%;
+  left:10%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  overflow: hidden;}
+      
+.patientHomePageOffice:before {
+  content: "Patient Home Page";
+  padding-top: 2px;
+  padding-left:4px ;
+  width: 250px;
+    top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  transition: 0.5s;
+}
+.patientHomePageOffice:after {
+  content: "患者のホームページ";
+  padding-left:50px;
+  padding-top: 4px;
+  width: 250px;
+    top:50%;
+  left:40%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 140%;
+  transition: 0.5s;
+}
+.patientHomePageOffice:hover:before {
+  top: -50%;
+}
+.patientHomePageOffice:hover:after {
+  top: 50%;
+}
+
 .doctorOffice{
   font-family:"Courier", impact, monospace ;
   margin-top: 60px;
   padding-left:75px;
 }
 
-.officeCardTitle {
-  font-family: "Courier", impact, monospace;
+.patientOfficeCardTitle {
+    font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
@@ -49,15 +144,14 @@ export default {
     rgb(228, 228, 228)
   );
   height: 60px;
-  width: 650px;
-  top:4%;
-  left:16%;
+  width: 710px;
+  top:5.9%;
+  left:20.2%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
- 
 }
-.officeCardTitle:before {
+.patientOfficeCardTitle:before {
   content: "Office Locations Info";
  
   padding-left:55px ;
@@ -68,7 +162,7 @@ export default {
   position: absolute;
   transition: 0.5s;
 }
-.officeCardTitle:after {
+.patientOfficeCardTitle:after {
   content: "オフィスの場所情報";
    padding-top:10px ;
   padding-left:130px ;
@@ -80,18 +174,19 @@ export default {
   top: 140%;
   transition: 0.5s;
 }
-.officeCardTitle:hover:before {
+.patientOfficeCardTitle:hover:before {
   top: -50%;
 }
-.officeCardTitle:hover:after {
+.patientOfficeCardTitle:hover:after {
   top: 50%;
 }
 
-.Office-Info{
-        background-image:url("../img/drmario2.jpg");
+.patientOffice-Info{
+        background-image:url("../img/chansey4.jpg");
        background-size:cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
         padding: 50px;
 }
+
 </style>
