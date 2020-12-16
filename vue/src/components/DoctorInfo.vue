@@ -3,26 +3,26 @@
 <form v-on:submit.prevent="updateInfo()">
   <div for="officeHours">Doctors Available Hours: </div><br>
 <label for="monday">Monday</label>
-<input for="monday" type ="time" v-model="this.doctor.weeklyHours.monday.start"/>
-<input for="monday" type ="time" v-model="this.doctor.weeklyHours.monday.end"/><br>
+<input for="monday" type ="time" v-model="doctor.weeklyHours.monday.start"/>
+<input for="monday" type ="time" v-model="doctor.weeklyHours.monday.end"/><br>
 <label for="tuesday">Tuesday</label>
-<input for="tueday" type ="time" v-model="this.doctor.weeklyHours.tuesday.start"/>
-<input for="tueday" type ="time" v-model="this.doctor.weeklyHours.tuesday.end"/><br>
+<input for="tueday" type ="time" v-model="doctor.weeklyHours.tuesday.start"/>
+<input for="tueday" type ="time" v-model="doctor.weeklyHours.tuesday.end"/><br>
 <label for="wednesday">Wednesday</label>
-<input for="wednesday" type ="time" v-model="this.doctor.weeklyHours.wednesday.start"/>
-<input for="wednesday" type ="time" v-model="this.doctor.weeklyHours.wednesday.end"/><br>
+<input for="wednesday" type ="time" v-model="doctor.weeklyHours.wednesday.start"/>
+<input for="wednesday" type ="time" v-model="doctor.weeklyHours.wednesday.end"/><br>
 <label for="thursday">Thursday</label>
-<input for="thursday" type ="time" v-model="this.doctor.weeklyHours.thursday.start"/>
-<input for="thursday" type ="time" v-model="this.doctor.weeklyHours.thursday.end"/><br>
+<input for="thursday" type ="time" v-model="doctor.weeklyHours.thursday.start"/>
+<input for="thursday" type ="time" v-model="doctor.weeklyHours.thursday.end"/><br>
 <label for="friday">Friday</label>
-<input for="friday" type ="time" v-model="this.doctor.weeklyHours.friday.start"/>
-<input for="friday" type ="time" v-model="this.doctor.weeklyHours.friday.end"/><br>
+<input for="friday" type ="time" v-model="doctor.weeklyHours.friday.start"/>
+<input for="friday" type ="time" v-model="doctor.weeklyHours.friday.end"/><br>
 <label for="saturday">Saturday</label>
-<input for="saturday" type ="time" v-model="this.doctor.weeklyHours.saturday.start"/>
-<input for="saturday" type ="time" v-model="this.doctor.weeklyHours.saturday.end"/><br>
+<input for="saturday" type ="time" v-model="doctor.weeklyHours.saturday.start"/>
+<input for="saturday" type ="time" v-model="doctor.weeklyHours.saturday.end"/><br>
 <label for="sunday">Sunday</label>
-<input for="sunday" type ="time" v-model="this.doctor.weeklyHours.sunday.start"/>
-<input for="sunday" type ="time" v-model="this.doctor.weeklyHours.sunday.end"/><br>
+<input for="sunday" type ="time" v-model="doctor.weeklyHours.sunday.start"/>
+<input for="sunday" type ="time" v-model="doctor.weeklyHours.sunday.end"/><br>
 
 
 <div for="costPerHour"><b>Cost Per Hour:</b></div>
@@ -108,8 +108,9 @@ export default {
       .then(response => {
         if(response.status === 200)
         {
-          this.doctor = doctorService.GetMyInfo(this.$store.state.user.userId).then((response) => {
+        doctorService.GetMyInfo(this.$store.state.user.userId).then((response) => {
         this.doctor = response.data;
+        alert("Your information has been updated!");
       });
         }
       })
