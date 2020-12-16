@@ -1,6 +1,5 @@
 <template>
 <div class="hours">
-<<<<<<< HEAD
   <form v-on:submit.prevent="updateInfo()">
   <h2 for="officeHours">Doctors Available Hours</h2>
   <label>医師の利用可能時間</label><br>
@@ -8,10 +7,6 @@
         <label>______________________________________________</label><br><br>
         <div class="hourSchedule">
 
-=======
-<form v-on:submit.prevent="updateInfo()">
-  <div for="officeHours">Doctors Available Hours: </div><br>
->>>>>>> 3f90fb1f89b96c2a82c3816ec06d29aab321f4f4
 <label for="monday">Monday</label>
 <input for="monday" type ="time" v-model="doctor.weeklyHours.monday.start"/>
 <input for="monday" type ="time" v-model="doctor.weeklyHours.monday.end"/><br>
