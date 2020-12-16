@@ -29,7 +29,9 @@ export default {
   }
   .admin-view-container{
         background-image:url("../img/drmario.jpg");
-       background-size:cover;
+       background-size:72%;
+       background-position: bottom;
+      background-position: right;
         background-attachment: fixed;
         background-repeat: no-repeat;
         padding:25px ;

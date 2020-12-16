@@ -30,16 +30,17 @@
         v-bind:to="{ name: 'officeInfo', params: { id: office.id } }"
       ></router-link>
     </appointment-requests-card>
+    <appointmentDoctorCard/>
   </div>
 </template>
 
 <script>
-//import appointmentDoctorCard from "../components/AppointmentDoctorCard";
+import appointmentDoctorCard from "../components/AppointmentDoctorCard";
 import doctorService from '../services/DoctorService';
 
 export default {
   components: {
-    //appointmentDoctorCard
+    appointmentDoctorCard
   },
 
   data() {
@@ -309,11 +310,12 @@ export default {
   top: 50%;
 }
 
-.Office-Info{
-        background-image:url("../img/drmario2.jpg");
+.appointment-requests{
+        background-image:url("../img/drmario3.jpg");
        background-size:cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
-        padding: 50px;
+        padding:25px ;
+        height: 1500px;
 }
 </style>

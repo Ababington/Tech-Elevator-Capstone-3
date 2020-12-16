@@ -1,6 +1,6 @@
 <template>
   <div class="doctor">
-    <router-link v-bind:to="{name: 'appointmentRequest'}"><button  class="doctorAppointmentRequest" v-on:click="appointmentRequests"></button></router-link>
+    <router-link v-bind:to="{name: 'appointmentRequest'}"><button  class="doctorAppointmentRequest" v-on:click="appointmentRequest"></button></router-link>
     <router-link v-bind:to="{name: 'officeInfo'}"><button class="doctorOffice" v-on:click="officeInfo"></button></router-link>
     <router-link v-bind:to="{name: 'reviews'}"><button class="doctorReviews" v-on:click="reviews"></button></router-link>
     <router-link v-bind:to="{name: 'viewSchedule'}"><button class="doctorViewSchedule" v-on:click="viewSchedule"></button></router-link>

@@ -110,7 +110,7 @@ namespace Capstone.DAO
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("select * from users where user_role='doctor'", conn);
+                    SqlCommand cmd = new SqlCommand("select * from users where user_role='doctor' or user_role='doctorVerified'", conn);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {

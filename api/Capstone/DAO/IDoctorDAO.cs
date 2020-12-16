@@ -10,7 +10,7 @@ namespace Capstone.DAO
     {
         Doctor GetmyInfo(int id);
         Doctor UpdateMyInfo(Doctor doctor);
-        int ApproveDoctorUser(Doctor doctor);
+        int ChangeDoctorUserStatus(Doctor doctor);
         //from patient controller
         List<Doctor> GetAllDoctors();
         List<Doctor> GetDoctorsByOffice(int officeId);
