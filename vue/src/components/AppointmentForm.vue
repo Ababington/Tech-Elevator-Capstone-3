@@ -1,5 +1,6 @@
 <template>
     <form v-on:submit.prevent="PostNewAptRequest()">
+        <h2>Submit Appointment Form</h2>
         <br/>
         <label for="doctor">Doctor: </label>
         <select name="doctor" v-model="appointment.doctorId">
