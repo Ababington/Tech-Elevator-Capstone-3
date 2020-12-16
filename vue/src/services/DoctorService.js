@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export default {
-  GetMyInfo() {
-    return axios.get('/doctor/myInfo'); //returns a doctor
+  GetMyInfo(userId) {
+    return axios.get(`/doctor/${userId}`); //returns a doctor
   },
 
   UpdateMyInfo(doctor) {

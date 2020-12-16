@@ -2,32 +2,32 @@
 <div class="hours">
   <div for="officeHours">Doctors Available Hours: </div><br>
 <label for="monday">Monday</label>
-<input for="monday" type ="time" v-model="this.office.monday.start"/>
-<input for="monday" type ="time" v-model="this.office.monday.end"/><br>
+<input for="monday" type ="time" v-model="this.doctor.weeklyHours.monday.start"/>
+<input for="monday" type ="time" v-model="this.doctor.weeklyHours.monday.end"/><br>
 <label for="tuesday">Tuesday</label>
-<input for="tueday" type ="time" v-model="this.office.tuesday.start"/>
-<input for="tueday" type ="time" v-model="this.office.tuesday.end"/><br>
+<input for="tueday" type ="time" v-model="this.doctor.weeklyHours.tuesday.start"/>
+<input for="tueday" type ="time" v-model="this.doctor.weeklyHours.tuesday.end"/><br>
 <label for="wednesday">Wednesday</label>
-<input for="wednesday" type ="time" v-model="this.office.wednesday.start"/>
-<input for="wednesday" type ="time" v-model="this.office.wednesday.end"/><br>
+<input for="wednesday" type ="time" v-model="this.doctor.weeklyHours.wednesday.start"/>
+<input for="wednesday" type ="time" v-model="this.doctor.weeklyHours.wednesday.end"/><br>
 <label for="thursday">Thursday</label>
-<input for="thursday" type ="time" v-model="this.office.thursday.start"/>
-<input for="thursday" type ="time" v-model="this.office.thursday.end"/><br>
+<input for="thursday" type ="time" v-model="this.doctor.weeklyHours.thursday.start"/>
+<input for="thursday" type ="time" v-model="this.doctor.weeklyHours.thursday.end"/><br>
 <label for="friday">Friday</label>
-<input for="friday" type ="time" v-model="this.office.friday.start"/>
-<input for="friday" type ="time" v-model="this.office.friday.end"/><br>
+<input for="friday" type ="time" v-model="this.doctor.weeklyHours.friday.start"/>
+<input for="friday" type ="time" v-model="this.doctor.weeklyHours.friday.end"/><br>
 <label for="saturday">Saturday</label>
-<input for="saturday" type ="time" v-model="this.office.saturday.start"/>
-<input for="saturday" type ="time" v-model="this.office.saturday.end"/><br>
+<input for="saturday" type ="time" v-model="this.doctor.weeklyHours.saturday.start"/>
+<input for="saturday" type ="time" v-model="this.doctor.weeklyHours.saturday.end"/><br>
 <label for="sunday">Sunday</label>
-<input for="sunday" type ="time" v-model="this.office.sunday.start"/>
-<input for="sunday" type ="time" v-model="this.office.sunday.end"/><br>
+<input for="sunday" type ="time" v-model="this.doctor.weeklyHours.sunday.start"/>
+<input for="sunday" type ="time" v-model="this.doctor.weeklyHours.sunday.end"/><br>
 
-<button type="submit" v-on:click="createSchedule()">Submit Schedule</button>
+<button type="submit" v-on:click="createSchedule">Submit Schedule</button>
 
 <div for="costPerHour">Cost Per Hour</div><br>
 <input type="number" v-model="this.doctor.hourlyRate"/>
-<button type="submit" v-on:click="updateHourlyRate()">Confirm Hourly Rate</button>
+<button type="submit" v-on:click="updateHourlyRate">Confirm Hourly Rate</button>
 </div>
 
 
@@ -39,7 +39,10 @@ import doctorService from '../services/DoctorService';
 export default {
   data() {
     return {
-      office: {
+      doctor:{
+
+      
+      weeklyHours: {
       
         monday: {
           start: "",
@@ -76,12 +79,13 @@ export default {
           end: "",
         },
       },
+
+      UserId: "",
+      HourlyRate: "",
+      FirstName: "",
+      LastName: "",
+      User_Role: "",
       
-      doctor:{
-        userId:"",
-        hourlyRate:"",
-        firstName:"",
-        lastName:""
       }
       
     };
@@ -105,7 +109,14 @@ export default {
         }
       })
     }
-  }
+   
+  },
+
+  created(){
+      doctorService.GetMyInfo(this.$store.state.user.userId).then((response) => {
+        this.doctor = response.data;
+      })
+    }
 };
 </script>
 
