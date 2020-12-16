@@ -162,16 +162,82 @@ namespace Capstone.Controllers
         }
 
         [HttpPost("requestAppointment")] //done
-        public ActionResult<Appointment> CreateAppointmentRequest(Appointment appointments)
+        public ActionResult<Appointment> CreateAppointmentRequest(Appointment appointment)
         {
             try
             {
-                Appointment newAppt = appointmentDAO.CreateAppointmentRequest(appointments);
-                return appointments;
+                DayOfWeek day = appointment.Date.DayOfWeek;
+                string dayString = Convert.ToString(day);
+                Doctor doctor = doctorDAO.GetmyInfo(appointment.DoctorId);
+                bool isWorking = false;
+                if(dayString == "Monday")
+                {
+                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Monday.Start) <= Convert.ToInt32(appointment.Time)
+                        && Convert.ToInt32(doctor.WeeklyHours.Monday.End) >= Convert.ToInt32(appointment.Time);
+                }
+                else if (dayString == "Tuesday")
+                {
+                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Tuesday.Start) <= Convert.ToInt32(appointment.Time)
+                        && Convert.ToInt32(doctor.WeeklyHours.Tuesday.End) >= Convert.ToInt32(appointment.Time);
+                }
+                else if (dayString == "Wednesday")
+                {
+                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Wednesday.Start) <= Convert.ToInt32(appointment.Time)
+                        && Convert.ToInt32(doctor.WeeklyHours.Wednesday.End) >= Convert.ToInt32(appointment.Time);
+                }
+                else if (dayString == "Thursday")
+                {
+                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Thursday.Start) <= Convert.ToInt32(appointment.Time)
+                        && Convert.ToInt32(doctor.WeeklyHours.Thursday.End) >= Convert.ToInt32(appointment.Time);
+                }
+                else if (dayString == "Friday")
+                {
+                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Friday.Start) <= Convert.ToInt32(appointment.Time)
+                        && Convert.ToInt32(doctor.WeeklyHours.Friday.End) >= Convert.ToInt32(appointment.Time);
+                }
+                else if (dayString == "Saturday")
+                {
+                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Saturday.Start) <= Convert.ToInt32(appointment.Time)
+                        && Convert.ToInt32(doctor.WeeklyHours.Saturday.End) >= Convert.ToInt32(appointment.Time);
+                }
+                else
+                {
+                    isWorking = Convert.ToInt32(doctor.WeeklyHours.Sunday.Start) <= Convert.ToInt32(appointment.Time)
+                        && Convert.ToInt32(doctor.WeeklyHours.Sunday.End) >= Convert.ToInt32(appointment.Time);
+                }
+
+                if(isWorking)
+                {
+                    List<Appointment> docAppts = appointmentDAO.GetAppointmentsByDoctor(appointment.DoctorId);
+                    bool isAvailable = true;
+                    TimeSpan appointmentTime = new TimeSpan(0, 30, 0);
+                    foreach(Appointment a in docAppts)
+                    {
+                        if ( (a.Time >= appointment.Time && a.Time < appointment.Time.Add(appointmentTime)) || 
+                            (a.Time.Add(appointmentTime) > appointment.Time && a.Time.Add(appointmentTime) <= appointment.Time.Add(appointmentTime)) )
+                        {
+                            isAvailable = false;
+                        }
+                    }
+
+                    if(isAvailable)
+                    {
+                        Appointment newAppt = appointmentDAO.CreateAppointmentRequest(appointment);
+                        return Ok(newAppt);
+                    }
+                    else
+                    {
+                        return Conflict();
+                    }
+                }
+                else
+                {
+                    return Conflict();
+                }
             }
             catch (Exception)
             {
-                throw new NotImplementedException("This method is not implemented");
+                return StatusCode(500);
             }
         }
     }
