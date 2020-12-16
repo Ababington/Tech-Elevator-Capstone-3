@@ -26,6 +26,6 @@ export default {
   },
 
   RespondToPendingAppointment(appointment) {
-    return axios.put('/doctor/getAppointments/respondToPending', appointment); //(3 statuses: pending/approved/denied)
+    return axios.put('/doctor/respondToPending', appointment); //(3 statuses: pending/approved/denied)
   },
 }

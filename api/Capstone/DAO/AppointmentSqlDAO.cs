@@ -155,8 +155,9 @@ namespace Capstone.DAO
                     }
                     else
                     {
-                        cmd = new SqlCommand("update appointments set status = @status; ", conn);
+                        cmd = new SqlCommand("update appointments set status = @status where apptId = @apptId; ", conn);
                         cmd.Parameters.AddWithValue("@status", appointment.Status);
+                        cmd.Parameters.AddWithValue("@apptId", appointment.AppointmentId);
 
                         int result = cmd.ExecuteNonQuery();
                         if (result == 1)
