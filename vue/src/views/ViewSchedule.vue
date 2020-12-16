@@ -1,27 +1,41 @@
 <template>
   <div class="schedule-Info"> 
-    <router-link v-bind:to="{name: 'doctor'}"><button class="doctor" v-on:click="doctor">Doctor Home Page</button></router-link>
-<h1 class="scheduleTitle"></h1>
-   
-     </div>
+    <router-link v-bind:to="{name: 'doctor'}"><button class="doctor" >Doctor Home Page</button></router-link>
+    <h1 class="scheduleTitle"></h1>
+       <h2 class="appointmentList">My Appointment List:</h2>
+       <span v-for="appointment in appointments" v-bind:key="appointment.id" v-bind:appointment="appointment">
+          <appointment-doctor-card/>
+       </span>    
+          </div>
+    
 
 </template>
 
 <script>
-
-export default {
-  
-  data(){
-    return{
-
+import doctorService from "../services/DoctorService";
+import appointmentDoctorCard from "../components/AppointmentDoctorCard";
+export default
+ {
+components: {
+  appointmentDoctorCard
+},
+  data() {
+    return {
+     appointments:[],
     }
-  }
-
+  },
+created(){
+  doctorService.GetAppointments(this.$store.state.user.userId).then((response)=>{
+    this.appointments=response.data;
+  
+  });
 }
+}
+  
+
 </script>
 
 <style scoped>
-
 .scheduleTitle {
   font-family: "Courier", impact, monospace;
   color: black;
@@ -34,31 +48,30 @@ export default {
   );
   height: 60px;
   width: 350px;
-  top:8%;
-  left:26%;
+  top: 8%;
+  left: 26%;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
- 
 }
 .scheduleTitle:before {
   content: "Schedule";
- 
-  padding-left:75px ;
+
+  padding-left: 75px;
   width: 350px;
-    top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
   transition: 0.5s;
 }
 .scheduleTitle:after {
   content: "スケジュール";
-   padding-top:10px ;
-  padding-left:100px ;
+  padding-top: 10px;
+  padding-left: 100px;
   width: 450px;
-    top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
   top: 140%;
@@ -71,12 +84,12 @@ export default {
   top: 50%;
 }
 
-.schedule-Info{
-        background-image:url("../img/drmario2.jpg");
-       background-size:cover;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        height:1100px;
-        padding: 50px;
+.schedule-Info {
+  background-image: url("../img/drmario2.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 1100px;
+  padding: 50px;
 }
 </style>

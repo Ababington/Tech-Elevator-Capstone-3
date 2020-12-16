@@ -4,16 +4,16 @@
 
     <div class="appointmentCard">
        
-          user name: {{appointment.patientUserName}}<br/>
+          <!-- user name: {{appointment.patientUserName}}<br/> -->
           First Name: {{appointment.patientFirstName}}<br/>
           Last Name: {{appointment.patientLastName}}<br/>
           Phone Number: {{appointment.patientPhone}}<br/>
           Email: {{appointment.patientEmail}}<br/>
-          Date of Birth: {{appointment.patientDateOfBirth}}<br/>
+          Date of Birth: {{appointment.patientDoB}}<br/>
           <br/>
           <p><b>Appointment Info</b></p>
-          Date: {{appointment.apptDate}}<br/>
-          Time: {{appointment.apptTime}}<br/>
+          Date: {{appointment.date}}<br/>
+          Time: {{appointment.time}}<br/>
           virtual: {{appointment.virtual}}<br/>
           Message: {{appointment.message}}<br/>
           Status: {{appointment.status}}<br/>
