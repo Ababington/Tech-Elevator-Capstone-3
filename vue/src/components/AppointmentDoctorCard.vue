@@ -17,6 +17,8 @@
           virtual: {{appointment.virtual}}<br/>
           Message: {{appointment.message}}<br/>
           Status: {{appointment.status}}<br/>
+
+        <button class="setToApproveAppt" type="submit" v-if="appointment.status == 'Pending'" v-on:click="appointment.status ='Approved';ChangeAppointmentStatus(appointment)">Approve Appointment</button> 
           
     </div>
 
@@ -25,11 +27,22 @@
 </template>
 
 <script>
+import doctorServive from '../services/DoctorService';
 
 export default {
     props: {
         appointment: Object,
-    }
+    },
+
+    methods: {
+        ChangeAppointmentStatus(appointment) {
+            doctorServive.RespondToPendingAppointment(appointment).then((response) => {
+                if (response.status === 200 || response.status === 201) {
+                    alert("Appointment status has successfully changed.");
+                }
+            })
+        }
+    } 
 }
 </script>
 

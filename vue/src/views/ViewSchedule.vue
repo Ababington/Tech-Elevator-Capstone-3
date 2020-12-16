@@ -11,8 +11,8 @@
     
     
        <div class="appointmentList">My Appointment List:</div>
-       <span v-for="appointment in appointments" v-bind:key="appointment.id" v-bind:appointment="appointment">
-          <appointment-doctor-card/>
+       <span v-for="appointment in appointments" v-bind:key="appointment.id">
+          <appointment-doctor-card v-bind:appointment="appointment"/>
        </span>    
           </div>
     

@@ -69,16 +69,17 @@ export default {
             this.$store.commit("SET_USER", response.data.user);
             if(this.$store.state.user.role == "admin") {
               this.$router.push("adminHome");
-             }
-             else if(this.$store.state.user.role == "doctor") {
-               //this.$store.commit("SET_APPOINTMENTS", doctorService.getDoctorAppointments());
-               //this.$store.commit("SET_DOCTOR_INFO", doctorService.getDoctor());
-              this.$router.push("doctor");
-             }
-              else {//route for patient
-              this.$store.commit("SET_APPOINTMENTS")
+            }
+            else if(this.$store.state.user.role == "doctorVerified") {
+              this.$router.push("viewSchedule");
+            }
+            else if (this.$store.state.user.role == "patient") {
+              this.$store.commit("SET_APPOINTMENTS");
               this.$router.push("patient");
-             } 
+            }
+            else {
+              this.$router.push("unverifiedDoctor");
+            }
           }
         })
         .catch(error => {

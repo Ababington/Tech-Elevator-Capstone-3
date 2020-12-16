@@ -249,8 +249,8 @@ namespace Capstone.Controllers
                     bool isAvailable = true;
                     foreach(Appointment a in docAppts)
                     {
-                        if ( (a.Time >= appointment.Time && a.Time < appointment.Time.Add(appointmentTime)) || 
-                            (a.Time.Add(appointmentTime) > appointment.Time && a.Time.Add(appointmentTime) <= appointment.Time.Add(appointmentTime)) )
+                        if ( ( a.Date.Date == appointment.Date.Date && a.Time >= appointment.Time && a.Time < appointment.Time.Add(appointmentTime)) || 
+                            (a.Date.Date == appointment.Date.Date && a.Time.Add(appointmentTime) > appointment.Time && a.Time.Add(appointmentTime) <= appointment.Time.Add(appointmentTime)) )
                         {
                             isAvailable = false;
                         }
