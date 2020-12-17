@@ -316,7 +316,7 @@ created(){
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-color: #f86369;
-  height: 1100px;
+  height: 100%;
   padding: 50px;
 }
 </style>

@@ -1,14 +1,13 @@
 <template>
-<div class="writeReviewImg">
+  <div class="writeReviewImg">
 
-<h1 class="patientReviewTitle"></h1>
-<router-link v-bind:to="{name: 'patient'}" ><button class="patientHomePageReviews" v-on:click="patient"></button></router-link>
-<router-link v-bind:to="{name: 'patientOfficeInfo'}"><button class="patientOfficeInfoReviewsBtn" v-on:click="patientOfficeInfo"></button></router-link>
+    <h1 class="patientReviewTitle"></h1>
+    <router-link v-bind:to="{name: 'patient'}" ><button class="patientHomePageReviews"></button></router-link>
+    <router-link v-bind:to="{name: 'patientOfficeInfo'}"><button class="patientOfficeInfoReviewsBtn"></button></router-link>
+    <router-link v-bind:to="{name: 'patientViewSchedule'}"><button class="viewPatientSchedule"></button></router-link>
 
-
-
-  <patient-review-form/>
-</div>
+    <patient-review-form/>
+  </div>
 </template>
 
 <script>
@@ -173,6 +172,53 @@ export default {
   top: -50%;
 }
 .patientOfficeInfoReviewsBtn:hover:after {
+  top: 50%;
+}
+
+.viewPatientSchedule{
+  font-family: "Courier", impact, monospace;
+  color: black;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  background-image:url("../img/pill3.jpg");
+       background-size:cover;
+        background-repeat: no-repeat;
+        
+  height: 35px;
+  width: 220px;
+  top:30.3%;
+  left:10%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+.viewPatientSchedule:before {
+  content: "View Schedule";
+  padding-top: 2px;
+  padding-left:4px ;
+  width: 250px;
+    top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  transition: 0.5s;
+}
+.viewPatientSchedule:after {
+  content: "スケジュールを見る";
+  padding-left:50px;
+  padding-top: 4px;
+  width: 250px;
+    top:50%;
+  left:40%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 140%;
+  transition: 0.5s;
+}
+.viewPatientSchedule:hover:before {
+  top: -50%;
+}
+.viewPatientSchedule:hover:after {
   top: 50%;
 }
 </style>

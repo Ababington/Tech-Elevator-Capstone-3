@@ -22,6 +22,7 @@ import allDoctorPatient from '../views/AllDoctorPatient.vue'
 import drMarioImg from '../components/DrMarioImg.vue'
 import patientReviewForm from '../components/PatientReviewForm.vue'
 import unverifiedDoctorHome from '../views/UnverifiedDoctor.vue'
+import patientViewSchedule from '../views/PatientViewSchedule.vue'
 
 Vue.use(Router)
 
@@ -204,6 +205,14 @@ const router = new Router({
       path: "unverifiedDoctor",
       name: "unverifiedDoctor",
       component: unverifiedDoctorHome,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/patientViewSchedule",
+      name: "patientViewSchedule",
+      component: patientViewSchedule,
       meta: {
         requiresAuth: true
       }
