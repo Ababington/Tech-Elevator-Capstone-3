@@ -6,7 +6,7 @@
 
 
 
-    <patient-office-card v-bind:office="office" v-bind:key='office.id' v-for="office in $store.state.officesStatic">
+    <patient-office-card v-bind:office="office" v-bind:key='office.id' v-for="office in offices">
     <router-link v-bind:to="{name: 'officeInfo', params: {id:office.id}}"></router-link>
 
     </patient-office-card>
@@ -17,15 +17,23 @@
 
 <script>
 import patientOfficeCard from '../components/PatientOfficeCard';
+import patientService from '../services/PatientService.js';
 
 export default {
   components:{
     patientOfficeCard
   },
+
   data(){
     return{
-
+      offices: []
     }
+  },
+
+  created() {
+    patientService.GetAllOffices().then((response) => {
+      this.offices = response.data;
+    })
   }
 
 }

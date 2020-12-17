@@ -8,7 +8,7 @@
     
 
 
-    <office-card v-bind:office="office" v-bind:key='office.id' v-for="office in $store.state.officesStatic">
+    <office-card v-bind:office="office" v-bind:key='office.id' v-for="office in offices">
     <router-link v-bind:to="{name: 'officeInfo', params: {id:office.id}}"></router-link>
     
     </office-card>
@@ -19,15 +19,23 @@
 
 <script>
 import officeCard from '../components/OfficeCard';
+import doctorService from '../services/DoctorService.js';
 
 export default {
   components:{
     officeCard
   },
+
   data(){
     return{
-
+      offices: []
     }
+  },
+
+  created() {
+    doctorService.GetMyOffices(this.$store.state.user.userId).then((response) => {
+      this.offices = response.data;
+    })
   }
 
 }
