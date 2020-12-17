@@ -1,10 +1,10 @@
 <template>
   <div class="Office-Info"> 
     <h1 class="officeCardTitle"></h1>
-    <router-link v-bind:to="{name: 'doctor'}"><button class="doctorAppointment" id="doctorAppointmentButtonHere" v-on:click="doctor"></button></router-link>
-    <router-link v-bind:to="{name: 'appointmentRequest'}"><button  class="infoOffice" v-on:click="appointmentRequests"></button></router-link>
-    <router-link v-bind:to="{name: 'doctorReviews'}"><button class="appointmentReviewsQ" v-on:click="doctorReviews"></button></router-link>
-    <router-link v-bind:to="{name: 'viewSchedule'}"><button class="appointmentViewSchedule" v-on:click="viewSchedule"></button></router-link>
+    <router-link v-bind:to="{name: 'doctor'}"><button class="doctorAppointment" id="doctorAppointmentButtonHere"></button></router-link>
+    <router-link v-bind:to="{name: 'appointmentRequest'}"><button  class="infoOffice"></button></router-link>
+    <router-link v-bind:to="{name: 'doctorReviews'}"><button class="appointmentReviewsQ"></button></router-link>
+    <router-link v-bind:to="{name: 'viewSchedule'}"><button class="appointmentViewSchedule"></button></router-link>
     
 
 
@@ -392,11 +392,13 @@ export default {
   top: 50%;
 }
 
-.Office-Info{
-        background-image:url("../img/drmario2.jpg");
-       background-size:cover;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        padding: 50px;
+.Office-Info {
+      background-image:url("../img/drmario2.jpg");
+      background-size:cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-color: #f86369;
+      padding: 50px;
+      height: 1100px;
 }
 </style>
