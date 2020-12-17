@@ -54,7 +54,7 @@ namespace Capstone.Controllers
             try
             {
                 List<Office> allOffices = officeDAO.GetAllOffices();
-                foreach(Office office in allOffices)
+                foreach (Office office in allOffices)
                 {
                     office.DocsInOffice = doctorDAO.GetDoctorsByOffice(office.OfficeId);
                 }

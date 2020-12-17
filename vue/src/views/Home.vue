@@ -1,5 +1,6 @@
 <template>
 <div >
+   <h1 class="homeLogo"></h1>
     <h1 class="homeView">About</h1>
     <p class="homeView2">Our mission is to provide excellent medical care in a family centered environment. We firmly embrace the concept of the medical home, a 
       centralized base for caring for children and their entire family. Our philosophy is shared by all our staff, from physicians to the front desk. 
@@ -10,6 +11,7 @@
       life-styles for all children; We strive to be an efficient and cost-effective practice in meeting the needs of children during times of health as
        well as in times of illness; We practice medicine as a team and value the contributions of all of our staff in providing excellent medical care and 
        service; We believe in the ethical practice of medicine, provide leadership throughout the community and provide service of those in our community in need.</p>
+      
     
     <dr-mario-img/>
   </div>
@@ -30,7 +32,6 @@ export default {
 .homeView
 {
   padding-top:30px;
-  margin-top: 200px;
   padding-left:50px;
   padding-right:50px;
   text-align: center;
@@ -42,5 +43,12 @@ export default {
   padding-right:50px;
   text-align: center;
 }
-
+.homeLogo{
+        background-image:url("../img/DrMarioMedApp.jpg");
+       background-size:cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        padding:25px ;
+        height: 1500px;
+}
 </style>

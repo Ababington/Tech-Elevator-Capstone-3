@@ -62,6 +62,7 @@ export default {
        background-size:cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
+        background-color: #f8ec64;
         padding:25px ;
         height: 1500px;
 }

@@ -315,6 +315,7 @@ export default {
        background-size:cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
+        background-color: #63f8db;
         padding:25px ;
         height: 1500px;
 }

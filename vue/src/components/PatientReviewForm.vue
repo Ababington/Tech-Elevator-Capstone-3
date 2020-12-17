@@ -147,7 +147,7 @@ textarea {
   resize:vertical;
 }
 
-[type="submit"] {
+[class="postReview"] {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   width: 100%;
   background:#CC6666;
@@ -162,5 +162,5 @@ textarea {
   margin-top:-4px;
   font-weight:700;
 }
-[type="submit"]:hover { background:#CC4949; }
+[class="postReview"]:hover { background:#CC4949; }
 </style>

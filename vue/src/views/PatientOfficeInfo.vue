@@ -194,6 +194,7 @@ export default {
        background-size:cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
+        background-color: #ffcccb;
         padding: 50px;
 }
 

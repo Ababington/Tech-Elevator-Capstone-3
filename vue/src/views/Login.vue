@@ -33,7 +33,7 @@
         required
       />
      <router-link :to="{ name: 'register' }" class="register">Need an account? || アカウントが必要です？</router-link>
-      <button type="submit" class="submit"></button>
+      <button type="submit" class="submitLoginBtn"></button>
     </form>
   </div>
   <dr-Mario-Img/>
@@ -154,7 +154,7 @@ export default {
 }
 
 
-.submit {
+.submitLoginBtn {
   font-family: "Courier", impact, monospace;
   color: black;
   border: 2px solid rgb(0, 0, 0);
@@ -171,7 +171,7 @@ export default {
   transform: translate(-50%, -50%);
   overflow: hidden;
 }
-.submit:before {
+.submitLoginBtn:before {
   content: "Sign in";
   padding-top: 2px;
   padding-left:25px ;
@@ -182,7 +182,7 @@ export default {
   position: absolute;
   transition: 0.5s;
 }
-.submit:after {
+.submitLoginBtn:after {
   content: "サインイン";
   padding-left:21px;
   padding-top: 4px;
@@ -194,10 +194,10 @@ export default {
   top: 140%;
   transition: 0.5s;
 }
-.submit:hover:before {
+.submitLoginBtn:hover:before {
   top: -50%;
 }
-.submit:hover:after {
+.submitLoginBtn:hover:after {
   top: 50%;
 }
 
