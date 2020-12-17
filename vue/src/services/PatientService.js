@@ -29,8 +29,8 @@ export default {
         return axios.get('/patients/getDoctors');
     },
 
-    GetMyAppointments(patient) {
-        return axios.get(`/patients/${patient.id}/appointments`); //THIS IS PROBABLY WRONG but we need something like this
+    GetMyAppointments(patientId) {
+        return axios.get(`/patients/${patientId}/appointments`);
     },
 
     CreateAppointmentRequest(appointment) {
